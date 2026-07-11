@@ -792,6 +792,8 @@ const indexHtml = `<!DOCTYPE html>
   <iframe id="contentFrame" class="main-content" style="display:none;" sandbox="allow-same-origin allow-scripts"></iframe>
 </main>
 
+<script src="initData.js"></script>
+
 <script>
 let currentFile = null;
 let sidebarOpen = true;
@@ -828,6 +830,17 @@ function toggleMastered(id) {
   if (isMastered && idx === -1) mastered.push(id);
   if (!isMastered && idx !== -1) mastered.splice(idx, 1);
   localStorage.setItem('mastered', JSON.stringify(mastered));
+}
+
+// 仅做视觉标绿，不写 localStorage（供预置/恢复共用）
+function markMastered(id) {
+  const checkEl = document.getElementById('check-' + id);
+  const fileEl = checkEl?.closest('.tree-file');
+  if (checkEl && fileEl) {
+    checkEl.classList.add('mastered');
+    checkEl.textContent = '✓';
+    fileEl.classList.add('mastered');
+  }
 }
 
 // ====== Tree folder toggle ======
@@ -887,19 +900,12 @@ document.addEventListener('keydown', function(e) {
 
 // Auto-load first problem
 document.addEventListener('DOMContentLoaded', function() {
-  // 恢复已掌握的标记
+  // 1) 预置默认掌握（initData.js，随站点共享给所有访客）
+  (window.__INIT_MASTERED__ || []).forEach(id => markMastered(id));
+  // 2) 个人本地标记（自己双击过的，叠加在预置之上）
   try {
-    const mastered = JSON.parse(localStorage.getItem('mastered') || '[]');
-    mastered.forEach(id => {
-      const checkEl = document.getElementById('check-' + id);
-      const fileEl = checkEl?.closest('.tree-file');
-      if (checkEl && fileEl) {
-        checkEl.classList.add('mastered');
-        checkEl.textContent = '✓';
-        fileEl.classList.add('mastered');
-      }
-    });
-  } catch(e) {}
+    JSON.parse(localStorage.getItem('mastered') || '[]').forEach(id => markMastered(id));
+  } catch (e) {}
 
   // 恢复上次打开的题目
   const lastId = localStorage.getItem('lastProblemId');

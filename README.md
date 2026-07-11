@@ -15,6 +15,7 @@
 ├── build.js                 # 核心构建脚本（模板 + KaTeX 渲染 + 生成 index/题目页），require 下方数据模块
 ├── problems-data.js          # 14 道题目数据（内容较长，从 build.js 抽出，require 引入）
 ├── index.html               # 首页（左侧树形导航 + 右侧 iframe 内容区）
+├── initData.js             # 预置"已掌握"默认标绿清单（共享给所有访客，随站点发布）
 ├── problems/                # 题目页面
 │   ├── images/             # 原题图片 + 生成的 SVG（p3_ic.svg 题图 / p3_grid.svg 解答图）
 │   └── p1.html … p19.html   # 14 个独立题目页（p1/p2 由原 app1/app2 重命名）
@@ -36,7 +37,7 @@
 - **构建脚本**：Node.js（`build.js`，CommonJS）
 - **数学渲染**：KaTeX **服务端预渲染**（`katex.renderToString`），纯静态输出，无需 CDN
 - **页面结构**：纯静态 HTML + CSS + JavaScript（首页用 iframe 加载题目页）
-- **持久化**：`localStorage`（"已掌握"标记、上次浏览的题目）
+- **持久化**：`localStorage`（个人双击的"已掌握"标记、上次浏览的题目）+ `initData.js`（预置共享的"已掌握"默认标绿清单，所有访客一致）
 
 ## 构建与运行
 
@@ -199,7 +200,8 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 - [x] 左侧树形导航（按分类分组的文件夹，可折叠）
 - [x] 侧边栏收缩 / 展开
 - [x] KaTeX 数学公式（服务端预渲染，离线可用）
-- [x] **双击标记"已掌握"**（绿色 ✓ + 绿色文字，存 localStorage）
+- [x] **预置默认标绿**（`initData.js`，所有访客共享同一份绿色 ✓，随站点发布）
+- [x] **双击标记"已掌握"**（绿色 ✓ + 绿色文字，存 localStorage，仅自己可见）
 - [x] 刷新保留上次浏览的题目
 - [x] 每道题：原题图片、解题步骤、📌 知识点总结、🎯 举一反三
 - [x] 📚 **南昌/江西中考类似题（同类拓展）**：2022–2025 年江西省/南昌市中考数学真题（同类知识点），附来源链接
@@ -228,6 +230,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 - **改内容**：编辑 `problems-data.js`（题目数据已从 `build.js` 抽出，通过 `require` 引入）中对应题目的 `content`，然后 `node build.js` 重新生成。
 - **回滚点**：`build_pristine_backup.js` 是重建前的纯净源码；`rebuild_kb.py` 是恢复脚本。
 - **查看效果**：保持本地静态服务（`python -m http.server 8000`）运行，浏览器访问 `http://localhost:8000/` 刷新即可。
+- **添加默认标绿**：编辑根目录 `initData.js`，在 `window.__INIT_MASTERED__` 数组中加入题目 id（对应 `problems/<id>.html`，如 `"p12"`），重新 `node build.js` 并部署，即可让所有访客看到该标题绿色 ✓。
 
 ## 开发约定
 
