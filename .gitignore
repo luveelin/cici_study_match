@@ -3,6 +3,7 @@ node_modules/
 
 # 项目记忆（私密工作日志，不公开）
 .workbuddy/
+.codebuddy/
 
 # 临时脚本与缓存
 temp/
