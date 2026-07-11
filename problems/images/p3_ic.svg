@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="154" viewBox="0 0 150 154" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+<rect x="0" y="0" width="150" height="154" fill="#ffffff"/>
+<text x="75" y="22" fill="#374151" font-size="15" text-anchor="middle" font-weight="600">第3题 几何图形</text>
+<g transform="translate(0,0)">
+<line x1="13.0" y1="9.0" x2="13.0" y2="121.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="41.5" y1="9.0" x2="41.5" y2="121.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="70.0" y1="9.0" x2="70.0" y2="121.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="98.5" y1="9.0" x2="98.5" y2="121.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="127.0" y1="9.0" x2="127.0" y2="121.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="13.0" y1="9.0" x2="127.0" y2="9.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="13.0" y1="37.0" x2="127.0" y2="37.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="13.0" y1="65.0" x2="127.0" y2="65.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="13.0" y1="93.0" x2="127.0" y2="93.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="13.0" y1="121.0" x2="127.0" y2="121.0" stroke="#dde3ea" stroke-width="1"/>
+<line x1="13.0" y1="9.0" x2="127.0" y2="9.0" stroke="#9aa5b1" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="13.0" y1="9.0" x2="13.0" y2="121.0" stroke="#9aa5b1" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="127.0" y1="9.0" x2="127.0" y2="121.0" stroke="#9aa5b1" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="13.0" y1="121.0" x2="127.0" y2="121.0" stroke="#9aa5b1" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="41.5,93.0 70.0,37.0 41.5,37.0" fill="#dbeafe" fill-opacity="0.6" stroke="#dbeafe" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="41.5" y1="93.0" x2="70.0" y2="37.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
+<polygon points="41.5,121.0 127.0,93.0 127.0,121.0" fill="#dcfce7" fill-opacity="0.6" stroke="#dcfce7" stroke-width="2.0" stroke-linejoin="round"/>
+<line x1="41.5" y1="121.0" x2="127.0" y2="93.0" stroke="#1f2937" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="127.0" cy="93.0" r="3.6" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+<circle cx="41.5" cy="93.0" r="3.6" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+<circle cx="70.0" cy="37.0" r="3.6" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+<circle cx="41.5" cy="121.0" r="3.6" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+<circle cx="41.5" cy="37.0" r="3.6" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+<circle cx="127.0" cy="121.0" r="3.6" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+<path d="M 30.0 59.0 A 19.1 19.1 0 0 0 29.9 61.1" fill="none" stroke="#dc2626" stroke-width="1.8"/>
+</g>
+</svg>

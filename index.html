@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cici_study_math</title>
+<style>
+  :root {
+    --sidebar-w: 340px;
+    --sidebar-bg: #1b2838;
+    --sidebar-text: #b0bec5;
+    --accent: #2e75b6;
+    --accent-light: #ebf5fb;
+    --radius: 8px;
+    --border: #e2e8f0;
+    --hover-bg: #243447;
+    --active-bg: rgba(46,117,182,0.3);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    display: flex;
+    background: #f5f6fa;
+  }
+
+  /* ====== SIDEBAR ====== */
+  .sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: width 0.3s ease, min-width 0.3s ease;
+  }
+  .sidebar.collapsed {
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .sidebar-header {
+    padding: 18px 18px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .sidebar-header h1 {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 700;
+  }
+  .sidebar-header .subtitle {
+    font-size: 0.7em;
+    color: #5a7999;
+    margin-top: 2px;
+  }
+  .sidebar-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: #8a9bb5;
+    font-size: 0.65em;
+    transition: all 0.2s;
+    border: none;
+    user-select: none;
+  }
+  .sidebar-toggle:hover { background: rgba(255,255,255,0.18); color: #c0d0e0; }
+  .sidebar-reopen {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 48px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--sidebar-bg);
+    color: #8a9bb5;
+    font-size: 0.7em;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    z-index: 5;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .sidebar-reopen:hover { background: #243447; color: #c0d0e0; }
+  .sidebar.collapsed ~ .sidebar-reopen { display: flex; }
+
+  /* Filter panels */
+  .filter-panel {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+  .filter-panel-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 18px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .filter-panel-header:hover { background: var(--hover-bg); }
+  .filter-panel-header .arrow {
+    font-size: 0.65em;
+    margin-right: 8px;
+    transition: transform 0.2s;
+    color: #5a7999;
+  }
+  .filter-panel-header.collapsed .arrow { transform: rotate(-90deg); }
+  .filter-panel-title {
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #5a7999;
+    font-weight: 700;
+  }
+  .filter-panel-body {
+    padding: 0 18px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .filter-panel-body.hidden { display: none; }
+  .filter-tag {
+    font-size: 0.68em;
+    padding: 3px 9px;
+    border-radius: 11px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.06);
+    color: #8a9bb5;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filter-tag:hover { background: rgba(255,255,255,0.14); color: #c0d0e0; }
+  .filter-tag.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .filter-tag.clear-btn { background: rgba(255,255,255,0.03); color: #5a7999; font-style: italic; }
+  .filter-tag.clear-btn:hover { background: rgba(255,255,255,0.12); color: #e74c3c; }
+  .filter-panel-header .clear-btn {
+    margin-left: auto;
+    font-size: 0.62em;
+    padding: 2px 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #5a7999;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.2s;
+    user-select: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .filter-panel-header .clear-btn:hover { background: rgba(255,255,255,0.12); color: #e74c3c; border-color: rgba(231,76,60,0.3); }
+
+  /* Tree nav */
+  .tree-nav {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 6px 0;
+  }
+  .tree-nav ul { list-style: none; }
+  .tree-nav ul ul { padding-left: 0; }
+
+  /* Tree folder */
+  .tree-folder { margin: 2px 0; }
+  .tree-folder-header {
+    display: flex;
+    align-items: center;
+    padding: 7px 18px 7px 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s;
+  }
+  .tree-folder-header:hover { background: var(--hover-bg); }
+  .tree-folder-header .tree-arrow {
+    font-size: 0.55em;
+    margin-right: 6px;
+    color: #5a7999;
+    transition: transform 0.2s;
+    width: 12px;
+    text-align: center;
+  }
+  .tree-folder-header.collapsed .tree-arrow { transform: rotate(-90deg); }
+  .tree-folder-header .tree-folder-icon { font-size: 0.9em; margin-right: 6px; }
+  .tree-folder-header .tree-folder-name { font-size: 0.85em; font-weight: 600; color: #c8d6e5; }
+  .tree-folder-header .tree-count {
+    margin-left: auto;
+    font-size: 0.65em;
+    background: rgba(255,255,255,0.1);
+    padding: 1px 7px;
+    border-radius: 8px;
+    color: #7a9ab5;
+  }
+
+  /* Tree children */
+  .tree-children { overflow: hidden; }
+  .tree-children.hidden { display: none; }
+
+  /* Tree file (leaf) */
+  .tree-file {
+    display: flex;
+    align-items: center;
+    padding: 6px 18px 6px 44px;
+    text-decoration: none;
+    color: var(--sidebar-text);
+    font-size: 0.82em;
+    transition: all 0.15s;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+  }
+  .tree-file:hover { background: var(--hover-bg); color: #ddd; }
+  .tree-file.active {
+    background: var(--active-bg);
+    color: #fff;
+    border-left-color: var(--accent);
+  }
+  .tree-file.hidden-file { display: none; }
+  .tree-file .tree-file-icon { font-size: 0.85em; margin-right: 6px; flex-shrink: 0; }
+  .tree-file .tree-file-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tree-file .tree-file-diff {
+    margin-left: 6px;
+    font-size: 0.72em;
+    color: #f0c040;
+    flex-shrink: 0;
+  }
+  .tree-checkmark {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75em;
+    transition: all 0.2s;
+    margin-right: 2px;
+  }
+  .tree-checkmark.mastered {
+    color: #2ecc71;
+    font-weight: 700;
+    font-size: 0.95em;
+  }
+  .tree-file.mastered .tree-file-name {
+    color: #7dcea0;
+  }
+
+  /* ====== MAIN ====== */
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: #fafbfc;
+  }
+  .main-header {
+    padding: 14px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .main-header .breadcrumb {
+    font-size: 0.78em;
+    color: #999;
+  }
+  .main-header .current-title {
+    font-size: 1.05em;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+  .main-content {
+    flex: 1;
+    border: none;
+    width: 100%;
+    background: #fff;
+  }
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #bbb;
+  }
+  .welcome .icon { font-size: 4em; margin-bottom: 16px; }
+  .welcome h2 { color: #999; font-weight: 400; }
+
+  /* Scrollbar */
+  .sidebar::-webkit-scrollbar { width: 5px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+  .tree-nav::-webkit-scrollbar { width: 4px; }
+  .tree-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+  @media (max-width: 768px) {
+    .sidebar { width: 100%; min-width: 100%; height: auto; max-height: 45vh; }
+    .main { height: 55vh; }
+    body { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== SIDEBAR ====== -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h1>📚 cici_study_math</h1>
+    <div class="subtitle">二次根式 · 最值问题 · 几何综合 · 函数与统计</div>
+    <button class="sidebar-toggle" onclick="toggleSidebar()" title="收起侧边栏">◀</button>
+  </div>
+
+  <!-- 知识点筛选 -->
+  <div class="filter-panel" id="topicFilter">
+    <div class="filter-panel-header collapsed" onclick="toggleFilter('topicFilter')">
+      <span class="arrow">▼</span>
+      <span class="filter-panel-title">知识点筛选</span>
+      <span class="clear-btn" onclick="event.stopPropagation();clearTopicFilter()">✕ 清除</span>
+    </div>
+    <div class="filter-panel-body hidden" id="topicFilterBody">
+      <span class="filter-tag" data-topic="网格几何" onclick="filterByTopic(this,'网格几何')">网格几何</span><span class="filter-tag" data-topic="勾股定理" onclick="filterByTopic(this,'勾股定理')">勾股定理</span><span class="filter-tag" data-topic="全等三角形" onclick="filterByTopic(this,'全等三角形')">全等三角形</span><span class="filter-tag" data-topic="等腰直角三角形" onclick="filterByTopic(this,'等腰直角三角形')">等腰直角三角形</span><span class="filter-tag" data-topic="互余" onclick="filterByTopic(this,'互余')">互余</span><span class="filter-tag" data-topic="二次根式" onclick="filterByTopic(this,'二次根式')">二次根式</span><span class="filter-tag" data-topic="最简二次根式" onclick="filterByTopic(this,'最简二次根式')">最简二次根式</span><span class="filter-tag" data-topic="同类二次根式" onclick="filterByTopic(this,'同类二次根式')">同类二次根式</span><span class="filter-tag" data-topic="平方根" onclick="filterByTopic(this,'平方根')">平方根</span><span class="filter-tag" data-topic="分母有理化" onclick="filterByTopic(this,'分母有理化')">分母有理化</span><span class="filter-tag" data-topic="整体代入法" onclick="filterByTopic(this,'整体代入法')">整体代入法</span><span class="filter-tag" data-topic="完全平方公式" onclick="filterByTopic(this,'完全平方公式')">完全平方公式</span><span class="filter-tag" data-topic="整体代换" onclick="filterByTopic(this,'整体代换')">整体代换</span><span class="filter-tag" data-topic="最值问题" onclick="filterByTopic(this,'最值问题')">最值问题</span><span class="filter-tag" data-topic="均值不等式" onclick="filterByTopic(this,'均值不等式')">均值不等式</span><span class="filter-tag" data-topic="二次函数" onclick="filterByTopic(this,'二次函数')">二次函数</span><span class="filter-tag" data-topic="几何面积" onclick="filterByTopic(this,'几何面积')">几何面积</span><span class="filter-tag" data-topic="对顶三角形" onclick="filterByTopic(this,'对顶三角形')">对顶三角形</span><span class="filter-tag" data-topic="矩形性质" onclick="filterByTopic(this,'矩形性质')">矩形性质</span><span class="filter-tag" data-topic="中点坐标" onclick="filterByTopic(this,'中点坐标')">中点坐标</span><span class="filter-tag" data-topic="等腰三角形" onclick="filterByTopic(this,'等腰三角形')">等腰三角形</span><span class="filter-tag" data-topic="分类讨论" onclick="filterByTopic(this,'分类讨论')">分类讨论</span><span class="filter-tag" data-topic="一次函数" onclick="filterByTopic(this,'一次函数')">一次函数</span><span class="filter-tag" data-topic="待定系数法" onclick="filterByTopic(this,'待定系数法')">待定系数法</span><span class="filter-tag" data-topic="三角形面积" onclick="filterByTopic(this,'三角形面积')">三角形面积</span><span class="filter-tag" data-topic="一线三直角" onclick="filterByTopic(this,'一线三直角')">一线三直角</span><span class="filter-tag" data-topic="正方形构造" onclick="filterByTopic(this,'正方形构造')">正方形构造</span><span class="filter-tag" data-topic="平行四边形判定" onclick="filterByTopic(this,'平行四边形判定')">平行四边形判定</span><span class="filter-tag" data-topic="函数概念" onclick="filterByTopic(this,'函数概念')">函数概念</span><span class="filter-tag" data-topic="函数定义" onclick="filterByTopic(this,'函数定义')">函数定义</span><span class="filter-tag" data-topic="菱形性质" onclick="filterByTopic(this,'菱形性质')">菱形性质</span><span class="filter-tag" data-topic="动点函数" onclick="filterByTopic(this,'动点函数')">动点函数</span><span class="filter-tag" data-topic="图象分析" onclick="filterByTopic(this,'图象分析')">图象分析</span><span class="filter-tag" data-topic="代入求值" onclick="filterByTopic(this,'代入求值')">代入求值</span><span class="filter-tag" data-topic="四分位数" onclick="filterByTopic(this,'四分位数')">四分位数</span><span class="filter-tag" data-topic="箱线图" onclick="filterByTopic(this,'箱线图')">箱线图</span><span class="filter-tag" data-topic="方差" onclick="filterByTopic(this,'方差')">方差</span><span class="filter-tag" data-topic="数据波动" onclick="filterByTopic(this,'数据波动')">数据波动</span><span class="filter-tag" data-topic="配方法" onclick="filterByTopic(this,'配方法')">配方法</span><span class="filter-tag" data-topic="平方差公式" onclick="filterByTopic(this,'平方差公式')">平方差公式</span>
+    </div>
+  </div>
+
+  <!-- 题型筛选 -->
+  <div class="filter-panel" id="typeFilter">
+    <div class="filter-panel-header collapsed" onclick="toggleFilter('typeFilter')">
+      <span class="arrow">▼</span>
+      <span class="filter-panel-title">题型筛选</span>
+      <span class="clear-btn" onclick="event.stopPropagation();clearTypeFilter()">✕ 清除</span>
+    </div>
+    <div class="filter-panel-body hidden" id="typeFilterBody">
+      <span class="filter-tag" data-type="填空" onclick="filterByType(this,'填空')">填空</span><span class="filter-tag" data-type="计算填空" onclick="filterByType(this,'计算填空')">计算填空</span><span class="filter-tag" data-type="选择填空" onclick="filterByType(this,'选择填空')">选择填空</span><span class="filter-tag" data-type="阅读理解+计算" onclick="filterByType(this,'阅读理解+计算')">阅读理解+计算</span><span class="filter-tag" data-type="应用题" onclick="filterByType(this,'应用题')">应用题</span><span class="filter-tag" data-type="综合应用" onclick="filterByType(this,'综合应用')">综合应用</span><span class="filter-tag" data-type="几何综合" onclick="filterByType(this,'几何综合')">几何综合</span><span class="filter-tag" data-type="函数与统计" onclick="filterByType(this,'函数与统计')">函数与统计</span><span class="filter-tag" data-type="二次根式" onclick="filterByType(this,'二次根式')">二次根式</span>
+    </div>
+  </div>
+
+  <!-- 树形导航 -->
+  <nav class="tree-nav">
+    <ul>
+      
+        <li class="tree-folder">
+          <div class="tree-folder-header" onclick="toggleFolder(this)" title="几何综合">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-folder-icon">📁</span>
+            <span class="tree-folder-name">几何综合</span>
+            <span class="tree-count">4</span>
+          </div>
+          <ul class="tree-children">
+            <li>
+              <a class="tree-file" href="problems/p3.html" data-id="p3" data-type="填空" data-topics="网格几何,勾股定理,全等三角形,等腰直角三角形,互余" data-cat="几何综合" onclick="loadProblem(this, 'problems/p3.html');return false;" ondblclick="toggleMastered('p3')" title="第3题 网格中的角度求和">
+                <span class="tree-checkmark" id="check-p3"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第3题 网格中的角度求和</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p12.html" data-id="p12" data-type="几何综合" data-topics="矩形性质,中点坐标,等腰三角形,全等三角形,分类讨论" data-cat="几何综合" onclick="loadProblem(this, 'problems/p12.html');return false;" ondblclick="toggleMastered('p12')" title="第12题 矩形 OABC 角度三等分（E 在 AB 延长线）">
+                <span class="tree-checkmark" id="check-p12"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第12题 矩形 OABC 角度三等分（E 在 AB 延长线）</span>
+                <span class="tree-file-diff">★★★★</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p14.html" data-id="p14" data-type="几何综合" data-topics="一次函数,待定系数法,三角形面积,一线三直角,全等三角形,正方形构造,平行四边形判定" data-cat="几何综合" onclick="loadProblem(this, 'problems/p14.html');return false;" ondblclick="toggleMastered('p14')" title="第14题 直线围成三角形 + 正方形 + 平行四边形（综合）">
+                <span class="tree-checkmark" id="check-p14"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第14题 直线围成三角形 + 正方形 + 平行四边形（综合）</span>
+                <span class="tree-file-diff">★★★★</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p16.html" data-id="p16" data-type="几何综合" data-topics="菱形性质,动点函数,三角形面积,图象分析" data-cat="几何综合" onclick="loadProblem(this, 'problems/p16.html');return false;" ondblclick="toggleMastered('p16')" title="解答题第6题 菱形中的动点（综合）">
+                <span class="tree-checkmark" id="check-p16"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">解答题第6题 菱形中的动点（综合）</span>
+                <span class="tree-file-diff">★★★★</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="tree-folder">
+          <div class="tree-folder-header" onclick="toggleFolder(this)" title="二次根式">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-folder-icon">📁</span>
+            <span class="tree-folder-name">二次根式</span>
+            <span class="tree-count">5</span>
+          </div>
+          <ul class="tree-children">
+            <li>
+              <a class="tree-file" href="problems/p4.html" data-id="p4" data-type="选择填空" data-topics="二次根式,同类二次根式,平方根" data-cat="二次根式" onclick="loadProblem(this, 'problems/p4.html');return false;" ondblclick="toggleMastered('p4')" title="第4题 同类二次根式的判定">
+                <span class="tree-checkmark" id="check-p4"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第4题 同类二次根式的判定</span>
+                <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p5.html" data-id="p5" data-type="计算填空" data-topics="二次根式,完全平方公式,整体代换" data-cat="二次根式" onclick="loadProblem(this, 'problems/p5.html');return false;" ondblclick="toggleMastered('p5')" title="第5题 整体代换与链式平方">
+                <span class="tree-checkmark" id="check-p5"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第5题 整体代换与链式平方</span>
+                <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p9.html" data-id="p9" data-type="计算填空" data-topics="二次根式,最简二次根式,同类二次根式" data-cat="二次根式" onclick="loadProblem(this, 'problems/p9.html');return false;" ondblclick="toggleMastered('p9')" title="第9题 最简二次根式与同类二次根式">
+                <span class="tree-checkmark" id="check-p9"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第9题 最简二次根式与同类二次根式</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p6.html" data-id="p6" data-type="阅读理解+计算" data-topics="二次根式,分母有理化,整体代入法" data-cat="二次根式" onclick="loadProblem(this, 'problems/p6.html');return false;" ondblclick="toggleMastered('p6')" title="第6题 整体代入法（阅读理解）">
+                <span class="tree-checkmark" id="check-p6"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第6题 整体代入法（阅读理解）</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p19.html" data-id="p19" data-type="二次根式" data-topics="二次根式,配方法,平方差公式,分母有理化" data-cat="二次根式" onclick="loadProblem(this, 'problems/p19.html');return false;" ondblclick="toggleMastered('p19')" title="化简题二次根式配凑">
+                <span class="tree-checkmark" id="check-p19"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">化简题二次根式配凑</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="tree-folder">
+          <div class="tree-folder-header" onclick="toggleFolder(this)" title="最值问题">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-folder-icon">📁</span>
+            <span class="tree-folder-name">最值问题</span>
+            <span class="tree-count">2</span>
+          </div>
+          <ul class="tree-children">
+            <li>
+              <a class="tree-file" href="problems/app1.html" data-id="app1" data-type="应用题" data-topics="最值问题,均值不等式,二次函数" data-cat="最值问题" onclick="loadProblem(this, 'problems/app1.html');return false;" ondblclick="toggleMastered('app1')" title="解决问题(1) 篱笆围菜园（最值问题）">
+                <span class="tree-checkmark" id="check-app1"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">解决问题(1) 篱笆围菜园（最值问题）</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/app2.html" data-id="app2" data-type="综合应用" data-topics="几何面积,均值不等式,对顶三角形" data-cat="最值问题" onclick="loadProblem(this, 'problems/app2.html');return false;" ondblclick="toggleMastered('app2')" title="解决问题(2) 四边形面积最小值">
+                <span class="tree-checkmark" id="check-app2"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">解决问题(2) 四边形面积最小值</span>
+                <span class="tree-file-diff">★★★★</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="tree-folder">
+          <div class="tree-folder-header" onclick="toggleFolder(this)" title="函数与统计">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-folder-icon">📁</span>
+            <span class="tree-folder-name">函数与统计</span>
+            <span class="tree-count">3</span>
+          </div>
+          <ul class="tree-children">
+            <li>
+              <a class="tree-file" href="problems/p15.html" data-id="p15" data-type="选择填空" data-topics="函数概念,函数定义" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p15.html');return false;" ondblclick="toggleMastered('p15')" title="选择题第2题 函数的判断">
+                <span class="tree-checkmark" id="check-p15"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">选择题第2题 函数的判断</span>
+                <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p17.html" data-id="p17" data-type="函数与统计" data-topics="一次函数,待定系数法,代入求值" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p17.html');return false;" ondblclick="toggleMastered('p17')" title="第17题 弹簧长度与质量的函数关系">
+                <span class="tree-checkmark" id="check-p17"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第17题 弹簧长度与质量的函数关系</span>
+                <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p18.html" data-id="p18" data-type="函数与统计" data-topics="四分位数,箱线图,方差,数据波动" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p18.html');return false;" ondblclick="toggleMastered('p18')" title="第18题 甲乙两组成绩分析（四分位数 + 箱线图 + 方差）">
+                <span class="tree-checkmark" id="check-p18"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">第18题 甲乙两组成绩分析（四分位数 + 箱线图 + 方差）</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+    </ul>
+  </nav>
+</aside>
+<button class="sidebar-reopen" onclick="toggleSidebar()" title="展开侧边栏">▶</button>
+<!-- ====== MAIN ====== -->
+<main class="main">
+  <div class="main-header">
+    <span class="breadcrumb" id="breadcrumb">cici_study_math</span>
+    <span class="current-title" id="currentTitle">欢迎使用</span>
+  </div>
+  <div id="contentWrapper" class="main-content" style="display:flex;align-items:center;justify-content:center;">
+    <div class="welcome" id="welcomeMsg">
+      <div class="icon">📖</div>
+      <h2>请从左侧导航选择题目</h2>
+      <p style="color:#bbb;font-size:0.85em;">点击题目查看详细解答、知识点总结和举一反三</p>
+    </div>
+  </div>
+  <iframe id="contentFrame" class="main-content" style="display:none;" sandbox="allow-same-origin allow-scripts"></iframe>
+</main>
+
+<script>
+let activeTopic = null;
+let activeType = null;
+let currentFile = null;
+let sidebarOpen = true;
+
+// ====== Sidebar toggle ======
+function toggleSidebar() {
+  sidebarOpen = !sidebarOpen;
+  const sidebar = document.querySelector('.sidebar');
+  const toggleBtn = document.querySelector('.sidebar-toggle');
+  const reopenBtn = document.querySelector('.sidebar-reopen');
+  if (sidebarOpen) {
+    sidebar.classList.remove('collapsed');
+    toggleBtn.textContent = '◀';
+    toggleBtn.title = '收起侧边栏';
+    if (reopenBtn) reopenBtn.style.display = '';
+  } else {
+    sidebar.classList.add('collapsed');
+    toggleBtn.textContent = '▶';
+    toggleBtn.title = '展开侧边栏';
+  }
+}
+
+// ====== Mastered toggle (双击标记掌握) ======
+function toggleMastered(id) {
+  const checkEl = document.getElementById('check-' + id);
+  const fileEl = checkEl?.closest('.tree-file');
+  if (!checkEl || !fileEl) return;
+  const isMastered = checkEl.classList.toggle('mastered');
+  fileEl.classList.toggle('mastered', isMastered);
+  checkEl.textContent = isMastered ? '✓' : '';
+  // 保存到 localStorage
+  const mastered = JSON.parse(localStorage.getItem('mastered') || '[]');
+  const idx = mastered.indexOf(id);
+  if (isMastered && idx === -1) mastered.push(id);
+  if (!isMastered && idx !== -1) mastered.splice(idx, 1);
+  localStorage.setItem('mastered', JSON.stringify(mastered));
+}
+
+// ====== Filter panel toggle ======
+function toggleFilter(panelId) {
+  const panel = document.getElementById(panelId);
+  const header = panel.querySelector('.filter-panel-header');
+  const body = panel.querySelector('.filter-panel-body');
+  const isCollapsed = body.classList.contains('hidden');
+  if (isCollapsed) {
+    body.classList.remove('hidden');
+    header.classList.remove('collapsed');
+  } else {
+    body.classList.add('hidden');
+    header.classList.add('collapsed');
+  }
+}
+
+// ====== Tree folder toggle ======
+function toggleFolder(header) {
+  const children = header.nextElementSibling;
+  const isCollapsed = children.classList.contains('hidden');
+  if (isCollapsed) {
+    children.classList.remove('hidden');
+    header.classList.remove('collapsed');
+  } else {
+    children.classList.add('hidden');
+    header.classList.add('collapsed');
+  }
+}
+
+// ====== Load problem into iframe ======
+function loadProblem(linkEl, file) {
+  // Update active state
+  document.querySelectorAll('.tree-file').forEach(el => el.classList.remove('active'));
+  linkEl.classList.add('active');
+  currentFile = file;
+
+  // Update header
+  document.getElementById('breadcrumb').textContent = '题目详情';
+  document.getElementById('currentTitle').textContent = linkEl.querySelector('.tree-file-name').textContent;
+
+  // Show iframe, hide welcome
+  document.getElementById('welcomeMsg').style.display = 'none';
+  const frame = document.getElementById('contentFrame');
+  frame.style.display = 'block';
+  frame.src = file;
+
+  // Also update contentWrapper to not use flex centering when showing iframe
+  document.getElementById('contentWrapper').style.display = 'none';
+  frame.style.display = 'block';
+
+  // 保存当前题目到 localStorage（刷新后恢复）
+  const id = linkEl.getAttribute('data-id');
+  if (id) localStorage.setItem('lastProblemId', id);
+}
+
+// ====== Topic filter ======
+function filterByTopic(tagEl, topic) {
+  if (activeTopic === topic) {
+    clearTopicFilter();
+    return;
+  }
+  activeTopic = topic;
+  activeType = null;
+  updateFilterUI();
+  applyFilters();
+}
+
+function clearTopicFilter() {
+  activeTopic = null;
+  updateFilterUI();
+  applyFilters();
+}
+
+// ====== Type filter ======
+function filterByType(tagEl, type) {
+  if (activeType === type) {
+    clearTypeFilter();
+    return;
+  }
+  activeType = type;
+  activeTopic = null;
+  updateFilterUI();
+  applyFilters();
+}
+
+function clearTypeFilter() {
+  activeType = null;
+  updateFilterUI();
+  applyFilters();
+}
+
+function updateFilterUI() {
+  document.querySelectorAll('#topicFilterBody .filter-tag').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('data-topic') === activeTopic);
+  });
+  document.querySelectorAll('#typeFilterBody .filter-tag').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('data-type') === activeType);
+  });
+}
+
+function applyFilters() {
+  document.querySelectorAll('.tree-file').forEach(el => {
+    let show = true;
+    const id = el.getAttribute('data-id');
+    const fileTopics = el.getAttribute('data-topics').split(',');
+    const fileType = el.getAttribute('data-type');
+
+    if (activeTopic && !fileTopics.includes(activeTopic)) show = false;
+    if (activeType && fileType !== activeType) show = false;
+
+    el.classList.toggle('hidden-file', !show);
+  });
+
+  // Auto-expand folders that have visible children
+  document.querySelectorAll('.tree-folder').forEach(folder => {
+    const children = folder.querySelector('.tree-children');
+    const visibleFiles = children.querySelectorAll('.tree-file:not(.hidden-file)');
+    if (visibleFiles.length > 0) {
+      children.classList.remove('hidden');
+      folder.querySelector('.tree-folder-header').classList.remove('collapsed');
+    }
+  });
+}
+
+// ====== Keyboard ======
+document.addEventListener('keydown', function(e) {
+  const visibleFiles = [...document.querySelectorAll('.tree-file:not(.hidden-file)')];
+  if (visibleFiles.length === 0) return;
+  const currentIdx = visibleFiles.findIndex(el => el.classList.contains('active'));
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    const next = (currentIdx + 1) % visibleFiles.length;
+    visibleFiles[next].click();
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    const prev = (currentIdx - 1 + visibleFiles.length) % visibleFiles.length;
+    visibleFiles[prev].click();
+  }
+});
+
+// Auto-load first problem
+document.addEventListener('DOMContentLoaded', function() {
+  // 恢复已掌握的标记
+  try {
+    const mastered = JSON.parse(localStorage.getItem('mastered') || '[]');
+    mastered.forEach(id => {
+      const checkEl = document.getElementById('check-' + id);
+      const fileEl = checkEl?.closest('.tree-file');
+      if (checkEl && fileEl) {
+        checkEl.classList.add('mastered');
+        checkEl.textContent = '✓';
+        fileEl.classList.add('mastered');
+      }
+    });
+  } catch(e) {}
+
+  // 恢复上次打开的题目
+  const lastId = localStorage.getItem('lastProblemId');
+  let targetFile = null;
+  if (lastId) {
+    targetFile = document.querySelector('.tree-file[data-id="' + lastId + '"]');
+  }
+  if (!targetFile) {
+    targetFile = document.querySelector('.tree-file');
+  }
+  if (targetFile) {
+    setTimeout(() => targetFile.click(), 200);
+  }
+});
+</script>
+
+</body>
+</html>
