@@ -421,7 +421,7 @@ const problems = [
   {
     id: "p6",
     file: "p6.html",
-    title: "第6题 整体代入法（阅读理解）",
+    title: "第6题 整体代入法",
     type: "阅读理解+计算",
     topics: ["二次根式", "分母有理化", "整体代入法"],
     difficulty: 3,
@@ -698,7 +698,7 @@ const problems = [
   {
     id: "p12",
     file: "p12.html",
-    title: "第12题 矩形 OABC 角度三等分（E 在 AB 延长线）",
+    title: "第12题 矩形 OABC 角度三等分",
     type: "几何综合",
     topics: ["矩形性质", "中点坐标", "等腰三角形", "全等三角形", "分类讨论"],
     difficulty: 4,

@@ -1,0 +1,11 @@
+# 所有 HTML 页面：不缓存，每次都拿最新（改完题立即生效）
+/*.html
+  Cache-Control: max-age=0, must-revalidate
+
+# KaTeX 字体：几乎不变，缓存 1 年
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 题图 / SVG / 原图：基本不变，缓存 1 年
+/problems/images/*
+  Cache-Control: public, max-age=31536000, immutable
