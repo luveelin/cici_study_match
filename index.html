@@ -104,72 +104,6 @@
   .sidebar-reopen:hover { background: #243447; color: #c0d0e0; }
   .sidebar.collapsed ~ .sidebar-reopen { display: flex; }
 
-  /* Filter panels */
-  .filter-panel {
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    flex-shrink: 0;
-  }
-  .filter-panel-header {
-    display: flex;
-    align-items: center;
-    padding: 10px 18px;
-    cursor: pointer;
-    user-select: none;
-    transition: background 0.2s;
-  }
-  .filter-panel-header:hover { background: var(--hover-bg); }
-  .filter-panel-header .arrow {
-    font-size: 0.65em;
-    margin-right: 8px;
-    transition: transform 0.2s;
-    color: #5a7999;
-  }
-  .filter-panel-header.collapsed .arrow { transform: rotate(-90deg); }
-  .filter-panel-title {
-    font-size: 0.72em;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #5a7999;
-    font-weight: 700;
-  }
-  .filter-panel-body {
-    padding: 0 18px 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  .filter-panel-body.hidden { display: none; }
-  .filter-tag {
-    font-size: 0.68em;
-    padding: 3px 9px;
-    border-radius: 11px;
-    cursor: pointer;
-    background: rgba(255,255,255,0.06);
-    color: #8a9bb5;
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .filter-tag:hover { background: rgba(255,255,255,0.14); color: #c0d0e0; }
-  .filter-tag.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .filter-tag.clear-btn { background: rgba(255,255,255,0.03); color: #5a7999; font-style: italic; }
-  .filter-tag.clear-btn:hover { background: rgba(255,255,255,0.12); color: #e74c3c; }
-  .filter-panel-header .clear-btn {
-    margin-left: auto;
-    font-size: 0.62em;
-    padding: 2px 7px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #5a7999;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.06);
-    transition: all 0.2s;
-    user-select: none;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .filter-panel-header .clear-btn:hover { background: rgba(255,255,255,0.12); color: #e74c3c; border-color: rgba(231,76,60,0.3); }
-
   /* Tree nav */
   .tree-nav {
     flex: 1;
@@ -233,7 +167,6 @@
     color: #fff;
     border-left-color: var(--accent);
   }
-  .tree-file.hidden-file { display: none; }
   .tree-file .tree-file-icon { font-size: 0.85em; margin-right: 6px; flex-shrink: 0; }
   .tree-file .tree-file-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .tree-file .tree-file-diff {
@@ -330,52 +263,20 @@
     <button class="sidebar-toggle" onclick="toggleSidebar()" title="收起侧边栏">◀</button>
   </div>
 
-  <!-- 知识点筛选 -->
-  <div class="filter-panel" id="topicFilter">
-    <div class="filter-panel-header collapsed" onclick="toggleFilter('topicFilter')">
-      <span class="arrow">▼</span>
-      <span class="filter-panel-title">知识点筛选</span>
-      <span class="clear-btn" onclick="event.stopPropagation();clearTopicFilter()">✕ 清除</span>
-    </div>
-    <div class="filter-panel-body hidden" id="topicFilterBody">
-      <span class="filter-tag" data-topic="网格几何" onclick="filterByTopic(this,'网格几何')">网格几何</span><span class="filter-tag" data-topic="勾股定理" onclick="filterByTopic(this,'勾股定理')">勾股定理</span><span class="filter-tag" data-topic="全等三角形" onclick="filterByTopic(this,'全等三角形')">全等三角形</span><span class="filter-tag" data-topic="等腰直角三角形" onclick="filterByTopic(this,'等腰直角三角形')">等腰直角三角形</span><span class="filter-tag" data-topic="互余" onclick="filterByTopic(this,'互余')">互余</span><span class="filter-tag" data-topic="二次根式" onclick="filterByTopic(this,'二次根式')">二次根式</span><span class="filter-tag" data-topic="最简二次根式" onclick="filterByTopic(this,'最简二次根式')">最简二次根式</span><span class="filter-tag" data-topic="同类二次根式" onclick="filterByTopic(this,'同类二次根式')">同类二次根式</span><span class="filter-tag" data-topic="平方根" onclick="filterByTopic(this,'平方根')">平方根</span><span class="filter-tag" data-topic="分母有理化" onclick="filterByTopic(this,'分母有理化')">分母有理化</span><span class="filter-tag" data-topic="整体代入法" onclick="filterByTopic(this,'整体代入法')">整体代入法</span><span class="filter-tag" data-topic="完全平方公式" onclick="filterByTopic(this,'完全平方公式')">完全平方公式</span><span class="filter-tag" data-topic="整体代换" onclick="filterByTopic(this,'整体代换')">整体代换</span><span class="filter-tag" data-topic="最值问题" onclick="filterByTopic(this,'最值问题')">最值问题</span><span class="filter-tag" data-topic="均值不等式" onclick="filterByTopic(this,'均值不等式')">均值不等式</span><span class="filter-tag" data-topic="二次函数" onclick="filterByTopic(this,'二次函数')">二次函数</span><span class="filter-tag" data-topic="几何面积" onclick="filterByTopic(this,'几何面积')">几何面积</span><span class="filter-tag" data-topic="对顶三角形" onclick="filterByTopic(this,'对顶三角形')">对顶三角形</span><span class="filter-tag" data-topic="矩形性质" onclick="filterByTopic(this,'矩形性质')">矩形性质</span><span class="filter-tag" data-topic="中点坐标" onclick="filterByTopic(this,'中点坐标')">中点坐标</span><span class="filter-tag" data-topic="等腰三角形" onclick="filterByTopic(this,'等腰三角形')">等腰三角形</span><span class="filter-tag" data-topic="分类讨论" onclick="filterByTopic(this,'分类讨论')">分类讨论</span><span class="filter-tag" data-topic="一次函数" onclick="filterByTopic(this,'一次函数')">一次函数</span><span class="filter-tag" data-topic="待定系数法" onclick="filterByTopic(this,'待定系数法')">待定系数法</span><span class="filter-tag" data-topic="三角形面积" onclick="filterByTopic(this,'三角形面积')">三角形面积</span><span class="filter-tag" data-topic="一线三直角" onclick="filterByTopic(this,'一线三直角')">一线三直角</span><span class="filter-tag" data-topic="正方形构造" onclick="filterByTopic(this,'正方形构造')">正方形构造</span><span class="filter-tag" data-topic="平行四边形判定" onclick="filterByTopic(this,'平行四边形判定')">平行四边形判定</span><span class="filter-tag" data-topic="函数概念" onclick="filterByTopic(this,'函数概念')">函数概念</span><span class="filter-tag" data-topic="函数定义" onclick="filterByTopic(this,'函数定义')">函数定义</span><span class="filter-tag" data-topic="菱形性质" onclick="filterByTopic(this,'菱形性质')">菱形性质</span><span class="filter-tag" data-topic="动点函数" onclick="filterByTopic(this,'动点函数')">动点函数</span><span class="filter-tag" data-topic="图象分析" onclick="filterByTopic(this,'图象分析')">图象分析</span><span class="filter-tag" data-topic="代入求值" onclick="filterByTopic(this,'代入求值')">代入求值</span><span class="filter-tag" data-topic="四分位数" onclick="filterByTopic(this,'四分位数')">四分位数</span><span class="filter-tag" data-topic="箱线图" onclick="filterByTopic(this,'箱线图')">箱线图</span><span class="filter-tag" data-topic="方差" onclick="filterByTopic(this,'方差')">方差</span><span class="filter-tag" data-topic="数据波动" onclick="filterByTopic(this,'数据波动')">数据波动</span><span class="filter-tag" data-topic="配方法" onclick="filterByTopic(this,'配方法')">配方法</span><span class="filter-tag" data-topic="平方差公式" onclick="filterByTopic(this,'平方差公式')">平方差公式</span>
-    </div>
-  </div>
-
-  <!-- 题型筛选 -->
-  <div class="filter-panel" id="typeFilter">
-    <div class="filter-panel-header collapsed" onclick="toggleFilter('typeFilter')">
-      <span class="arrow">▼</span>
-      <span class="filter-panel-title">题型筛选</span>
-      <span class="clear-btn" onclick="event.stopPropagation();clearTypeFilter()">✕ 清除</span>
-    </div>
-    <div class="filter-panel-body hidden" id="typeFilterBody">
-      <span class="filter-tag" data-type="填空" onclick="filterByType(this,'填空')">填空</span><span class="filter-tag" data-type="计算填空" onclick="filterByType(this,'计算填空')">计算填空</span><span class="filter-tag" data-type="选择填空" onclick="filterByType(this,'选择填空')">选择填空</span><span class="filter-tag" data-type="阅读理解+计算" onclick="filterByType(this,'阅读理解+计算')">阅读理解+计算</span><span class="filter-tag" data-type="应用题" onclick="filterByType(this,'应用题')">应用题</span><span class="filter-tag" data-type="综合应用" onclick="filterByType(this,'综合应用')">综合应用</span><span class="filter-tag" data-type="几何综合" onclick="filterByType(this,'几何综合')">几何综合</span><span class="filter-tag" data-type="函数与统计" onclick="filterByType(this,'函数与统计')">函数与统计</span><span class="filter-tag" data-type="二次根式" onclick="filterByType(this,'二次根式')">二次根式</span>
-    </div>
-  </div>
-
   <!-- 树形导航 -->
   <nav class="tree-nav">
     <ul>
       
         <li class="tree-folder">
-          <div class="tree-folder-header" onclick="toggleFolder(this)" title="几何综合">
+          <div class="tree-folder-header" onclick="toggleFolder(this)" title="坐标轴几何">
             <span class="tree-arrow">▶</span>
             <span class="tree-folder-icon">📁</span>
-            <span class="tree-folder-name">几何综合</span>
-            <span class="tree-count">4</span>
+            <span class="tree-folder-name">坐标轴几何</span>
+            <span class="tree-count">2</span>
           </div>
           <ul class="tree-children">
             <li>
-              <a class="tree-file" href="problems/p3.html" data-id="p3" data-type="填空" data-topics="网格几何,勾股定理,全等三角形,等腰直角三角形,互余" data-cat="几何综合" onclick="loadProblem(this, 'problems/p3.html');return false;" ondblclick="toggleMastered('p3')" title="p3 网格中的角度求和">
-                <span class="tree-checkmark" id="check-p3"></span>
-                <span class="tree-file-icon">📄</span>
-                <span class="tree-file-name">p3 网格中的角度求和</span>
-                <span class="tree-file-diff">★★★☆</span>
-              </a>
-            </li>
-            <li>
-              <a class="tree-file" href="problems/p12.html" data-id="p12" data-type="几何综合" data-topics="矩形性质,中点坐标,等腰三角形,全等三角形,分类讨论" data-cat="几何综合" onclick="loadProblem(this, 'problems/p12.html');return false;" ondblclick="toggleMastered('p12')" title="p12 矩形 OABC 角度三等分">
+              <a class="tree-file" href="problems/p12.html" data-id="p12" data-cat="坐标轴几何" onclick="loadProblem(this, 'problems/p12.html');return false;" ondblclick="toggleMastered('p12')" title="p12 矩形 OABC 角度三等分">
                 <span class="tree-checkmark" id="check-p12"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p12 矩形 OABC 角度三等分</span>
@@ -383,15 +284,33 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p14.html" data-id="p14" data-type="几何综合" data-topics="一次函数,待定系数法,三角形面积,一线三直角,全等三角形,正方形构造,平行四边形判定" data-cat="几何综合" onclick="loadProblem(this, 'problems/p14.html');return false;" ondblclick="toggleMastered('p14')" title="p14 直线围成三角形 + 正方形 + 平行四边形">
+              <a class="tree-file" href="problems/p14.html" data-id="p14" data-cat="坐标轴几何" onclick="loadProblem(this, 'problems/p14.html');return false;" ondblclick="toggleMastered('p14')" title="p14 直线围成三角形 + 正方形 + 平行四边形">
                 <span class="tree-checkmark" id="check-p14"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p14 直线围成三角形 + 正方形 + 平行四边形</span>
                 <span class="tree-file-diff">★★★★</span>
               </a>
             </li>
+          </ul>
+        </li>
+        <li class="tree-folder">
+          <div class="tree-folder-header" onclick="toggleFolder(this)" title="几何综合">
+            <span class="tree-arrow">▶</span>
+            <span class="tree-folder-icon">📁</span>
+            <span class="tree-folder-name">几何综合</span>
+            <span class="tree-count">2</span>
+          </div>
+          <ul class="tree-children">
             <li>
-              <a class="tree-file" href="problems/p16.html" data-id="p16" data-type="几何综合" data-topics="菱形性质,动点函数,三角形面积,图象分析" data-cat="几何综合" onclick="loadProblem(this, 'problems/p16.html');return false;" ondblclick="toggleMastered('p16')" title="p16 菱形中的动点">
+              <a class="tree-file" href="problems/p3.html" data-id="p3" data-cat="几何综合" onclick="loadProblem(this, 'problems/p3.html');return false;" ondblclick="toggleMastered('p3')" title="p3 网格中的角度求和">
+                <span class="tree-checkmark" id="check-p3"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p3 网格中的角度求和</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p16.html" data-id="p16" data-cat="几何综合" onclick="loadProblem(this, 'problems/p16.html');return false;" ondblclick="toggleMastered('p16')" title="p16 菱形中的动点">
                 <span class="tree-checkmark" id="check-p16"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p16 菱形中的动点</span>
@@ -409,7 +328,7 @@
           </div>
           <ul class="tree-children">
             <li>
-              <a class="tree-file" href="problems/p4.html" data-id="p4" data-type="选择填空" data-topics="二次根式,同类二次根式,平方根" data-cat="二次根式" onclick="loadProblem(this, 'problems/p4.html');return false;" ondblclick="toggleMastered('p4')" title="p4 同类二次根式的判定">
+              <a class="tree-file" href="problems/p4.html" data-id="p4" data-cat="二次根式" onclick="loadProblem(this, 'problems/p4.html');return false;" ondblclick="toggleMastered('p4')" title="p4 同类二次根式的判定">
                 <span class="tree-checkmark" id="check-p4"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p4 同类二次根式的判定</span>
@@ -417,7 +336,7 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p5.html" data-id="p5" data-type="计算填空" data-topics="二次根式,完全平方公式,整体代换" data-cat="二次根式" onclick="loadProblem(this, 'problems/p5.html');return false;" ondblclick="toggleMastered('p5')" title="p5 整体代换与链式平方">
+              <a class="tree-file" href="problems/p5.html" data-id="p5" data-cat="二次根式" onclick="loadProblem(this, 'problems/p5.html');return false;" ondblclick="toggleMastered('p5')" title="p5 整体代换与链式平方">
                 <span class="tree-checkmark" id="check-p5"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p5 整体代换与链式平方</span>
@@ -425,7 +344,7 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p9.html" data-id="p9" data-type="计算填空" data-topics="二次根式,最简二次根式,同类二次根式" data-cat="二次根式" onclick="loadProblem(this, 'problems/p9.html');return false;" ondblclick="toggleMastered('p9')" title="p9 最简二次根式与同类二次根式">
+              <a class="tree-file" href="problems/p9.html" data-id="p9" data-cat="二次根式" onclick="loadProblem(this, 'problems/p9.html');return false;" ondblclick="toggleMastered('p9')" title="p9 最简二次根式与同类二次根式">
                 <span class="tree-checkmark" id="check-p9"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p9 最简二次根式与同类二次根式</span>
@@ -433,7 +352,7 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p6.html" data-id="p6" data-type="阅读理解+计算" data-topics="二次根式,分母有理化,整体代入法" data-cat="二次根式" onclick="loadProblem(this, 'problems/p6.html');return false;" ondblclick="toggleMastered('p6')" title="p6 整体代入法">
+              <a class="tree-file" href="problems/p6.html" data-id="p6" data-cat="二次根式" onclick="loadProblem(this, 'problems/p6.html');return false;" ondblclick="toggleMastered('p6')" title="p6 整体代入法">
                 <span class="tree-checkmark" id="check-p6"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p6 整体代入法</span>
@@ -441,7 +360,7 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p19.html" data-id="p19" data-type="二次根式" data-topics="二次根式,配方法,平方差公式,分母有理化" data-cat="二次根式" onclick="loadProblem(this, 'problems/p19.html');return false;" ondblclick="toggleMastered('p19')" title="p19 二次根式配凑">
+              <a class="tree-file" href="problems/p19.html" data-id="p19" data-cat="二次根式" onclick="loadProblem(this, 'problems/p19.html');return false;" ondblclick="toggleMastered('p19')" title="p19 二次根式配凑">
                 <span class="tree-checkmark" id="check-p19"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p19 二次根式配凑</span>
@@ -459,7 +378,7 @@
           </div>
           <ul class="tree-children">
             <li>
-              <a class="tree-file" href="problems/p1.html" data-id="p1" data-type="应用题" data-topics="最值问题,均值不等式,二次函数" data-cat="最值问题" onclick="loadProblem(this, 'problems/p1.html');return false;" ondblclick="toggleMastered('p1')" title="p1 篱笆围菜园">
+              <a class="tree-file" href="problems/p1.html" data-id="p1" data-cat="最值问题" onclick="loadProblem(this, 'problems/p1.html');return false;" ondblclick="toggleMastered('p1')" title="p1 篱笆围菜园">
                 <span class="tree-checkmark" id="check-p1"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p1 篱笆围菜园</span>
@@ -467,7 +386,7 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p2.html" data-id="p2" data-type="综合应用" data-topics="几何面积,均值不等式,对顶三角形" data-cat="最值问题" onclick="loadProblem(this, 'problems/p2.html');return false;" ondblclick="toggleMastered('p2')" title="p2 四边形面积最小值">
+              <a class="tree-file" href="problems/p2.html" data-id="p2" data-cat="最值问题" onclick="loadProblem(this, 'problems/p2.html');return false;" ondblclick="toggleMastered('p2')" title="p2 四边形面积最小值">
                 <span class="tree-checkmark" id="check-p2"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p2 四边形面积最小值</span>
@@ -485,7 +404,7 @@
           </div>
           <ul class="tree-children">
             <li>
-              <a class="tree-file" href="problems/p15.html" data-id="p15" data-type="选择填空" data-topics="函数概念,函数定义" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p15.html');return false;" ondblclick="toggleMastered('p15')" title="p15 函数的判断">
+              <a class="tree-file" href="problems/p15.html" data-id="p15" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p15.html');return false;" ondblclick="toggleMastered('p15')" title="p15 函数的判断">
                 <span class="tree-checkmark" id="check-p15"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p15 函数的判断</span>
@@ -493,7 +412,7 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p17.html" data-id="p17" data-type="函数与统计" data-topics="一次函数,待定系数法,代入求值" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p17.html');return false;" ondblclick="toggleMastered('p17')" title="p17 弹簧长度与质量的函数关系">
+              <a class="tree-file" href="problems/p17.html" data-id="p17" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p17.html');return false;" ondblclick="toggleMastered('p17')" title="p17 弹簧长度与质量的函数关系">
                 <span class="tree-checkmark" id="check-p17"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p17 弹簧长度与质量的函数关系</span>
@@ -501,7 +420,7 @@
               </a>
             </li>
             <li>
-              <a class="tree-file" href="problems/p18.html" data-id="p18" data-type="函数与统计" data-topics="四分位数,箱线图,方差,数据波动" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p18.html');return false;" ondblclick="toggleMastered('p18')" title="p18 甲乙两组成绩分析（四分位数 + 箱线图 + 方差）">
+              <a class="tree-file" href="problems/p18.html" data-id="p18" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p18.html');return false;" ondblclick="toggleMastered('p18')" title="p18 甲乙两组成绩分析（四分位数 + 箱线图 + 方差）">
                 <span class="tree-checkmark" id="check-p18"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p18 甲乙两组成绩分析（四分位数 + 箱线图 + 方差）</span>
@@ -531,8 +450,6 @@
 </main>
 
 <script>
-let activeTopic = null;
-let activeType = null;
 let currentFile = null;
 let sidebarOpen = true;
 
@@ -568,21 +485,6 @@ function toggleMastered(id) {
   if (isMastered && idx === -1) mastered.push(id);
   if (!isMastered && idx !== -1) mastered.splice(idx, 1);
   localStorage.setItem('mastered', JSON.stringify(mastered));
-}
-
-// ====== Filter panel toggle ======
-function toggleFilter(panelId) {
-  const panel = document.getElementById(panelId);
-  const header = panel.querySelector('.filter-panel-header');
-  const body = panel.querySelector('.filter-panel-body');
-  const isCollapsed = body.classList.contains('hidden');
-  if (isCollapsed) {
-    body.classList.remove('hidden');
-    header.classList.remove('collapsed');
-  } else {
-    body.classList.add('hidden');
-    header.classList.add('collapsed');
-  }
 }
 
 // ====== Tree folder toggle ======
@@ -624,78 +526,9 @@ function loadProblem(linkEl, file) {
   if (id) localStorage.setItem('lastProblemId', id);
 }
 
-// ====== Topic filter ======
-function filterByTopic(tagEl, topic) {
-  if (activeTopic === topic) {
-    clearTopicFilter();
-    return;
-  }
-  activeTopic = topic;
-  activeType = null;
-  updateFilterUI();
-  applyFilters();
-}
-
-function clearTopicFilter() {
-  activeTopic = null;
-  updateFilterUI();
-  applyFilters();
-}
-
-// ====== Type filter ======
-function filterByType(tagEl, type) {
-  if (activeType === type) {
-    clearTypeFilter();
-    return;
-  }
-  activeType = type;
-  activeTopic = null;
-  updateFilterUI();
-  applyFilters();
-}
-
-function clearTypeFilter() {
-  activeType = null;
-  updateFilterUI();
-  applyFilters();
-}
-
-function updateFilterUI() {
-  document.querySelectorAll('#topicFilterBody .filter-tag').forEach(el => {
-    el.classList.toggle('active', el.getAttribute('data-topic') === activeTopic);
-  });
-  document.querySelectorAll('#typeFilterBody .filter-tag').forEach(el => {
-    el.classList.toggle('active', el.getAttribute('data-type') === activeType);
-  });
-}
-
-function applyFilters() {
-  document.querySelectorAll('.tree-file').forEach(el => {
-    let show = true;
-    const id = el.getAttribute('data-id');
-    const fileTopics = el.getAttribute('data-topics').split(',');
-    const fileType = el.getAttribute('data-type');
-
-    if (activeTopic && !fileTopics.includes(activeTopic)) show = false;
-    if (activeType && fileType !== activeType) show = false;
-
-    el.classList.toggle('hidden-file', !show);
-  });
-
-  // Auto-expand folders that have visible children
-  document.querySelectorAll('.tree-folder').forEach(folder => {
-    const children = folder.querySelector('.tree-children');
-    const visibleFiles = children.querySelectorAll('.tree-file:not(.hidden-file)');
-    if (visibleFiles.length > 0) {
-      children.classList.remove('hidden');
-      folder.querySelector('.tree-folder-header').classList.remove('collapsed');
-    }
-  });
-}
-
 // ====== Keyboard ======
 document.addEventListener('keydown', function(e) {
-  const visibleFiles = [...document.querySelectorAll('.tree-file:not(.hidden-file)')];
+  const visibleFiles = [...document.querySelectorAll('.tree-file')];
   if (visibleFiles.length === 0) return;
   const currentIdx = visibleFiles.findIndex(el => el.classList.contains('active'));
   if (e.key === 'ArrowDown') {
