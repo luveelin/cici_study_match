@@ -856,6 +856,22 @@ function toggleFolder(header) {
   }
 }
 
+// 全部子项已标绿（mastered）的文件夹，页面打开时默认收起
+function collapseMasteredFolders() {
+  document.querySelectorAll('.tree-folder').forEach(folder => {
+    const files = folder.querySelectorAll('.tree-file');
+    if (files.length === 0) return;
+    const allMastered = [...files].every(f => f.classList.contains('mastered'));
+    if (!allMastered) return;
+    const header = folder.querySelector('.tree-folder-header');
+    const children = folder.querySelector('.tree-children');
+    if (header && children) {
+      header.classList.add('collapsed');
+      children.classList.add('hidden');
+    }
+  });
+}
+
 // ====== Load problem into iframe ======
 function loadProblem(linkEl, file) {
   // Update active state
@@ -906,6 +922,9 @@ document.addEventListener('DOMContentLoaded', function() {
   try {
     JSON.parse(localStorage.getItem('mastered') || '[]').forEach(id => markMastered(id));
   } catch (e) {}
+
+  // 3) 全部子项已掌握的文件夹默认收起
+  collapseMasteredFolders();
 
   // 恢复上次打开的题目
   const lastId = localStorage.getItem('lastProblemId');
