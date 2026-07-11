@@ -6,7 +6,7 @@
 
 每道题页面包含：原题图片、✍️ 解题过程、📌 知识点总结（可折叠，默认收起）、🎯 举一反三、📚 南昌/江西中考类似题（同类拓展，附真题来源链接）。
 
-> 全部解答、知识点总结、中考真题均基于初中范围（二次根式、最值问题、几何综合、函数与统计）。
+> 全部解答、知识点总结、中考真题均基于初中范围（二次根式、最值问题、几何综合、坐标轴几何、函数与统计）。
 
 ## 项目结构
 
@@ -151,7 +151,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 4. 🎯 举一反三
 5. 📚 南昌/江西中考类似题（同类拓展）—— 真实中考真题，附 `江西省20xx` 来源链接
 
-> ⚠️ `build.js` 中 `content` 为 JS 模板字符串：KaTeX 命令需用**双反斜杠**（`\\frac`、`\\sqrt`），单反斜杠会被当作 JS 转义而破坏公式。
+> ⚠️ `problems-data.js` 中 `content` 为 JS 模板字符串：KaTeX 命令需用**双反斜杠**（`\\frac`、`\\sqrt`），单反斜杠会被当作 JS 转义而破坏公式。
 
 ## 题目清单（14 道）
 
@@ -225,7 +225,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 
 ## 维护提示
 
-- **改内容**：编辑 `build.js` 中对应题目的 `content`，然后 `node build.js` 重新生成。
+- **改内容**：编辑 `problems-data.js`（题目数据已从 `build.js` 抽出，通过 `require` 引入）中对应题目的 `content`，然后 `node build.js` 重新生成。
 - **回滚点**：`build_pristine_backup.js` 是重建前的纯净源码；`rebuild_kb.py` 是恢复脚本。
 - **查看效果**：保持本地静态服务（`python -m http.server 8000`）运行，浏览器访问 `http://localhost:8000/` 刷新即可。
 
