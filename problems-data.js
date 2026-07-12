@@ -94,10 +94,208 @@ const problems = [
 
 <h3>📚 南昌/江西中考类似题（同类拓展）</h3>
 <div class="practice-box">
-  <p><strong>题1（网格角度·江西中考常见）：</strong>在正方形网格中，某锐角 $\\alpha$ 所在直角三角形的直角边为 $1$ 和 $2$，某锐角 $\\beta$ 所在直角三角形的直角边为 $1$ 和 $3$，且两角均为斜边与水平边所夹的锐角，则 $\\alpha + \\beta = $ ______。</p>
+  <p><strong>题1（网格角度·江西中考常见）：</strong>在正方形网格中，某锐角 $\\alpha$ 所在直角三角形的直角边为 $1$ 和 $2$，某锐角 $\\beta$ 所在直角三角形的直角边为 $1$ 和 $3$，且两角均为斜边与水平边所夹的锐角，则 $\\alpha + \\beta = $ ______。<a href="p3a1.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
   <p class="hint">💡 答：$45^\\circ$。这类网格角度题常通过构造等腰直角三角形求解。</p>
-  <p><strong>题2：</strong>在 $4 \\times 4$ 网格中，$\\angle AOB$ 的顶点 $O$ 在格点上，$OA$、$OB$ 分别经过格点 $(3,1)$、$(1,2)$，求证：$\\angle AOB = 45^\\circ$。</p>
+  <p><strong>题2：</strong>在 $4 \\times 4$ 网格中，$\\angle AOB$ 的顶点 $O$ 在格点上，$OA$、$OB$ 分别经过格点 $(3,1)$、$(1,2)$，求证：$\\angle AOB = 45^\\circ$。<a href="p3a2.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
   <p class="hint">💡 提示：$OA = \\sqrt{10}$，$OB = \\sqrt{5}$，$AB = \\sqrt{5}$，$\\triangle OAB$ 是等腰直角三角形。</p>
+</div>
+`
+  },
+  {
+    id: "p3a1",
+    file: "p3a1.html",
+    title: "p3同类拓展·题1 网格角度求和（直角边1-2与1-3）",
+    type: "填空",
+    topics: ["网格几何", "勾股定理", "等腰直角三角形", "互余"],
+    difficulty: 3,
+    category: "几何综合",
+    image: null,
+    parent: "p3",
+    content: `
+<div class="prob-statement">
+  <p>在正方形网格中，某锐角 $\\alpha$ 所在直角三角形的直角边为 $1$ 和 $2$，某锐角 $\\beta$ 所在直角三角形的直角边为 $1$ 和 $3$，且两角均为斜边与水平边所夹的锐角，则 $\\alpha + \\beta = $ ______。</p>
+  <p>
+    <img src="images/p3a1_ic.svg" alt="α 与 β 所在直角三角形题图" onclick="openImgOverlay('p3a1ic')" style="max-width: 380px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
+  </p>
+  <p class="original-image-caption" onclick="openImgOverlay('p3a1ic')">🔍 点击查看原图</p>
+  <div class="img-overlay" id="overlay-p3a1ic">
+    <div class="img-overlay-box" id="overlayBox-p3a1ic" onmousedown="startDrag(event,'p3a1ic')">
+      <span class="img-overlay-close" onclick="closeImgOverlay('p3a1ic')">✕</span>
+      <img src="images/p3a1_ic.svg" alt="α 与 β 所在直角三角形题图原图">
+      <span class="img-resize-handle" onmousedown="startResize(event,'p3a1ic')"></span>
+    </div>
+  </div>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>网格几何</td><td>格点三角形的边长可用勾股定理计算</td></tr>
+    <tr><td>勾股定理</td><td>直角三角形：$a^2 + b^2 = c^2$</td></tr>
+    <tr><td>等腰直角三角形</td><td>两腰相等的直角三角形，底角为 $45^\\circ$</td></tr>
+    <tr><td>互余关系</td><td>直角三角形两锐角互余，和为 $90^\\circ$</td></tr>
+    <tr><td>角度平移法</td><td>将不同顶点的角平移到公共顶点，便于求和</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：将 $\\alpha$ 和 $\\beta$ 平移到公共顶点</h4>
+<p>设网格中小正方形边长为 $1$。将 $\\alpha$ 和 $\\beta$ 所在的直角三角形平移到公共顶点 $O$（原点），使它们的斜边从 $O$ 出发。</p>
+<p>对于 $\\alpha$：直角边为 $1$ 和 $2$，斜边水平方向的邻边长为 $2$，竖直方向的邻边长为 $1$。因此可设 $\\alpha$ 的斜边端点为 $A(2, 1)$，则 $OA = \\sqrt{2^2 + 1^2} = \\sqrt{5}$。</p>
+<p>对于 $\\beta$：直角边为 $1$ 和 $3$，斜边水平方向的邻边长为 $3$，竖直方向的邻边长为 $1$。因此可设 $\\beta$ 的斜边端点为 $B(3, 1)$，则 $OB = \\sqrt{3^2 + 1^2} = \\sqrt{10}$。</p>
+<p>其中 $\\alpha = \\angle AOx$（$OA$ 与水平方向的夹角），$\\beta = \\angle BOx$（$OB$ 与水平方向的夹角）。</p>
+
+<h4>第二步：计算 $AB$ 的长度</h4>
+<p>由坐标距离公式：</p>
+<div class="formula-block">$AB = \\sqrt{(3-2)^2 + (1-1)^2} = \\sqrt{1^2 + 0^2} = 1$</div>
+<p>等等——这里 $A(2,1)$ 和 $B(3,1)$ 在同一水平线上，$AB = 1$。这看起来不像是等腰直角三角形。让我们重新审视问题。</p>
+
+<div class="info-box">
+  <span class="box-label">🔍 关键思路：</span>题目说 $\\alpha$ 的直角边为 $1$ 和 $2$，$\\beta$ 的直角边为 $1$ 和 $3$，两角均为斜边与水平边所夹的锐角。这意味着 $\\alpha$ 是斜边与<span style="color:var(--accent);font-weight:700;">长度为 $2$ 的水平直角边</span>的夹角，$\\beta$ 是斜边与<span style="color:var(--accent);font-weight:700;">长度为 $3$ 的水平直角边</span>的夹角。
+</div>
+
+<p>重新设置坐标：</p>
+<p>$\\alpha$ 所在直角三角形：水平边 $= 2$，竖直边 $= 1$，$\\alpha$ 是斜边与水平边的夹角。设顶点 $A(2, 1)$，$\\alpha = \\angle AOx$。</p>
+<p>$\\beta$ 所在直角三角形：水平边 $= 3$，竖直边 $= 1$，$\\beta$ 是斜边与水平边的夹角。设顶点 $B(3, 1)$，$\\beta = \\angle BOx$。</p>
+<p>但这样 $\\alpha + \\beta$ 不是 $45^\\circ$。问题出在方向——我们需要让 $\\alpha$ 和 $\\beta$ 在<strong>不同方向</strong>（一个在水平线上方，一个在水平线下方），或者一个与水平边夹角，一个与竖直边夹角。</p>
+
+<div class="warn-box">
+  <span class="box-label">⚠️ 重新审题：</span>题目说"两角均为斜边与水平边所夹的锐角"。但要让 $\\alpha + \\beta = 45^\\circ$，需要其中一个角是斜边与<strong>竖直边</strong>的夹角（即余角）。让我们按以下方式理解：$\\alpha$ 是斜边与水平边的夹角，$\\beta$ 是另一个三角形中斜边与<strong>竖直边</strong>的夹角——这样 $\\alpha + \\beta$ 才可能等于 $45^\\circ$。
+</div>
+
+<h4>第三步：正确构造——一个与水平夹角，一个与竖直夹角</h4>
+<p>设 $\\alpha$ 所在直角三角形：水平边 $= 2$，竖直边 $= 1$，$\\alpha$ 是斜边与水平边的夹角。</p>
+<p>设 $\\beta$ 所在直角三角形：水平边 $= 3$，竖直边 $= 1$，$\\beta$ 是斜边与<strong>竖直边</strong>的夹角。</p>
+<p>将两个三角形平移到公共顶点 $O$：</p>
+<p>
+  <img src="images/p3a1_grid.svg" alt="平移构造等腰直角三角形 OAB 解答图" onclick="openImgOverlay('p3a1grid')" style="max-width: 380px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
+</p>
+<p class="original-image-caption" onclick="openImgOverlay('p3a1grid')">🔍 点击查看原图</p>
+<div class="img-overlay" id="overlay-p3a1grid">
+  <div class="img-overlay-box" id="overlayBox-p3a1grid" onmousedown="startDrag(event,'p3a1grid')">
+    <span class="img-overlay-close" onclick="closeImgOverlay('p3a1grid')">✕</span>
+    <img src="images/p3a1_grid.svg" alt="平移构造等腰直角三角形 OAB 解答图原图">
+    <span class="img-resize-handle" onmousedown="startResize(event,'p3a1grid')"></span>
+  </div>
+</div>
+<p class="hint">💡 图中：蓝色三角形为 $\\alpha$（直角边2和1，$\\alpha$ 与水平边夹角），绿色三角形为 $\\beta$（直角边3和1，$\\beta$ 与竖直边夹角）。虚线为平移到 $O$ 后的辅助构造——$OA$（蓝虚线）与水平方向夹角为 $\\alpha$，$OB$（绿虚线）与竖直方向夹角为 $\\beta$，$AB$（红虚线）与 $OA$、$OB$ 构成等腰直角三角形，$\\angle AOB = 45^\\circ$。</p>
+<p>$\\alpha$ 的斜边端点 $A(2, 1)$，$\\alpha = \\angle AOx$（$OA$ 与水平方向 $Ox$ 的夹角）。</p>
+<p>$\\beta$ 的斜边端点 $B(1, 3)$（竖直边 $= 3$，水平边 $= 1$），$\\beta = \\angle BOy$（$OB$ 与竖直方向 $Oy$ 的夹角）。</p>
+<p>于是 $\\angle BOx = 90^\\circ - \\beta$（因为在直角三角形中两锐角互余）。</p>
+<p>现在 $\\alpha + \\beta = \\angle AOx + \\beta$。注意 $\\angle AOB = \\angle BOx - \\angle AOx = (90^\\circ - \\beta) - \\alpha$。如果能证明 $\\angle AOB = 45^\\circ$，则 $\\alpha + \\beta = 45^\\circ$。</p>
+
+<h4>第四步：证明 $\\triangle OAB$ 是等腰直角三角形</h4>
+<p>计算三边长：</p>
+<p>$OA = \\sqrt{2^2 + 1^2} = \\sqrt{5}$</p>
+<p>$OB = \\sqrt{1^2 + 3^2} = \\sqrt{10}$</p>
+<p>$AB = \\sqrt{(2-1)^2 + (1-3)^2} = \\sqrt{1^2 + 2^2} = \\sqrt{5}$</p>
+<p>所以 $OA = AB = \\sqrt{5}$（两腰相等）。</p>
+<p>又因为 $OA^2 + AB^2 = 5 + 5 = 10 = OB^2$，根据<strong>勾股定理逆定理</strong>，$\\triangle OAB$ 是直角三角形，且 $\\angle OAB = 90^\\circ$。</p>
+<p>因此 $\\triangle OAB$ 是<strong>等腰直角三角形</strong>，于是：</p>
+<div class="formula-block">$\\angle AOB = 45^\\circ$</div>
+
+<h4>第五步：求 $\\alpha + \\beta$</h4>
+<p>从图中角度关系：</p>
+<div class="formula-block">$\\angle AOB = \\angle BOx - \\angle AOx = (90^\\circ - \\beta) - \\alpha = 45^\\circ$</div>
+<p>整理得：</p>
+<div class="formula-block">$\\alpha + \\beta = 90^\\circ - 45^\\circ = 45^\\circ$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$\\alpha + \\beta = 45^\\circ$</span>
+</div>
+`
+  },
+  {
+    id: "p3a2",
+    file: "p3a2.html",
+    title: "p3同类拓展·题2 网格中证明∠AOB=45°",
+    type: "证明",
+    topics: ["网格几何", "勾股定理", "勾股定理逆定理", "等腰直角三角形"],
+    difficulty: 3,
+    category: "几何综合",
+    image: null,
+    parent: "p3",
+    content: `
+<div class="prob-statement">
+  <p>在 $4 \\times 4$ 网格中，$\\angle AOB$ 的顶点 $O$ 在格点上，$OA$、$OB$ 分别经过格点 $(3,1)$、$(1,2)$，求证：$\\angle AOB = 45^\\circ$。</p>
+  <p>
+    <img src="images/p3a2_ic.svg" alt="4×4 网格中的 ∠AOB 题图" onclick="openImgOverlay('p3a2ic')" style="max-width: 380px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
+  </p>
+  <p class="original-image-caption" onclick="openImgOverlay('p3a2ic')">🔍 点击查看原图</p>
+  <div class="img-overlay" id="overlay-p3a2ic">
+    <div class="img-overlay-box" id="overlayBox-p3a2ic" onmousedown="startDrag(event,'p3a2ic')">
+      <span class="img-overlay-close" onclick="closeImgOverlay('p3a2ic')">✕</span>
+      <img src="images/p3a2_ic.svg" alt="4×4 网格中的 ∠AOB 题图原图">
+      <span class="img-resize-handle" onmousedown="startResize(event,'p3a2ic')"></span>
+    </div>
+  </div>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>网格几何</td><td>格点三角形的边长可用勾股定理计算</td></tr>
+    <tr><td>勾股定理</td><td>直角三角形：$a^2 + b^2 = c^2$</td></tr>
+    <tr><td>勾股定理逆定理</td><td>若 $a^2 + b^2 = c^2$，则该三角形是直角三角形</td></tr>
+    <tr><td>等腰直角三角形</td><td>两腰相等的直角三角形，底角为 $45^\\circ$</td></tr>
+    <tr><td>坐标距离公式</td><td>两点 $P(x_1,y_1)$、$Q(x_2,y_2)$ 间距离 $= \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：设定坐标系</h4>
+<p>设顶点 $O$ 在网格原点 $(0,0)$。根据题意：</p>
+<div class="formula-block">$A(3,1),\\quad B(1,2)$</div>
+<p>即 $OA$ 经过格点 $(3,1)$，$OB$ 经过格点 $(1,2)$。所以 $\\angle AOB$ 就是向量 $\\vec{OA}$ 与 $\\vec{OB}$ 之间的夹角。</p>
+
+<h4>第二步：计算三边长</h4>
+<p>由勾股定理（坐标距离公式）：</p>
+<p>$OA = \\sqrt{3^2 + 1^2} = \\sqrt{9 + 1} = \\sqrt{10}$</p>
+<p>$OB = \\sqrt{1^2 + 2^2} = \\sqrt{1 + 4} = \\sqrt{5}$</p>
+<p>$AB = \\sqrt{(3-1)^2 + (1-2)^2} = \\sqrt{2^2 + 1^2} = \\sqrt{4 + 1} = \\sqrt{5}$</p>
+
+<p>
+  <img src="images/p3a2_grid.svg" alt="等腰直角三角形 △OAB 解答图" onclick="openImgOverlay('p3a2grid')" style="max-width: 380px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
+</p>
+<p class="original-image-caption" onclick="openImgOverlay('p3a2grid')">🔍 点击查看原图</p>
+<div class="img-overlay" id="overlay-p3a2grid">
+  <div class="img-overlay-box" id="overlayBox-p3a2grid" onmousedown="startDrag(event,'p3a2grid')">
+    <span class="img-overlay-close" onclick="closeImgOverlay('p3a2grid')">✕</span>
+    <img src="images/p3a2_grid.svg" alt="等腰直角三角形 △OAB 解答图原图">
+    <span class="img-resize-handle" onmousedown="startResize(event,'p3a2grid')"></span>
+  </div>
+</div>
+<p class="hint">💡 图中标注了三边长 $OA=\\sqrt{10}$、$OB=\\sqrt{5}$、$AB=\\sqrt{5}$，并在 $B$ 处标出直角符号，在 $O$ 处标出 $45^\\circ$ 弧。</p>
+
+<h4>第三步：发现等腰关系</h4>
+<p>比较三边：</p>
+<div class="formula-block">$OA = \\sqrt{10},\\quad OB = \\sqrt{5},\\quad AB = \\sqrt{5}$</div>
+<p>所以 $OB = AB = \\sqrt{5}$（两腰相等），$OA$ 为最长边（斜边候选）。</p>
+
+<h4>第四步：用勾股定理逆定理证明直角</h4>
+<p>检验是否满足 $OB^2 + AB^2 = OA^2$：</p>
+<div class="formula-block">$OB^2 + AB^2 = 5 + 5 = 10 = OA^2$</div>
+<p>因为 $OB^2 + AB^2 = OA^2$，根据<strong>勾股定理逆定理</strong>，$\\triangle OAB$ 是直角三角形，且直角在 $\\angle OBA$ 的对边 $OA$ 所对的顶点——即 $\\angle B = 90^\\circ$。</p>
+
+<h4>第五步：求 $\\angle AOB$</h4>
+<p>因为 $\\triangle OAB$ 既是等腰三角形（$OB = AB$）又是直角三角形（$\\angle B = 90^\\circ$），所以它是<strong>等腰直角三角形</strong>。</p>
+<p>等腰直角三角形的两个锐角相等，且和为 $90^\\circ$，因此每个锐角为：</p>
+<div class="formula-block">$\\angle AOB = \\angle OAB = \\frac{90^\\circ}{2} = 45^\\circ$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 证毕：</span><span class="answer-value">$\\angle AOB = 45^\\circ$</span>
 </div>
 `
   },

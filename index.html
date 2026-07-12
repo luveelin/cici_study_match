@@ -6,7 +6,7 @@
 <title>cici_study_math</title>
 <style>
   :root {
-    --sidebar-w: 340px;
+    --sidebar-w: 309px;
     --sidebar-bg: #1b2838;
     --sidebar-text: #b0bec5;
     --accent: #2e75b6;
@@ -51,7 +51,7 @@
     position: relative;
   }
   .sidebar-header h1 {
-    font-size: 1.2em;
+    font-size: 1.05em;
     color: #fff;
     font-weight: 700;
   }
@@ -65,43 +65,52 @@
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.08);
-    color: #8a9bb5;
-    font-size: 0.65em;
+    border-radius: 7px;
+    background: #fff;
+    color: var(--accent);
+    font-size: 0.7em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.35);
     transition: all 0.2s;
     border: none;
     user-select: none;
   }
-  .sidebar-toggle:hover { background: rgba(255,255,255,0.18); color: #c0d0e0; }
+  .sidebar-toggle:hover {
+    background: #f0f6fc;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 3px 9px rgba(0,0,0,0.45);
+  }
   .sidebar-reopen {
     position: fixed;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 28px;
-    height: 48px;
+    width: 30px;
+    height: 42px;
     display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background: var(--sidebar-bg);
-    color: #8a9bb5;
+    background: #fff;
+    color: var(--accent);
     font-size: 0.7em;
-    border: none;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    border: 2px solid var(--accent);
+    border-left: none;
+    border-radius: 0 7px 7px 0;
+    box-shadow: 2px 0 9px rgba(0,0,0,0.25);
     z-index: 5;
     transition: all 0.2s;
     user-select: none;
   }
-  .sidebar-reopen:hover { background: #243447; color: #c0d0e0; }
+  .sidebar-reopen:hover {
+    background: #f0f6fc;
+    box-shadow: 3px 0 12px rgba(0,0,0,0.35);
+  }
   .sidebar.collapsed ~ .sidebar-reopen { display: flex; }
 
   /* Tree nav */
@@ -194,6 +203,52 @@
   .tree-file.mastered .tree-file-name {
     color: #7dcea0;
   }
+  /* 二级父题（带子题）：整行可点 = 折叠/展开 + 加载题目，正文与同级题目对齐 */
+  .tree-subfolder > .tree-folder-header {
+    padding: 6px 18px 6px 13px;
+    border-left: 3px solid transparent;
+  }
+  .tree-subfolder > .tree-folder-header:hover { background: var(--hover-bg); }
+  .tree-subfolder > .tree-folder-header.active {
+    background: var(--active-bg);
+    border-left-color: var(--accent);
+  }
+  .tree-subfolder > .tree-folder-header.active .tree-file-name {
+    color: #fff;
+  }
+  /* 父题头内部元素与普通 tree-file 对齐 */
+  .tree-subfolder > .tree-folder-header > .tree-checkmark { margin-right: 2px; }
+  .tree-subfolder > .tree-folder-header > .tree-file-icon {
+    font-size: 0.85em;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .tree-subfolder > .tree-folder-header > .tree-file-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.82em;
+    color: var(--sidebar-text);
+  }
+  .tree-subfolder > .tree-folder-header > .tree-file-diff {
+    margin-left: 6px;
+    font-size: 0.72em;
+    color: #f0c040;
+    flex-shrink: 0;
+  }
+  /* 掌握态：父题头标题变绿 */
+  .tree-subfolder > .tree-folder-header.mastered .tree-file-name {
+    color: #7dcea0;
+  }
+  /* 箭头回归正常 flow 布局，无需 absolute 定位（整行可点，手机端友好） */
+  .tree-subfolder > .tree-folder-header > .tree-arrow {
+    margin-right: 6px;
+  }
+  /* 子题：比父题再缩进一层 */
+  .tree-subfolder > .tree-children .tree-file {
+    padding-left: 26px;
+  }
 
   /* ====== MAIN ====== */
   .main {
@@ -252,7 +307,7 @@
       width: 100%;
       min-width: 100%;
       height: auto;
-      max-height: 45vh;
+      max-height: 36vh;
       flex-shrink: 0;
     }
     .main {
@@ -319,16 +374,36 @@
             <span class="tree-arrow">▶</span>
             <span class="tree-folder-icon">📁</span>
             <span class="tree-folder-name">几何综合</span>
-            <span class="tree-count">2</span>
+            <span class="tree-count">4</span>
           </div>
           <ul class="tree-children">
-            <li>
-              <a class="tree-file" href="problems/p3.html" data-id="p3" data-cat="几何综合" onclick="loadProblem(this, 'problems/p3.html');return false;" ondblclick="toggleMastered('p3')" title="p3 网格中的角度求和">
+            <li class="tree-folder tree-subfolder">
+              <div class="tree-folder-header" onclick="toggleFolderAndLoad(this, 'problems/p3.html', 'p3')" ondblclick="toggleMastered('p3')" title="p3 网格中的角度求和" data-id="p3" data-cat="几何综合">
+                <span class="tree-arrow">▶</span>
                 <span class="tree-checkmark" id="check-p3"></span>
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p3 网格中的角度求和</span>
                 <span class="tree-file-diff">★★★☆</span>
+              </div>
+              <ul class="tree-children">
+                
+            <li>
+              <a class="tree-file" href="problems/p3a1.html" data-id="p3a1" data-cat="几何综合" onclick="loadProblem(this, 'problems/p3a1.html');return false;" ondblclick="toggleMastered('p3a1')" title="p3同类拓展·题1 网格角度求和（直角边1-2与1-3）">
+                <span class="tree-checkmark" id="check-p3a1"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p3同类拓展·题1 网格角度求和（直角边1-2与1-3）</span>
+                <span class="tree-file-diff">★★★☆</span>
               </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p3a2.html" data-id="p3a2" data-cat="几何综合" onclick="loadProblem(this, 'problems/p3a2.html');return false;" ondblclick="toggleMastered('p3a2')" title="p3同类拓展·题2 网格中证明∠AOB=45°">
+                <span class="tree-checkmark" id="check-p3a2"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p3同类拓展·题2 网格中证明∠AOB=45°</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+              </ul>
             </li>
             <li>
               <a class="tree-file" href="problems/p16.html" data-id="p16" data-cat="几何综合" onclick="loadProblem(this, 'problems/p16.html');return false;" ondblclick="toggleMastered('p16')" title="p16 菱形中的动点">
@@ -497,10 +572,12 @@ function toggleSidebar() {
 // ====== Mastered toggle (双击标记掌握) ======
 function toggleMastered(id) {
   const checkEl = document.getElementById('check-' + id);
-  const fileEl = checkEl?.closest('.tree-file');
-  if (!checkEl || !fileEl) return;
+  if (!checkEl) return;
+  // 兼容：checkmark 可能在 .tree-file 内，也可能在二级父题 header 内
+  const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
+  if (!itemEl) return;
   const isMastered = checkEl.classList.toggle('mastered');
-  fileEl.classList.toggle('mastered', isMastered);
+  itemEl.classList.toggle('mastered', isMastered);
   checkEl.textContent = isMastered ? '✓' : '';
   // 保存到 localStorage
   const mastered = JSON.parse(localStorage.getItem('mastered') || '[]');
@@ -513,11 +590,13 @@ function toggleMastered(id) {
 // 仅做视觉标绿，不写 localStorage（供预置/恢复共用）
 function markMastered(id) {
   const checkEl = document.getElementById('check-' + id);
-  const fileEl = checkEl?.closest('.tree-file');
-  if (checkEl && fileEl) {
+  if (!checkEl) return;
+  // 兼容：可能在 .tree-file 内，也可能在二级父题 header 内
+  const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
+  if (itemEl) {
     checkEl.classList.add('mastered');
     checkEl.textContent = '✓';
-    fileEl.classList.add('mastered');
+    itemEl.classList.add('mastered');
   }
 }
 
@@ -534,15 +613,54 @@ function toggleFolder(header) {
   }
 }
 
-// 全部子项已标绿（mastered）的文件夹，页面打开时默认收起
+// 二级父题整行点击：折叠/展开子菜单 + 同时加载该题到右侧
+function toggleFolderAndLoad(header, file, id) {
+  // 1) 折叠/展开（复用原有逻辑）
+  toggleFolder(header);
+  // 2) 加载题目到右侧内容区
+  document.querySelectorAll('.tree-file').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tree-folder-header').forEach(el => el.classList.remove('active'));
+  header.classList.add('active');
+  document.getElementById('welcomeMsg').style.display = 'none';
+  const frame = document.getElementById('contentFrame');
+  frame.style.display = 'block';
+  frame.src = file;
+  document.getElementById('contentWrapper').style.display = 'none';
+  document.getElementById('breadcrumb').textContent = '题目详情';
+  document.getElementById('currentTitle').textContent =
+    header.querySelector('.tree-file-name')?.textContent || '';
+  currentFile = file;
+  if (id) localStorage.setItem('lastProblemId', id);
+}
+
+// 取某个文件夹“直接子项”中的题目链接（用于判断是否全部标绿）。
+// 仅统计该文件夹 .tree-children 下直接 li 的题目链接，
+// 以及子文件夹（如父题分组）的分组头链接；不递归统计孙级。
+function getFolderItems(folder) {
+  const ul = folder.querySelector(':scope > .tree-children');
+  if (!ul) return [];
+  const items = [];
+  ul.querySelectorAll(':scope > li').forEach(li => {
+    // 叶子题目
+    const direct = li.querySelector(':scope > .tree-file');
+    if (direct) { items.push(direct); return; }
+    // 二级父题（整行可点击的 header 本身承载信息）
+    const subHeader = li.querySelector(':scope > .tree-folder > .tree-folder-header');
+    if (subHeader) items.push(subHeader);
+  });
+  return items;
+}
+
+// 全部子项已标绿（mastered）的文件夹，页面打开时默认收起。
+// 同时支持一级分类与二级菜单（嵌套子文件夹）。
 function collapseMasteredFolders() {
   document.querySelectorAll('.tree-folder').forEach(folder => {
-    const files = folder.querySelectorAll('.tree-file');
-    if (files.length === 0) return;
-    const allMastered = [...files].every(f => f.classList.contains('mastered'));
+    const items = getFolderItems(folder);
+    if (items.length === 0) return;
+    const allMastered = items.every(f => f.classList.contains('mastered'));
     if (!allMastered) return;
-    const header = folder.querySelector('.tree-folder-header');
-    const children = folder.querySelector('.tree-children');
+    const header = folder.querySelector(':scope > .tree-folder-header');
+    const children = folder.querySelector(':scope > .tree-children');
     if (header && children) {
       header.classList.add('collapsed');
       children.classList.add('hidden');
@@ -554,6 +672,7 @@ function collapseMasteredFolders() {
 function loadProblem(linkEl, file) {
   // Update active state
   document.querySelectorAll('.tree-file').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tree-folder-header').forEach(el => el.classList.remove('active'));
   linkEl.classList.add('active');
   currentFile = file;
 
@@ -604,11 +723,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // 3) 全部子项已掌握的文件夹默认收起
   collapseMasteredFolders();
 
-  // 恢复上次打开的题目
+  // 恢复上次打开的题目（可能是叶子题目，也可能是二级父题头）
   const lastId = localStorage.getItem('lastProblemId');
   let targetFile = null;
   if (lastId) {
-    targetFile = document.querySelector('.tree-file[data-id="' + lastId + '"]');
+    targetFile = document.querySelector('.tree-file[data-id="' + lastId + '"]')
+      || document.querySelector('.tree-folder-header[data-id="' + lastId + '"]');
   }
   if (!targetFile) {
     targetFile = document.querySelector('.tree-file');

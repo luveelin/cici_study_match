@@ -18,8 +18,9 @@
 ├── index.html               # 首页（左侧树形导航 + 右侧 iframe 内容区）
 ├── initData.js             # 预置"已掌握"默认标绿清单（共享给所有访客，随站点发布）
 ├── problems/                # 题目页面
-│   ├── images/             # 原题图片 + 生成的 SVG（p3_ic.svg 题图 / p3_grid.svg 解答图）
-│   └── p1.html … p19.html   # 14 个独立题目页（p1/p2 由原 app1/app2 重命名）
+│   ├── images/             # 原题图片 + 生成的 SVG（p3_ic.svg 题图 / p3_grid.svg 解答图；p3a1_*/p3a2_* 为 p3 子题 SVG）
+│   ├── p1.html … p19.html   # 16 个独立题目页（p1/p2 由原 app1/app2 重命名；p3a1/p3a2 为 p3 的同类拓展子题，进导航树并嵌套在 p3 下）
+│   ├── p3a1.html / p3a2.html # p3「同类拓展」题1/题2 的详细解答页（位于 problems/，作为 p3 的子菜单）
 ├── fonts/                  # KaTeX 字体（60 个 .woff2/.woff/.ttf，渲染公式必须）
 ├── node_modules/katex/     # KaTeX 依赖（已安装，无需再 npm install）
 ├── rebuild_kb.py           # 恢复脚本：从生成的 HTML 还原中考真题 + 重建折叠式知识点总结
@@ -43,7 +44,7 @@
 ## 构建与运行
 
 ```bash
-# 1) 生成全部页面（index.html + 14 个 problems/*.html）
+# 1) 生成全部页面（index.html + 16 个 problems/*.html）
 node build.js
 
 # 2) 启动本地静态服务（从项目根目录启动，端口 8000）
@@ -142,6 +143,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
   difficulty: 3,                          // 难度 1–4（对应 ★★★☆）
   category: "二次根式",                     // 分类（用于树形导航分组）
   image: "images/p9.png",                // 原题图片路径
+  sub: true,                             // 可选：标记为"同类拓展子题"——生成独立页面到 problemSub/ 且不进导航树
   content: `...`                          // 解答内容（支持 $$...$$ 与 $...$ 的 KaTeX 公式）
 }
 ```
@@ -154,6 +156,17 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 5. 📚 南昌/江西中考类似题（同类拓展）—— 真实中考真题，附 `江西省20xx` 来源链接
 
 > ⚠️ `problems-data.js` 中 `content` 为 JS 模板字符串：KaTeX 命令需用**双反斜杠**（`\\frac`、`\\sqrt`），单反斜杠会被当作 JS 转义而破坏公式。
+
+### 子题（同类拓展详细解答页）机制
+
+若某主题（如 p3）的「📚 南昌/江西中考类似题（同类拓展）」内含多道小题，可为每道小题生成**独立详细解答页**，作为父题的**子菜单**嵌在左侧导航树中；子题页内容只含解题过程与知识点总结，**不含**「🎯 举一反三」与「📚 同类拓展」栏目。
+
+- 在 `problems-data.js` 中将子题作为独立题目对象加入数组，并设 `parent: "<父题id>"`（如 p3a1/p3a2 设 `parent: "p3"`）。
+- `build.js` 会把带 `parent` 的子题**嵌套到父题菜单项下**作为可折叠子菜单（父题分组头即父题本身，点击打开父题，展开后可见各子题）；不再使用 `sub` / `problemSub/` 目录。
+- 父子题均输出到 `./problems/`，图片路径直接用 `images/xxx.svg`（相对 `problems/` 目录）。
+- 父题页面对应小题处，用相对路径超链接指向子题页：`p3a1.html` / `p3a2.html`。
+- 子题若需题图/解答图（如网格几何），用 skill **`drawSVG4me`** 从零绘制 SVG（`_ic.svg` 题图 / `_grid.svg` 解答图），存放于 `problems/images/`，嵌入子题 `content` 并复用 `openImgOverlay` 放大查看。
+- 当前实例：p3 页的题1、题2 分别链接到 `p3a1.html`、`p3a2.html`，在左侧导航树中作为 **p3「网格中的角度求和」的子菜单** 显示；二者均含 `drawSVG4me` 生成的网格题图与解答图（`p3a1_ic.svg`/`p3a1_grid.svg`、`p3a2_ic.svg`/`p3a2_grid.svg`）。
 
 ## 题目清单（14 道）
 
@@ -168,7 +181,9 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 ### 几何综合
 | id | 题型 | 难度 | 标题 |
 |------|--------------|------|------|
-| p3   | 几何综合 | ★★★☆ | 网格中的角度求和 |
+| p3   | 几何综合 | ★★★☆ | 网格中的角度求和（含子菜单 p3a1/p3a2 同类拓展） |
+| p3a1 | 填空 | ★★★☆ | p3 同类拓展·题1 网格角度求和（嵌套在 p3 下） |
+| p3a2 | 证明 | ★★★☆ | p3 同类拓展·题2 证明 ∠AOB=45°（嵌套在 p3 下） |
 | p16  | 几何综合 | ★★★★ | 菱形中的动点 |
 
 ### 二次根式
@@ -212,6 +227,8 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 - [x] **解答 SVG 生成**：基于题图构建解答图 `<name>_grid.svg`（第3题示例：`p3_grid.svg` 标注 O/A/C 与 ∠1+∠2=45°）
 - [x] **drawSVG4me skill**：未来解几何题统一调用该 skill（`.codebuddy/skills/drawSVG4me/`），
       封装"图片 → 题图 SVG → 解答 SVG → 嵌入题页"的完整工作流
+- [x] **同类拓展子题独立解答页**（`problemSub/`）：p3 页的「南昌/江西中考类似题」题1/题2 各生成独立详解页
+      （`p3a1.html`/`p3a2.html`，含 `drawSVG4me` 绘制的网格题图与解答图），通过超链接访问，不进导航树、不含举一反三/同类拓展
 
 ## 中考真题来源
 
@@ -232,6 +249,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 - **回滚点**：`build_pristine_backup.js` 是重建前的纯净源码；`rebuild_kb.py` 是恢复脚本。
 - **查看效果**：保持本地静态服务（`python -m http.server 8000`）运行，浏览器访问 `http://localhost:8000/` 刷新即可。
 - **添加默认标绿**：编辑根目录 `initData.js`，在 `window.__INIT_MASTERED__` 数组中加入题目 id（对应 `problems/<id>.html`，如 `"p12"`），重新 `node build.js` 并部署，即可让所有访客看到该标题绿色 ✓。
+- **新增同类拓展子题页（嵌套子菜单）**：在 `problems-data.js` 中追加子题对象并设 `parent: "<父题id>"`（如 `parent: "p3"`），`build.js` 会将其作为父题的可折叠子菜单嵌在左侧导航树；父子题均输出到 `problems/`，图片路径用 `images/xxx.svg`。父题 `content` 用相对超链接 `<id>.html` 跳转（如 `p3a1.html`）。
 
 ## 开发约定
 
