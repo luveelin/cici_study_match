@@ -245,9 +245,13 @@
   .tree-subfolder > .tree-folder-header > .tree-arrow {
     margin-right: 6px;
   }
-  /* 子题：比父题再缩进一层 */
+  /* 二级叶子题：补偿父题头箭头占位(18px)，使标题与同级父题头对齐 */
+  .tree-folder:not(.tree-subfolder) > .tree-children > li > .tree-file {
+    padding-left: 31px;
+  }
+  /* 三级子题：比二级再缩进一层(18px) */
   .tree-subfolder > .tree-children .tree-file {
-    padding-left: 26px;
+    padding-left: 49px;
   }
 
   /* ====== MAIN ====== */
@@ -378,7 +382,7 @@
           </div>
           <ul class="tree-children">
             <li class="tree-folder tree-subfolder">
-              <div class="tree-folder-header" onclick="toggleFolderAndLoad(this, 'problems/p3.html', 'p3')" ondblclick="toggleMastered('p3')" title="p3 网格中的角度求和" data-id="p3" data-cat="几何综合">
+              <div class="tree-folder-header" data-file="problems/p3.html" onclick="toggleFolderAndLoad(this, 'problems/p3.html', 'p3')" ondblclick="toggleMastered('p3')" title="p3 网格中的角度求和" data-id="p3" data-cat="几何综合">
                 <span class="tree-arrow">▶</span>
                 <span class="tree-checkmark" id="check-p3"></span>
                 <span class="tree-file-icon">📄</span>
@@ -585,6 +589,8 @@ function toggleMastered(id) {
   if (isMastered && idx === -1) mastered.push(id);
   if (!isMastered && idx !== -1) mastered.splice(idx, 1);
   localStorage.setItem('mastered', JSON.stringify(mastered));
+  // 子题勾选变化后重算所有菜单的默认折叠态，避免父题残留收起
+  collapseMasteredFolders();
 }
 
 // 仅做视觉标绿，不写 localStorage（供预置/恢复共用）
@@ -613,11 +619,8 @@ function toggleFolder(header) {
   }
 }
 
-// 二级父题整行点击：折叠/展开子菜单 + 同时加载该题到右侧
-function toggleFolderAndLoad(header, file, id) {
-  // 1) 折叠/展开（复用原有逻辑）
-  toggleFolder(header);
-  // 2) 加载题目到右侧内容区
+// 仅加载父题头对应的题目内容，不处理折叠/展开
+function loadHeaderProblem(header, file, id) {
   document.querySelectorAll('.tree-file').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tree-folder-header').forEach(el => el.classList.remove('active'));
   header.classList.add('active');
@@ -633,37 +636,81 @@ function toggleFolderAndLoad(header, file, id) {
   if (id) localStorage.setItem('lastProblemId', id);
 }
 
-// 取某个文件夹“直接子项”中的题目链接（用于判断是否全部标绿）。
-// 仅统计该文件夹 .tree-children 下直接 li 的题目链接，
-// 以及子文件夹（如父题分组）的分组头链接；不递归统计孙级。
-function getFolderItems(folder) {
-  const ul = folder.querySelector(':scope > .tree-children');
-  if (!ul) return [];
-  const items = [];
-  ul.querySelectorAll(':scope > li').forEach(li => {
-    // 叶子题目
-    const direct = li.querySelector(':scope > .tree-file');
-    if (direct) { items.push(direct); return; }
-    // 二级父题（整行可点击的 header 本身承载信息）
-    const subHeader = li.querySelector(':scope > .tree-folder > .tree-folder-header');
-    if (subHeader) items.push(subHeader);
-  });
-  return items;
+// 二级父题整行点击：折叠/展开子菜单 + 同时加载该题到右侧
+// forceExpand=true 时只展开不折叠（用于初始化恢复，避免把刚展开的子菜单又折回去）
+function toggleFolderAndLoad(header, file, id, forceExpand) {
+  // 1) 折叠/展开：forceExpand 时强制展开，否则按当前状态 toggle
+  if (forceExpand) {
+    const children = header.nextElementSibling;
+    if (children) {
+      children.classList.remove('hidden');
+      header.classList.remove('collapsed');
+    }
+  } else {
+    toggleFolder(header);
+  }
+  // 2) 加载题目到右侧内容区
+  loadHeaderProblem(header, file, id);
 }
 
-// 全部子项已标绿（mastered）的文件夹，页面打开时默认收起。
-// 同时支持一级分类与二级菜单（嵌套子文件夹）。
+// 判断某个文件夹下“所有三级叶子题目”是否都已打勾。
+function folderAllMastered(folder) {
+  const leaves = folder.querySelectorAll('.tree-file');
+  if (leaves.length === 0) return false;
+  return [...leaves].every(el => el.classList.contains('mastered'));
+}
+
+// 判断一级菜单（顶层分组）的“直接子项”是否全打勾。
+// 直接子项包括：
+//   · .tree-subfolder > .tree-folder-header（带有三级子题的二级父题）
+//   · > .tree-children > li > .tree-file（直接挂在该分组下的普通题目）
+function topLevelAllMastered(folder) {
+  const children = folder.querySelector(':scope > .tree-children');
+  if (!children) return false;
+
+  const items = [];
+  // 1) 二级子菜单的 header（有三级子题的父题）
+  children.querySelectorAll(':scope > li.tree-subfolder > .tree-folder-header').forEach(h => {
+    items.push(h);
+  });
+  // 2) 直接挂在该分组下的普通题目（不在 .tree-subfolder 内）
+  children.querySelectorAll(':scope > li > .tree-file').forEach(f => {
+    items.push(f);
+  });
+
+  if (items.length === 0) return false;
+  return items.every(el => el.classList.contains('mastered'));
+}
+
+// 初始化时根据“打勾”状态设置各层级菜单的默认展开/收起：
+//  · 一级菜单：其下二级菜单（含直接子题）全打勾 → 收缩，否则 → 展开
+//  · 二级菜单：其下所有三级菜单全打勾 → 收缩，否则 → 展开
 function collapseMasteredFolders() {
-  document.querySelectorAll('.tree-folder').forEach(folder => {
-    const items = getFolderItems(folder);
-    if (items.length === 0) return;
-    const allMastered = items.every(f => f.classList.contains('mastered'));
-    if (!allMastered) return;
+  // 1) 二级菜单（带三级子题的父题）：三级全打勾则收缩，否则全展开
+  document.querySelectorAll('.tree-subfolder').forEach(folder => {
     const header = folder.querySelector(':scope > .tree-folder-header');
     const children = folder.querySelector(':scope > .tree-children');
-    if (header && children) {
+    if (!header || !children) return;
+    if (folderAllMastered(folder)) {
       header.classList.add('collapsed');
       children.classList.add('hidden');
+    } else {
+      header.classList.remove('collapsed');
+      children.classList.remove('hidden');
+    }
+  });
+
+  // 2) 一级菜单（顶层分组）：其下二级项（含直接子题）全打勾则收缩，否则展开
+  document.querySelectorAll('.tree-folder:not(.tree-subfolder)').forEach(folder => {
+    const header = folder.querySelector(':scope > .tree-folder-header');
+    const children = folder.querySelector(':scope > .tree-children');
+    if (!header || !children) return;
+    if (topLevelAllMastered(folder)) {
+      header.classList.add('collapsed');
+      children.classList.add('hidden');
+    } else {
+      header.classList.remove('collapsed');
+      children.classList.remove('hidden');
     }
   });
 }
@@ -734,7 +781,21 @@ document.addEventListener('DOMContentLoaded', function() {
     targetFile = document.querySelector('.tree-file');
   }
   if (targetFile) {
-    setTimeout(() => targetFile.click(), 200);
+    setTimeout(() => {
+      // 二级父题头：强制展开子菜单并加载，不要 toggle（否则会折回 collapseMasteredFolders 已展开的状态）
+      if (targetFile.classList.contains('tree-folder-header')) {
+        const file = targetFile.getAttribute('data-file') || '';
+        // 若该父题头已被 collapseMasteredFolders 判定为应收缩（子题全掌握），
+        // 则只加载题目，不再强制展开，避免覆盖初始化折叠规则。
+        if (targetFile.classList.contains('collapsed')) {
+          loadHeaderProblem(targetFile, file, lastId);
+        } else {
+          toggleFolderAndLoad(targetFile, file, lastId, true);
+        }
+      } else {
+        targetFile.click();
+      }
+    }, 200);
   }
 });
 </script>
