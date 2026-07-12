@@ -98,7 +98,7 @@ const problems = [
   {
     id: "p3a1",
     file: "p3a1.html",
-    title: "p3同类拓展·题1 网格角度求和（直角边1-2与1-3）",
+    title: "p3a1 网格角度求和（直角边1-2与1-3）",
     type: "填空",
     topics: ["网格几何", "勾股定理", "等腰直角三角形", "互余"],
     difficulty: 3,
@@ -208,7 +208,7 @@ const problems = [
   {
     id: "p3a2",
     file: "p3a2.html",
-    title: "p3同类拓展·题2 网格中证明∠AOB=45°",
+    title: "p3a2 网格中证明∠AOB=45°",
     type: "证明",
     topics: ["网格几何", "勾股定理", "勾股定理逆定理", "等腰直角三角形"],
     difficulty: 3,
