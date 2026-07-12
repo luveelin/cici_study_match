@@ -16,12 +16,20 @@
 ```
 /workspace/
 ├── build.js                 # 核心构建脚本（模板 + KaTeX 渲染 + 生成 index/题目页），require 下方数据模块
+│                           #   构建时把 node_modules/katex/dist/katex.min.css 复制到 problems/katex.css
 ├── problems-data.js          # 14 道题目数据（内容较长，从 build.js 抽出，require 引入）
-├── index.html               # 首页（左侧树形导航 + 右侧 iframe 内容区）
+├── index.html               # 首页（左侧树形导航 + 右侧 iframe 内容区），外链 css/index.css + js/app.js
 ├── initData.js             # 预置"已掌握"默认标绿清单（共享给所有访客，随站点发布）
+├── css/
+│   ├── index.css           # 首页样式（sidebar / tree / main 布局），原内联在 build.js，已抽离
+│   └── problem.css         # 题目页样式（正文 + 图片遮罩），原内联在 build.js，已抽离
+├── js/
+│   ├── app.js              # 首页逻辑（侧栏折叠 / 标绿 / 树展开 / iframe 加载 / 键盘），原内联在 build.js，已抽离
+│   └── problem.js          # 题目页逻辑（图片遮罩拖拽 / 缩放 / 关闭），原每页内联，已抽离为公共脚本
 ├── problems/                # 题目页面
+│   ├── katex.css           # KaTeX 样式（构建时从 node_modules 复制，内部 url(fonts/) 解析到 problems/fonts/）
 │   ├── images/             # 原题图片 + 生成的 SVG（p3_ic.svg 题图 / p3_grid.svg 解答图；p3a1_*/p3a2_* 为 p3 子题 SVG）
-│   ├── p1.html … p19.html   # 独立题目页（含同类拓展子题，当前共 45 页；p3a1/p3a2 为 p3 的同类拓展子题，进导航树并嵌套在 p3 下）
+│   ├── p1.html … p19.html   # 独立题目页（含同类拓展子题，当前共 45 页；仅正文 + 外链 css/js，无内联样式/脚本）
 │   ├── p3a1.html / p3a2.html # p3「同类拓展」题1/题2 的详细解答页（位于 problems/，作为 p3 的子菜单）
 ├── fonts/                  # KaTeX 字体（60 个 .woff2/.woff/.ttf，渲染公式必须）
 ├── node_modules/katex/     # KaTeX 依赖（已安装，无需再 npm install）
@@ -34,6 +42,9 @@
 │       ├── geometry2svg.py # 通用命令行：图片 -> 题图 SVG（_ic.svg）
 │       └── generate_grid.py # 第3题生成器（--manual 解答图 / 默认题图 SVG）
 └── package.json            # 仅声明 katex 依赖
+
+> **样式/脚本已外链化**：原 `build.js` 内联的 CSS/JS 已抽离到 `css/`、`js/` 公共文件，题目页与首页只保留结构 +
+> `<link>`/`<script src>` 引用。改样式/逻辑直接编辑对应源文件即可（无需改 `build.js`），且浏览器可缓存复用。
 ```
 
 ## 技术栈
@@ -55,7 +66,7 @@ python -m http.server 8000
 ```
 
 - KaTeX 已位于 `node_modules/`，**无需** `npm install`。
-- `fonts/` 与 `katex.min.css` 一并被打包进页面，离线可用。
+- `fonts/` 与 `problems/katex.css`（由 `node_modules/katex` 复制）一并随页面发布，离线可用。
 - 服务脚本强制 `no-cache`，改完 `build.js` 后重新 `node build.js` 再刷新即可看到最新结果。
 
 ## 几何题图片 -> SVG（读图转矢量，辅助解题）

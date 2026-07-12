@@ -9,3 +9,13 @@
 # 题图 / SVG / 原图：基本不变，缓存 1 年
 /problems/images/*
   Cache-Control: public, max-age=31536000, immutable
+
+# 公共 CSS / JS：抽离后的外链资源，几乎不变，缓存 1 年
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 题目页 KaTeX 样式（由 node_modules/katex 复制，随版本号变化），缓存 1 年
+/problems/katex.css
+  Cache-Control: public, max-age=31536000, immutable
