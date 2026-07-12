@@ -379,88 +379,138 @@ const problems = [
 
 <h3>📚 南昌/江西中考类似题（同类拓展）</h3>
 <div class="practice-box">
-<p><strong>题1（2025·江西·填空）：</strong>化简 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;">8</span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.2em;vertical-align:-0.2em;"></span><span class="mord underline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0em;"><span style="top:-2.84em;"><span class="pstrut" style="height:3em;"></span><span class="underline-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mspace" style="margin-right:1em;"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2em;"><span></span></span></span></span></span></span></span></span>。</p>
-  <p class="hint">💡 答：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord">2</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;">2</span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span></span></span></span>。（化为最简二次根式）</p>
-  <p><strong>题2（2023·江西·选择）：</strong>若 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1744em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8656em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">4</span></span></span><span style="top:-2.8256em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1744em;"><span></span></span></span></span></span></span></span></span> 有意义，则 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> 的值可以是（　）A. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>　B. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>　C. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>　D. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span></p>
-  <p class="hint">💡 答：D。由 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>，仅 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span> 满足。</p>
-  <p><strong>题3（2023·江西·选择）：</strong>计算 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
-c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
-c340,-704.7,510.7,-1060.3,512,-1067
-l0 -0
-c4.7,-7.3,11,-11,19,-11
-H40000v40H1012.3
-s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
-c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
-s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
-c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span></span></span></span> 的结果为（　）A. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">2</span></span></span></span>　B. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>　C. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">4</span></span></span></span>　D. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></p>
-  <p class="hint">💡 答：B。<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
-c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
-c340,-704.7,510.7,-1060.3,512,-1067
-l0 -0
-c4.7,-7.3,11,-11,19,-11
-H40000v40H1012.3
-s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
-c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
-s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
-c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;">4</span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>，注意 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.0849em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9551em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.9151em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0849em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">a</span><span class="mord">∣</span></span></span></span>。</p>
-  <p class="src">📌 来源：<a href="https://www.xbjy.com/xhtml/202501/5421.html" target="_blank">江西省2023年中考数学真题</a>、<a href="https://zy.21cnjy.com/23238550" target="_blank">江西省2025年中考数学真题</a></p>
+  <p><strong>题1（江西·中考·选择）：</strong>下列二次根式中，是最简二次根式的是（　）A. $\\sqrt{8}$　B. $\\sqrt{0.5}$　C. $\\sqrt{5}$　D. $\\sqrt{12}$</p>
+  <p class="hint">💡 答：C。最简二次根式要求被开方数不含分母、不含能开得尽方的因数。<a href="p9a1.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+  <p><strong>题2（江西·中考·选择）：</strong>下列二次根式中，与 $\\sqrt{3}$ 是同类二次根式的是（　）A. $\\sqrt{8}$　B. $\\sqrt{12}$　C. $\\sqrt{18}$　D. $\\sqrt{24}$</p>
+  <p class="hint">💡 答：B。先化为最简，$\\sqrt{12}=2\\sqrt{3}$ 与 $\\sqrt{3}$ 被开方数相同。<a href="p9a2.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+  <p><strong>题3（江西·中考·填空）：</strong>若最简二次根式 $\\sqrt{3a-8}$ 与 $\\sqrt{17-2a}$ 是同类二次根式，则 $a =$ ______。</p>
+  <p class="hint">💡 答：$5$。同类二次根式被开方数相同，令 $3a-8=17-2a$ 解出 $a$。<a href="p9a3.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+  <p class="src">📌 来源：江西中考"最简二次根式与同类二次根式"同类改编题</p>
+</div>
+`
+  },
+  {
+    id: "p9a1",
+    file: "p9a1.html",
+    title: "p9a1 最简二次根式的判定",
+    type: "选择填空",
+    topics: ["二次根式", "最简二次根式"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p9",
+    content: `
+<div class="prob-statement">
+  <p><strong>（江西·中考·选择）</strong>下列二次根式中，是最简二次根式的是（　）</p>
+  <p>A. $\\sqrt{8}$　B. $\\sqrt{0.5}$　C. $\\sqrt{5}$　D. $\\sqrt{12}$</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>最简二次根式</td><td>两个条件：①被开方数不含分母；②被开方数不含能开得尽方的因数或式</td></tr>
+    <tr><td>化简判定法</td><td>逐个化简，能被进一步化简的都不是最简二次根式</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<p>逐一判断每个选项能否继续化简：</p>
+<p>A. $\\sqrt{8} = \\sqrt{4 \\times 2} = 2\\sqrt{2}$，含能开得尽方的因数 $4$，✗ 不是最简。</p>
+<p>B. $\\sqrt{0.5} = \\sqrt{\\dfrac{1}{2}} = \\dfrac{\\sqrt{2}}{2}$，被开方数含分母，✗ 不是最简。</p>
+<p>C. $\\sqrt{5}$，被开方数 $5$ 无分母、无能开尽方的因数，✓ 是最简。</p>
+<p>D. $\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$，含能开得尽方的因数 $4$，✗ 不是最简。</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">C</span>
+</div>
+`
+  },
+  {
+    id: "p9a2",
+    file: "p9a2.html",
+    title: "p9a2 同类二次根式的判定",
+    type: "选择填空",
+    topics: ["二次根式", "同类二次根式"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p9",
+    content: `
+<div class="prob-statement">
+  <p><strong>（江西·中考·选择）</strong>下列二次根式中，与 $\\sqrt{3}$ 是同类二次根式的是（　）</p>
+  <p>A. $\\sqrt{8}$　B. $\\sqrt{12}$　C. $\\sqrt{18}$　D. $\\sqrt{24}$</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>同类二次根式</td><td>化为最简后，被开方数相同的二次根式（根指数均为 2）</td></tr>
+    <tr><td>判定步骤</td><td>先把每个根式化为最简，再比较被开方数是否相同</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<p>把各选项化为最简二次根式，再看被开方数是否为 $3$：</p>
+<p>A. $\\sqrt{8} = 2\\sqrt{2}$，被开方数 $2$，✗</p>
+<p>B. $\\sqrt{12} = 2\\sqrt{3}$，被开方数 $3$，与 $\\sqrt{3}$ 同类 ✓</p>
+<p>C. $\\sqrt{18} = 3\\sqrt{2}$，被开方数 $2$，✗</p>
+<p>D. $\\sqrt{24} = 2\\sqrt{6}$，被开方数 $6$，✗</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">B</span>
+</div>
+`
+  },
+  {
+    id: "p9a3",
+    file: "p9a3.html",
+    title: "p9a3 由同类二次根式求参数",
+    type: "计算填空",
+    topics: ["二次根式", "同类二次根式", "最简二次根式"],
+    difficulty: 3,
+    category: "二次根式",
+    image: null,
+    parent: "p9",
+    content: `
+<div class="prob-statement">
+  <p><strong>（江西·中考·填空）</strong>若最简二次根式 $\\sqrt{3a-8}$ 与 $\\sqrt{17-2a}$ 是同类二次根式，则 $a =$ ______。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>同类二次根式</td><td>根指数相同且被开方数相同；此处两根指数均为 2，只需被开方数相等</td></tr>
+    <tr><td>列方程求参数</td><td>令两被开方数相等，解一元一次方程</td></tr>
+    <tr><td>回代验证</td><td>求出参数后需验证被开方数非负、且确为最简二次根式</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<h4>第一步：由同类二次根式列方程</h4>
+<p>两个二次根式是同类二次根式，被开方数必须相同：</p>
+<div class="formula-block">$3a - 8 = 17 - 2a$</div>
+<h4>第二步：解方程</h4>
+<p>$3a + 2a = 17 + 8 \\quad \\Rightarrow \\quad 5a = 25 \\quad \\Rightarrow \\quad a = 5$</p>
+<h4>第三步：回代验证</h4>
+<p>当 $a = 5$ 时，$3a - 8 = 7$，$17 - 2a = 7$，被开方数均为 $7$（正数，且不含能开尽方的因数，为最简）✓</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$a = 5$</span>
 </div>
 `
   },
@@ -538,6 +588,7 @@ s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
 M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1744em;"><span></span></span></span></span></span></span></span></span> 有意义，则 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> 的值可以是（　）A. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>　B. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>　C. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>　D. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span></p>
   <p class="hint">💡 答：D。由 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>。</p>
+  <a href="p4a1.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a>
   <p><strong>题2（2023·江西·选择）：</strong>计算 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
 c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
 c340,-704.7,510.7,-1060.3,512,-1067
@@ -550,6 +601,7 @@ s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
 c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
 M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span></span></span></span> 的结果为（　）A. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">2</span></span></span></span>　B. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>　C. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">4</span></span></span></span>　D. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></p>
   <p class="hint">💡 答：B。<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+  <a href="p4a2.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a>
 c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
 c340,-704.7,510.7,-1060.3,512,-1067
 l0 -0
@@ -571,9 +623,126 @@ H400000v40H845.2724
 s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
 c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
 M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0849em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal">a</span><span class="mord">∣</span></span></span></span>）。</p>
-  <p><strong>题3（2024·江西·填空）：</strong>二次根式混合运算，计算结果为 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>（考查二次根式乘除与化简）。</p>
+  <p><strong>题3（2024·江西·填空）：</strong>计算 $\sqrt{12} \div \sqrt{3} - 1 = $ ______。</p>
   <p class="hint">💡 答：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>。</p>
+  <a href="p4a3.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a>
   <p class="src">📌 来源：<a href="https://www.xbjy.com/xhtml/202501/5421.html" target="_blank">江西省2023年中考数学真题</a>、<a href="https://zy.21cnjy.com/20635729" target="_blank">江西省2024年中考数学真题</a></p>
+</div>
+`
+  },
+  {
+    id: "p4a1",
+    file: "p4a1.html",
+    title: "p4a1 二次根式有意义的条件",
+    type: "选择填空",
+    topics: ["二次根式", "有意义条件"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p4",
+    content: `
+<div class="prob-statement">
+  <p><strong>（2023·江西·选择）</strong>若 $\\sqrt{a-4}$ 有意义，则 $a$ 的值可以是（　）</p>
+  <p>A. $-1$　B. $0$　C. $2$　D. $6$</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>二次根式有意义的条件</td><td>$\\sqrt{x}$ 有意义 ⟺ 被开方数 $x \\geq 0$</td></tr>
+    <tr><td>常见易错</td><td>只看根号，忽略内部整体必须非负；结果要回到选项逐一核对</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<p>二次根式 $\\sqrt{a-4}$ 有意义，要求被开方数非负：</p>
+<div class="formula-block">$a - 4 \\geq 0 \\quad \\Rightarrow \\quad a \\geq 4$</div>
+<p>逐一核对选项：</p>
+<p>A. $-1 < 4$ ✗　B. $0 < 4$ ✗　C. $2 < 4$ ✗　D. $6 \\geq 4$ ✓</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">D</span>
+</div>
+`
+  },
+  {
+    id: "p4a2",
+    file: "p4a2.html",
+    title: "p4a2 算术平方根的性质",
+    type: "选择填空",
+    topics: ["二次根式", "算术平方根"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p4",
+    content: `
+<div class="prob-statement">
+  <p><strong>（2023·江西·选择）</strong>计算 $\\sqrt{(-2)^2}$ 的结果为（　）</p>
+  <p>A. $-2$　B. $2$　C. $-4$　D. $4$</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>算术平方根性质</td><td>$\\sqrt{a^2} = |a|$，结果恒为非负数</td></tr>
+    <tr><td>易错点</td><td>$\\sqrt{(-2)^2} \\neq -2$；先平方再开方已无负号，$\\sqrt{4}=2$</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<p><strong>方法一（先平方再开方）：</strong></p>
+<div class="formula-block">$\\sqrt{(-2)^2} = \\sqrt{4} = 2$</div>
+<p><strong>方法二（用性质）：</strong></p>
+<div class="formula-block">$\\sqrt{(-2)^2} = |-2| = 2$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">B</span>
+</div>
+`
+  },
+  {
+    id: "p4a3",
+    file: "p4a3.html",
+    title: "p4a3 二次根式混合运算",
+    type: "选择填空",
+    topics: ["二次根式", "混合运算"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p4",
+    content: `
+<div class="prob-statement">
+  <p><strong>（2024·江西·填空）</strong>计算 $\\sqrt{12} \\div \\sqrt{3} - 1 = $ ______。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>二次根式除法</td><td>$\\sqrt{a} \\div \\sqrt{b} = \\sqrt{a \\div b}\\ (a\\geq0,b>0)$</td></tr>
+    <tr><td>运算顺序</td><td>先乘除后加减，化简后再相减</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<div class="formula-block">$\\sqrt{12} \\div \\sqrt{3} - 1 = \\sqrt{\\frac{12}{3}} - 1 = \\sqrt{4} - 1 = 2 - 1 = 1$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$1$</span>
 </div>
 `
   },
@@ -743,77 +912,142 @@ M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
 
 <h3>📚 南昌/江西中考类似题（同类拓展）</h3>
 <div class="practice-box">
-<p><strong>题1（2025·江西·填空）：</strong>化简 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;">8</span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.2em;vertical-align:-0.2em;"></span><span class="mord underline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0em;"><span style="top:-2.84em;"><span class="pstrut" style="height:3em;"></span><span class="underline-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mspace" style="margin-right:1em;"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2em;"><span></span></span></span></span></span></span></span></span>。</p>
-  <p class="hint">💡 答：<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord">2</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;">2</span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span></span></span></span>。根式化简本质是"提公因数"式的整体处理。</p>
-  <p><strong>题2（2023·江西·选择）：</strong>计算 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
-c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
-c340,-704.7,510.7,-1060.3,512,-1067
-l0 -0
-c4.7,-7.3,11,-11,19,-11
-H40000v40H1012.3
-s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
-c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
-s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
-c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span>（　）A. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">2</span></span></span></span>　B. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>　C. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">4</span></span></span></span>　D. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span></p>
-  <p class="hint">💡 答：B。<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
-c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
-c340,-704.7,510.7,-1060.3,512,-1067
-l0 -0
-c4.7,-7.3,11,-11,19,-11
-H40000v40H1012.3
-s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
-c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
-s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
-c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
-M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord"><span class="mord">−</span><span class="mord">2</span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>，与 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1572em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;">2</span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 不可混淆。</p>
-  <p><strong>题3（2023·江西·选择）：</strong>若 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1744em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8656em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">4</span></span></span><span style="top:-2.8256em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
-c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
-c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
-c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
-s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
-c69,-144,104.5,-217.7,106.5,-221
-l0 -0
-c5.3,-9.3,12,-14,20,-14
-H400000v40H845.2724
-s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
-c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
-M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1744em;"><span></span></span></span></span></span></span></span></span> 有意义，则 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> 的值可以是（　）A. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>　B. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>　C. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>　D. <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span></p>
-  <p class="hint">💡 答：D。整体看被开方数 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>。</p>
-  <p class="src">📌 来源：<a href="https://www.xbjy.com/xhtml/202501/5421.html" target="_blank">江西省2023年中考数学真题</a>、<a href="https://zy.21cnjy.com/23238550" target="_blank">江西省2025年中考数学真题</a></p>
+  <p><strong>题1（江西·中考·填空）：</strong>已知 $\\sqrt{x} - \\dfrac{1}{\\sqrt{x}} = 3$，求 $x + \\dfrac{1}{x}$ 的值。</p>
+  <p class="hint">💡 答：$11$。两边平方即得 $x+\\dfrac{1}{x}$，是链式平方的第一环。<a href="p5a1.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+  <p><strong>题2（江西·中考·填空）：</strong>已知 $x + \\dfrac{1}{x} = 7$，求 $x^2 + \\dfrac{1}{x^2}$ 的值。</p>
+  <p class="hint">💡 答：$47$。对 $x+\\dfrac{1}{x}$ 再平方一次，整体代换求出 $x^2+\\dfrac{1}{x^2}$。<a href="p5a2.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+  <p><strong>题3（江西·中考·填空）：</strong>已知 $a = \\sqrt{7}+\\sqrt{5}$，$b = \\sqrt{7}-\\sqrt{5}$，求 $a^2 + b^2$ 的值。</p>
+  <p class="hint">💡 答：$24$。利用 $a^2+b^2$ 与和差的整体关系，配合平方差消去根号。<a href="p5a3.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+  <p class="src">📌 来源：江西中考"整体代换与链式平方"同类改编题</p>
+</div>
+`
+  },
+  {
+    id: "p5a1",
+    file: "p5a1.html",
+    title: "p5a1 链式平方求 x+1/x",
+    type: "计算填空",
+    topics: ["二次根式", "完全平方公式", "整体代换"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p5",
+    content: `
+<div class="prob-statement">
+  <p><strong>（江西·中考·填空）</strong>已知 $\\sqrt{x} - \\dfrac{1}{\\sqrt{x}} = 3$，求 $x + \\dfrac{1}{x}$ 的值。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>完全平方公式</td><td>$(a-b)^2 = a^2 - 2ab + b^2$，两根式乘积 $\\sqrt{x}\\cdot\\dfrac{1}{\\sqrt{x}}=1$ 为常数</td></tr>
+    <tr><td>整体代换</td><td>不单独求 $x$，而是把 $\\sqrt{x}-\\dfrac{1}{\\sqrt{x}}$ 当整体平方，转化出 $x+\\dfrac{1}{x}$</td></tr>
+    <tr><td>定义域</td><td>$\\sqrt{x}$ 有意义且作分母，需 $x>0$</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<h4>第一步：确定范围</h4>
+<p>由 $\\sqrt{x}$ 有意义且 $\\dfrac{1}{\\sqrt{x}}$ 的分母不为零，得 $x>0$。</p>
+<h4>第二步：两边平方</h4>
+<p>$\\left(\\sqrt{x} - \\dfrac{1}{\\sqrt{x}}\\right)^2 = 3^2$</p>
+<p>$x - 2\\cdot\\sqrt{x}\\cdot\\dfrac{1}{\\sqrt{x}} + \\dfrac{1}{x} = 9$</p>
+<p>$x - 2 + \\dfrac{1}{x} = 9$</p>
+<h4>第三步：整理得结果</h4>
+<div class="formula-block">$x + \\dfrac{1}{x} = 11$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$x + \\dfrac{1}{x} = 11$</span>
+</div>
+`
+  },
+  {
+    id: "p5a2",
+    file: "p5a2.html",
+    title: "p5a2 再平方求 x^2+1/x^2",
+    type: "计算填空",
+    topics: ["完全平方公式", "整体代换"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p5",
+    content: `
+<div class="prob-statement">
+  <p><strong>（江西·中考·填空）</strong>已知 $x + \\dfrac{1}{x} = 7$，求 $x^2 + \\dfrac{1}{x^2}$ 的值。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>完全平方公式</td><td>$(a+b)^2 = a^2 + 2ab + b^2$，其中 $x\\cdot\\dfrac{1}{x}=1$</td></tr>
+    <tr><td>链式平方</td><td>由 $x+\\dfrac{1}{x}$ 再平方一次，即可递推得 $x^2+\\dfrac{1}{x^2}$</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<h4>第一步：对已知式两边平方</h4>
+<p>$\\left(x + \\dfrac{1}{x}\\right)^2 = 7^2$</p>
+<p>$x^2 + 2\\cdot x\\cdot\\dfrac{1}{x} + \\dfrac{1}{x^2} = 49$</p>
+<p>$x^2 + 2 + \\dfrac{1}{x^2} = 49$</p>
+<h4>第二步：整理得结果</h4>
+<div class="formula-block">$x^2 + \\dfrac{1}{x^2} = 47$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$x^2 + \\dfrac{1}{x^2} = 47$</span>
+</div>
+`
+  },
+  {
+    id: "p5a3",
+    file: "p5a3.html",
+    title: "p5a3 共轭根式求 a^2+b^2",
+    type: "计算填空",
+    topics: ["二次根式", "完全平方公式", "平方差公式"],
+    difficulty: 2,
+    category: "二次根式",
+    image: null,
+    parent: "p5",
+    content: `
+<div class="prob-statement">
+  <p><strong>（江西·中考·填空）</strong>已知 $a = \\sqrt{7}+\\sqrt{5}$，$b = \\sqrt{7}-\\sqrt{5}$，求 $a^2 + b^2$ 的值。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>完全平方公式</td><td>$(\\sqrt{m}\\pm\\sqrt{n})^2 = m + n \\pm 2\\sqrt{mn}$</td></tr>
+    <tr><td>整体代换</td><td>$a^2+b^2$ 展开后交叉项 $\\pm2\\sqrt{35}$ 相消，得整数</td></tr>
+    <tr><td>平方差公式</td><td>$ab=(\\sqrt{7}+\\sqrt{5})(\\sqrt{7}-\\sqrt{5})=7-5=2$，可验证</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+<h4>方法一：分别平方再相加</h4>
+<p>$a^2 = (\\sqrt{7}+\\sqrt{5})^2 = 7 + 2\\sqrt{35} + 5 = 12 + 2\\sqrt{35}$</p>
+<p>$b^2 = (\\sqrt{7}-\\sqrt{5})^2 = 7 - 2\\sqrt{35} + 5 = 12 - 2\\sqrt{35}$</p>
+<div class="formula-block">$a^2 + b^2 = (12 + 2\\sqrt{35}) + (12 - 2\\sqrt{35}) = 24$</div>
+
+<h4>方法二：整体代换</h4>
+<p>$a+b = 2\\sqrt{7}$，$a-b = 2\\sqrt{5}$，由 $a^2+b^2 = \\dfrac{(a+b)^2+(a-b)^2}{2}$：</p>
+<div class="formula-block">$a^2+b^2 = \\dfrac{(2\\sqrt{7})^2 + (2\\sqrt{5})^2}{2} = \\dfrac{28 + 20}{2} = 24$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$a^2 + b^2 = 24$</span>
 </div>
 `
   },
@@ -1486,7 +1720,8 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
   <thead><tr><th>知识点</th><th>说明</th></tr></thead>
   <tbody>
     <tr><td>菱形性质</td><td>对角线互相垂直平分，<strong>对角线平分对角</strong></td></tr>
-    <tr><td>三角形面积</td><td>$S = \\dfrac{1}{2}ab\\sin C$（含角版本）</td></tr>
+    <tr><td>三角形面积</td><td>$S = \\dfrac{1}{2}\\times\\text{底}\\times\\text{高}$（底×高÷2，最基础的面积公式）</td></tr>
+    <tr><td>含 $30°$ 角的直角三角形</td><td>$30°$ 角所对直角边 $= \\dfrac{1}{2}$ 斜边（可由等边三角形 + 勾股定理证明，属几何知识而非三角函数）</td></tr>
     <tr><td>动点问题</td><td>分段函数，图象反映运动过程</td></tr>
     <tr><td>图象解读</td><td>起点、终点、最大值、关键转折点</td></tr>
   </tbody>
@@ -1495,35 +1730,26 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
 
 <h3>✍️ 解题过程</h3>
 
-<h4>第一步：分析菱形基本量</h4>
-<p>$\\angle BAD = 120°$，所以 $\\angle ABC = 60°$（菱形邻角互补）</p>
-<p>设菱形边长为 $a$，对角线 $BD$：</p>
-<p>在 $\\triangle ABD$ 中，$AB = AD = a$，$\\angle BAD = 120°$，由余弦定理：</p>
-<div class="formula-block">$BD^2 = a^2 + a^2 - 2a^2 \\cos 120° = 2a^2 + a^2 = 3a^2$</div>
-<p>所以 $BD = \\sqrt{3}\\,a$</p>
-
-<h4>第二步：分析 $\\angle PBQ$</h4>
+<h4>第一步：分析菱形的角（全程只用几何性质，不用 sin/cos/tan）</h4>
+<p>已知 $\\angle BAD = 120°$，菱形邻角互补，所以 $\\angle ABC = 60°$。</p>
 <div class="info-box">
-  <span class="box-label">🔑 关键：</span>菱形对角线 $BD$ 平分 $\\angle ABC$，所以 $\\angle DBC = \\angle ABD = 30°$
+  <span class="box-label">🔑 关键：</span>菱形的对角线<strong>平分内角</strong>，$BD$ 平分 $\\angle ABC$，所以 $\\angle DBC = 30°$。
 </div>
-<p>$P$ 在 $BD$ 上，$Q$ 在 $BC$ 上，所以 $\\angle PBQ = \\angle DBC = 30°$</p>
+<p>点 $P$ 在 $BD$ 上、点 $Q$ 在 $BC$ 上，因此 $\\angle PBQ = \\angle DBC = 30°$。</p>
 
-<h4>第三步：列面积函数</h4>
-<p>运动 $x$ 秒后：$BP = \\sqrt{3}\\,x$，$BQ = x$</p>
-<div class="formula-block">$y = \\dfrac{1}{2} \\cdot BP \\cdot BQ \\cdot \\sin 30° = \\dfrac{1}{2} \\cdot \\sqrt{3}x \\cdot x \\cdot \\dfrac{1}{2} = \\dfrac{\\sqrt{3}}{4}x^2$</div>
+<h4>第二步：用「底 × 高 ÷ 2」求 $\\triangle BPQ$ 的面积（不套用含三角函数的面积公式）</h4>
+<p>过 $P$ 作 $PH \\perp BC$，垂足为 $H$，则 $PH$ 就是 $\\triangle BPQ$ 中边 $BQ$ 上的高。</p>
+<p>在 $\\text{Rt}\\triangle PBH$ 中，$\\angle PBH = 30°$，根据<strong>含 $30°$ 角的直角三角形性质</strong>（即 $30°$ 角所对的直角边等于斜边的一半；该结论可由等边三角形 + 勾股定理证明，属于几何知识而非三角函数）：</p>
+<div class="formula-block">$PH = \\dfrac{1}{2}\\,BP$</div>
+<p>运动 $x$ 秒后：$BP = \\sqrt{3}\\,x$，$BQ = x$，于是</p>
+<div class="formula-block">$PH = \\dfrac{1}{2}\\cdot \\sqrt{3}x = \\dfrac{\\sqrt{3}}{2}x$</div>
+<div class="formula-block">$y = S_{\\triangle BPQ} = \\dfrac{1}{2}\\cdot BQ \\cdot PH = \\dfrac{1}{2}\\cdot x \\cdot \\dfrac{\\sqrt{3}}{2}x = \\dfrac{\\sqrt{3}}{4}x^2$</div>
 
-<h4>第四步：分析图 2 关键点</h4>
-<p>图 2 显示 $y$ 与 $x$ 是抛物线关系，最大值为 $\\dfrac{3\\sqrt{3}}{2}$，终止于 $x = m$。</p>
-<p><strong>为什么图象在 $x = m$ 处终止？</strong>因为 $P$ 到达 $D$ 点时停止运动（$Q$ 仍在 $BC$ 上但 $P$ 不再变化）。</p>
-<p>$P$ 从 $B$ 到 $D$ 所需时间：</p>
-<div class="formula-block">$m = \\dfrac{BD}{\\sqrt{3}} = \\dfrac{\\sqrt{3}\\,a}{\\sqrt{3}} = a$</div>
-
-<h4>第五步：求 $a$</h4>
-<p>当 $x = m = a$ 时，$y = \\dfrac{3\\sqrt{3}}{2}$：</p>
-<p>$\\dfrac{\\sqrt{3}}{4}a^2 = \\dfrac{3\\sqrt{3}}{2}$</p>
-<p>$a^2 = 6$，$a = \\sqrt{6}$</p>
-
-<p>所以 $m = a = \\sqrt{6}$</p>
+<h4>第三步：由图象最大值直接求出 $m$</h4>
+<p>图 2 中 $y$ 与 $x$ 是开口向上的抛物线，最大面积 $\\dfrac{3\\sqrt{3}}{2}$ 在 $x = m$ 处取得，代入函数式：</p>
+<div class="formula-block">$\\dfrac{\\sqrt{3}}{4}m^2 = \\dfrac{3\\sqrt{3}}{2} \\quad \\Rightarrow \\quad m^2 = 6$</div>
+<p>因为运动时间 $x > 0$，所以 $m = \\sqrt{6}$。</p>
+<p class="hint">💡 说明：图象在 $x = m$ 处终止，是因为动点 $P$ 恰好走完对角线 $BD$ 全程；但求 $m$ 的值时，<strong>只需用面积函数的最大值即可直接算出，不必先求菱形边长</strong>，整个过程没有用到任何 sin、cos、tan。</p>
 
 <div class="answer-box">
   <span class="answer-label">✅ 答案：</span><span class="answer-value">C. $\\sqrt{6}$</span>
@@ -1534,7 +1760,7 @@ M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">�
 <h3>🎯 举一反三</h3>
 <div class="practice-box">
   <p><strong>变式题：</strong>菱形 $ABCD$ 中 $\\angle BAD = 60°$，$P$ 沿 $BD$ 以 $2$ cm/s 运动，$Q$ 沿 $BC$ 以 $1$ cm/s 运动，$y = S_{\\triangle BPQ}$，最大值为 $4\\sqrt{3}$。求菱形边长和 $m$ 值。</p>
-  <p class="hint">💡 提示：$\\angle ABC = 120°$，$\\angle DBC = 60°$，$y = \\dfrac{1}{2} \\cdot 2x \\cdot x \\cdot \\sin 60° = \\dfrac{\\sqrt{3}}{2}x^2$；由最大值求 $a$，再得 $m$。</p>
+  <p class="hint">💡 提示：此时 $\\angle ABC = 120°$，$\\angle DBC = 60°$。过 $P$ 作 $PH \\perp BC$，在 $\\text{Rt}\\triangle PBH$ 中 $\\angle PBH = 60°$，则高 $PH = \\dfrac{\\sqrt{3}}{2}BP = \\dfrac{\\sqrt{3}}{2}\\cdot 2x = \\sqrt{3}x$；面积 $y = \\dfrac{1}{2}\\cdot BQ\\cdot PH = \\dfrac{1}{2}\\cdot x\\cdot \\sqrt{3}x = \\dfrac{\\sqrt{3}}{2}x^2$；再由最大值求 $a$，进而得 $m$。（同样只用几何性质，未用 sin/cos/tan）</p>
 </div>
 
 <h3>📚 南昌/江西中考类似题（同类拓展）</h3>
