@@ -583,42 +583,28 @@ function toggleMastered(id) {
   const isMastered = checkEl.classList.toggle('mastered');
   itemEl.classList.toggle('mastered', isMastered);
   checkEl.textContent = isMastered ? '✓' : '';
-  // 保存到 localStorage（记录 mastered 与 unmastered 两套集合，使本地缓存优先于预置）
-  let raw;
-  try { raw = JSON.parse(localStorage.getItem('mastered') || '{}'); } catch (e) { raw = {}; }
-  const data = Array.isArray(raw) ? { mastered: raw, unmastered: [] } : (raw || {});
-  const mastered = new Set(data.mastered || []);
-  const unmastered = new Set(data.unmastered || []);
-  if (isMastered) { mastered.add(id); unmastered.delete(id); }
-  else { mastered.delete(id); unmastered.add(id); }
-  localStorage.setItem('mastered', JSON.stringify({ mastered: [...mastered], unmastered: [...unmastered] }));
+  // 保存到 localStorage
+  const mastered = JSON.parse(localStorage.getItem('mastered') || '[]');
+  const idx = mastered.indexOf(id);
+  if (isMastered && idx === -1) mastered.push(id);
+  if (!isMastered && idx !== -1) mastered.splice(idx, 1);
+  localStorage.setItem('mastered', JSON.stringify(mastered));
   // 子题勾选变化后重算所有菜单的默认折叠态，避免父题残留收起
   collapseMasteredFolders();
 }
 
-  // 仅做视觉标绿，不写 localStorage（供预置/恢复共用）
-  function markMastered(id) {
-    const checkEl = document.getElementById('check-' + id);
-    if (!checkEl) return;
-    // 兼容：可能在 .tree-file 内，也可能在二级父题 header 内
-    const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
-    if (itemEl) {
-      checkEl.classList.add('mastered');
-      checkEl.textContent = '✓';
-      itemEl.classList.add('mastered');
-    }
+// 仅做视觉标绿，不写 localStorage（供预置/恢复共用）
+function markMastered(id) {
+  const checkEl = document.getElementById('check-' + id);
+  if (!checkEl) return;
+  // 兼容：可能在 .tree-file 内，也可能在二级父题 header 内
+  const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
+  if (itemEl) {
+    checkEl.classList.add('mastered');
+    checkEl.textContent = '✓';
+    itemEl.classList.add('mastered');
   }
-  // 仅取消视觉标绿（与 markMastered 对称，供本地缓存取消预置项使用）
-  function unmarkMastered(id) {
-    const checkEl = document.getElementById('check-' + id);
-    if (!checkEl) return;
-    const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
-    if (itemEl) {
-      checkEl.classList.remove('mastered');
-      checkEl.textContent = '';
-      itemEl.classList.remove('mastered');
-    }
-  }
+}
 
 // ====== Tree folder toggle ======
 function toggleFolder(header) {
@@ -774,22 +760,14 @@ document.addEventListener('keydown', function(e) {
 
 // Auto-load first problem
 document.addEventListener('DOMContentLoaded', function() {
-  const initMastered = window.__INIT_MASTERED__ || [];
-
-  // 1) 先加载 initData.js 预置掌握（全站共享基线）
-  initMastered.forEach(id => markMastered(id));
-
-  // 2) 再检查本地缓存标记（个人，作为最终权威，可覆盖预置）
-  //    mastered：用户显式打勾；unmastered：用户在预置基础上显式取消勾选
+  // 1) 预置默认掌握（initData.js，随站点共享给所有访客）
+  (window.__INIT_MASTERED__ || []).forEach(id => markMastered(id));
+  // 2) 个人本地标记（自己双击过的，叠加在预置之上）
   try {
-    const raw = JSON.parse(localStorage.getItem('mastered') || '{}');
-    // 兼容旧版：曾用纯数组存储
-    const data = Array.isArray(raw) ? { mastered: raw, unmastered: [] } : (raw || {});
-    (data.mastered || []).forEach(id => markMastered(id));
-    (data.unmastered || []).forEach(id => unmarkMastered(id));
+    JSON.parse(localStorage.getItem('mastered') || '[]').forEach(id => markMastered(id));
   } catch (e) {}
 
-  // 3) 最后根据打勾状态决定菜单收缩/展开
+  // 3) 全部子项已掌握的文件夹默认收起
   collapseMasteredFolders();
 
   // 恢复上次打开的题目（可能是叶子题目，也可能是二级父题头）
