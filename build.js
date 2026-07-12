@@ -991,13 +991,21 @@ function toggleMastered(id) {
   const isMastered = checkEl.classList.toggle('mastered');
   itemEl.classList.toggle('mastered', isMastered);
   checkEl.textContent = isMastered ? '✓' : '';
-  // 保存到 localStorage
+  // localStorage 为主：用 mastered / unmastered 两个集合记录个人状态，
+  // 既支持在预置基础上额外标绿，也支持取消预置的标绿（刷新后仍生效）
   const mastered = JSON.parse(localStorage.getItem('mastered') || '[]');
-  const idx = mastered.indexOf(id);
-  if (isMastered && idx === -1) mastered.push(id);
-  if (!isMastered && idx !== -1) mastered.splice(idx, 1);
+  const unmastered = JSON.parse(localStorage.getItem('unmastered') || '[]');
+  const mIdx = mastered.indexOf(id), uIdx = unmastered.indexOf(id);
+  if (isMastered) {
+    if (mIdx === -1) mastered.push(id);
+    if (uIdx !== -1) unmastered.splice(uIdx, 1);
+  } else {
+    if (mIdx !== -1) mastered.splice(mIdx, 1);
+    if (uIdx === -1) unmastered.push(id);
+  }
   localStorage.setItem('mastered', JSON.stringify(mastered));
-  // 子题勾选变化后重算所有菜单的默认折叠态，避免父题残留收起
+  localStorage.setItem('unmastered', JSON.stringify(unmastered));
+  // 子题勾选变化后重算所有菜单的默认折叠态
   collapseMasteredFolders();
 }
 
@@ -1012,6 +1020,16 @@ function markMastered(id) {
     checkEl.textContent = '✓';
     itemEl.classList.add('mastered');
   }
+}
+
+// 仅移除视觉标绿，不写 localStorage（供恢复时撤销预置项共用）
+function unmarkMastered(id) {
+  const checkEl = document.getElementById('check-' + id);
+  if (!checkEl) return;
+  const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
+  checkEl.classList.remove('mastered');
+  checkEl.textContent = '';
+  if (itemEl) itemEl.classList.remove('mastered');
 }
 
 // ====== Tree folder toggle ======
@@ -1170,9 +1188,12 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
   // 1) 预置默认掌握（initData.js，随站点共享给所有访客）
   (window.__INIT_MASTERED__ || []).forEach(id => markMastered(id));
-  // 2) 个人本地标记（自己双击过的，叠加在预置之上）
+  // 2) 个人本地状态（localStorage 为主）：
+  //    · mastered    —— 个人额外标绿的题，叠加在预置之上
+  //    · unmastered  —— 在预置基础上取消标绿的题，最终以 localStorage 为准（覆盖预置）
   try {
     JSON.parse(localStorage.getItem('mastered') || '[]').forEach(id => markMastered(id));
+    JSON.parse(localStorage.getItem('unmastered') || '[]').forEach(id => unmarkMastered(id));
   } catch (e) {}
 
   // 3) 全部子项已掌握的文件夹默认收起
