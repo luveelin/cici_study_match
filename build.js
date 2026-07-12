@@ -327,6 +327,51 @@ details.kb-details > table.kb-table { margin-top: 8px; }
 // ============ 题目数据 ============
 const { problems } = require('./problems-data.js');
 
+// ============ KaTeX 反斜杠校验（防单反斜杠导致渲染失败） ============
+// content 是 JS 模板字符串，KaTeX 命令必须写「双反斜杠」（如 \\sqrt）。
+// 若写成单反斜杠，JS 求值后变成 sqrt（字母），KaTeX(throwOnError:false) 会把它
+// 当普通文本渲染，页面显示 "sqrt2" 而非 √2，且不报错，极难发现。故构建时强制拦截。
+function validateKatexBackslashes() {
+  const src = fs.readFileSync('./problems-data.js', 'utf-8');
+  // 1) 找出所有「数学字段」模板字符串的起止位置（白名单：可能含公式的字段）
+  const MATH_FIELDS = ['content', 'knowledge', 'extensions', 'solution', 'hint', 'answer', 'analysis'];
+  const fieldRe = new RegExp('(' + MATH_FIELDS.join('|') + '):\\s*`', 'g');
+  const regions = [];
+  let fm;
+  while ((fm = fieldRe.exec(src)) !== null) {
+    const start = fm.index + fm[0].length;
+    const end = src.indexOf('`', start);
+    if (end === -1) continue;
+    regions.push({ field: fm[1], start, end, fieldPos: fm.index });
+  }
+  // 2) 记录所有 id 位置，用于报错时定位到具体题目
+  const idRe = /id:\s*"([^"]+)"/g;
+  const ids = [];
+  let im;
+  while ((im = idRe.exec(src)) !== null) ids.push({ pos: im.index, id: im[1] });
+  // 3) 在每个字段内扫描「孤立单反斜杠 + 字母」（已正确的双反斜杠不会被命中）
+  const errors = [];
+  for (const r of regions) {
+    const seg = src.slice(r.start, r.end);
+    const re = /(?<!\\)\\(?!\\)[A-Za-z]+/g;
+    let m;
+    while ((m = re.exec(seg)) !== null) {
+      let curId = '(unknown)';
+      for (let i = ids.length - 1; i >= 0; i--) {
+        if (ids[i].pos < r.fieldPos) { curId = ids[i].id; break; }
+      }
+      errors.push('    题目 ' + curId + ' 的 ' + r.field + ' 字段存在单反斜杠 KaTeX 命令 "\\' + m[0] + '"，必须写成双反斜杠 "\\\\' + m[0] + '"');
+    }
+  }
+  if (errors.length) {
+    console.error('\n❌ 检测到 ' + errors.length + ' 处 KaTeX 反斜杠错误（content 必须用双反斜杠），已中止构建：\n' + errors.slice(0, 30).join('\n') + (errors.length > 30 ? '\n    …' : ''));
+    process.exit(1);
+  }
+  console.log('  ✓ KaTeX 反斜杠校验通过（无单反斜杠命令）');
+}
+
+validateKatexBackslashes();
+
 
 // ============ 生成每道题的 HTML ============
 problems.forEach(p => {

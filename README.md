@@ -19,7 +19,7 @@
 ├── initData.js             # 预置"已掌握"默认标绿清单（共享给所有访客，随站点发布）
 ├── problems/                # 题目页面
 │   ├── images/             # 原题图片 + 生成的 SVG（p3_ic.svg 题图 / p3_grid.svg 解答图；p3a1_*/p3a2_* 为 p3 子题 SVG）
-│   ├── p1.html … p19.html   # 16 个独立题目页（p1/p2 由原 app1/app2 重命名；p3a1/p3a2 为 p3 的同类拓展子题，进导航树并嵌套在 p3 下）
+│   ├── p1.html … p19.html   # 独立题目页（含同类拓展子题，当前共 31 页；p3a1/p3a2 为 p3 的同类拓展子题，进导航树并嵌套在 p3 下）
 │   ├── p3a1.html / p3a2.html # p3「同类拓展」题1/题2 的详细解答页（位于 problems/，作为 p3 的子菜单）
 ├── fonts/                  # KaTeX 字体（60 个 .woff2/.woff/.ttf，渲染公式必须）
 ├── node_modules/katex/     # KaTeX 依赖（已安装，无需再 npm install）
@@ -44,7 +44,7 @@
 ## 构建与运行
 
 ```bash
-# 1) 生成全部页面（index.html + 16 个 problems/*.html）
+# 1) 生成全部页面（index.html + 全部 problems/*.html，当前 31 页）
 node build.js
 
 # 2) 启动本地静态服务（从项目根目录启动，端口 8000）
@@ -155,7 +155,9 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 4. 🎯 举一反三
 5. 📚 南昌/江西中考类似题（同类拓展）—— 真实中考真题，附 `江西省20xx` 来源链接
 
-> ⚠️ `problems-data.js` 中 `content` 为 JS 模板字符串：KaTeX 命令需用**双反斜杠**（`\\frac`、`\\sqrt`），单反斜杠会被当作 JS 转义而破坏公式。
+> ⚠️ **`problems-data.js` 中 `content` 为 JS 模板字符串，KaTeX 命令必须用双反斜杠**（`\\frac`、`\\sqrt`、`\\times`…）。
+> 写成单反斜杠 `\sqrt` 会被 JS 当作转义、求值后变成字母 `sqrt`，KaTeX（`throwOnError:false`）会把它当普通文本渲染，
+> 结果是**页面不报错、但公式显示成字母 "sqrt2"、"dfrac12" 而非 √2、½**，极难发现。详见下方「⚠️ 常见致命错误」。
 
 ### 子题（同类拓展详细解答页）机制
 
@@ -254,6 +256,44 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 | 2025 | [21cnjy 23238550](https://zy.21cnjy.com/23238550) |
 
 > 中考真题内容从已成功生成的 `problems/*.html` 中还原（原始 `build.js` 源码一度丢失该栏目）。如需从零重建，运行 `python3 rebuild_kb.py` 后再次 `node build.js`（脚本会从 HTML 重新提取中考区块并重建折叠式知识点总结）。
+
+## ⚠️ 常见致命错误：KaTeX 单反斜杠（务必遵守）
+
+这是本项目**最容易反复踩、且最隐蔽**的错误，已多次发生（p6 / p19 子页曾因此整段显示成 "sqrt"）。
+
+### 现象
+- 页面**不报错**，`katex-error` 计数为 0，看起来"正常"。
+- 但公式区域显示的是字母串：`sqrt2`、`dfrac12`、`times` 等，而不是 √2、½、×。
+- 用浏览器打开或预览时，肉眼看到的就是 "sqrt"——这正是用户反馈的"页面仍然是 sqrt"。
+
+### 根因
+`problems-data.js` 的 `content` 是 **JS 模板字符串**（反引号包裹）。JS 求值规则：
+- `\\sqrt` → 运行时得到 `\sqrt`（一个反斜杠）→ KaTeX 正确渲染 √。
+- `\sqrt`  → 运行时得到 `sqrt`（反斜杠被 JS 当转义吞掉）→ KaTeX 把 `sqrt{2}` 当字母渲染。
+- 尤其 `\times` 中的 `\t` 会被 JS 当成**制表符**，破坏更严重。
+
+### 修复（一次性全量）
+仓库 `temp/fix_bs.py` 可一键修复：用正则 `(?<!\\)\\(?!\\)` 只匹配**孤立单反斜杠**并补全为双反斜杠，
+**不会动已正确的双反斜杠**。已正确的内容（如 p3/p4/p5/p9 父题）不受影响。
+```bash
+python temp/fix_bs.py      # 把所有单反斜杠 KaTeX 命令补全为双反斜杠
+node build.js             # 重新构建
+```
+
+### 防线（构建期自动拦截）
+`build.js` 已内置 `validateKatexBackslashes()`：每次 `node build.js` 都会扫描所有 `content` 字段，
+若发现孤立单反斜杠 KaTeX 命令，**立即报错并中止构建**，同时指出题目 id 与命令名，例如：
+```
+❌ 检测到 1 处 KaTeX 反斜杠错误（content 必须用双反斜杠），已中止构建：
+    题目 p6a1 的 content 字段存在单反斜杠 KaTeX 命令 "\dfrac"，必须写成双反斜杠 "\\dfrac"
+```
+所以**一旦构建被这条错误中止，就说明某题 content 用了单反斜杠，改回双反斜杠即可**，不会生成错误页面。
+
+### 写 patch / 生成脚本的防错铁律
+用 Python 生成 `content` 时，反斜杠必须**双写**：
+- 用普通字符串：`'\\sqrt'` —— Python 里 `'\\'` 表示一个反斜杠，写入文件即 `\\sqrt`（两字符，正确）。
+- 用 raw 字符串 `r'...'`：**必须写成 `r'\\sqrt'`**（raw 里 `\\` = 两字符反斜杠）。**绝不可写 `r'\sqrt'`**（那只是单反斜杠，必错）。
+- 验证小技巧：写完后用 `python temp/list_bs.py` 统计全文件孤立单反斜杠命令，若 >0 即存在隐患。
 
 ## 维护提示
 
