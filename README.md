@@ -258,6 +258,8 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 
 > 行为示例：预置 `p3a1`、`p3a2` → 页面打开时 p3 自动收起；若用户在预置基础上双击取消 `p3a1`，该取消记入 `unmastered`，刷新后 `p3a1` 不标绿、p3 因子题未全部掌握而展开。
 
+> ⚠️ **新增子题自动标绿规则**：每次在 `problems-data.js` 中新建 `p{m}a{n}` 子题（生成对应 `problems/p{m}a{n}.html`），**必须同步把该 id 加入 `initData.js` 的 `window.__INIT_MASTERED__` 数组**，让所有访客默认标绿。漏加则该子题不会出现在预置清单中。当前已全部预置 32 个 `p{m}a{n}` 子题（详见 `initData.js`）。
+
 ## 中考真题来源
 
 📚 栏目内的真题来自江西省中考近 10 年卷（江西省 2021 起全省统考，此前南昌独立命题多为图片/付费文档，难以核对，故主要取 2022–2025 可核查真题）：
@@ -316,6 +318,7 @@ node build.js             # 重新构建
 - **查看效果**：保持本地静态服务（`python -m http.server 8000`）运行，浏览器访问 `http://localhost:8000/` 刷新即可。
 - **添加默认标绿**：编辑根目录 `initData.js`，在 `window.__INIT_MASTERED__` 数组中加入题目 id（对应 `problems/<id>.html`，如 `"p12"`），重新 `node build.js` 并部署，即可让所有访客看到该标题绿色 ✓。
 - **新增同类拓展子题页（嵌套子菜单）**：在 `problems-data.js` 中追加子题对象并设 `parent: "<父题id>"`（如 `parent: "p3"`），`build.js` 会将其作为父题的可折叠子菜单嵌在左侧导航树；父子题均输出到 `problems/`，图片路径用 `images/xxx.svg`。父题 `content` 用相对超链接 `<id>.html` 跳转（如 `p3a1.html`）。
+  - **并同步加入预置标绿**：该新子题的 id 必须同时加入 `initData.js` 的 `window.__INIT_MASTERED__` 数组（见上「⚠️ 新增子题自动标绿规则」），否则访客看不到默认绿色 ✓。
 
 ## 开发约定
 
