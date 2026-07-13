@@ -206,6 +206,89 @@ function loadProblem(linkEl, file) {
   if (id) localStorage.setItem('lastProblemId', id);
 }
 
+// ====== Menu Search ======
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('menuSearch');
+  const searchClear = document.getElementById('searchClear');
+  if (!searchInput) return;
+
+  // 判断某个节点是否名称匹配
+  function nameMatches(el, query) {
+    const nameEl = el.querySelector('.tree-folder-name, .tree-file-name');
+    return nameEl && nameEl.textContent.toLowerCase().includes(query);
+  }
+
+  searchInput.addEventListener('input', function() {
+    const query = this.value.trim().toLowerCase();
+    const sidebar = document.querySelector('.sidebar');
+
+    // 显示/隐藏清除按钮
+    searchClear.style.display = query ? 'block' : 'none';
+
+    if (!query) {
+      // 清除搜索：恢复原始状态
+      sidebar.classList.remove('searching');
+      document.querySelectorAll('.search-hidden').forEach(el => el.classList.remove('search-hidden'));
+      collapseMasteredFolders();
+      return;
+    }
+
+    sidebar.classList.add('searching');
+
+    // 第一步：隐藏所有菜单项
+    const folderLis = document.querySelectorAll('.tree-nav li.tree-folder');
+    const fileLis = document.querySelectorAll('.tree-nav li:not(.tree-folder)');
+    folderLis.forEach(el => el.classList.add('search-hidden'));
+    fileLis.forEach(el => el.classList.add('search-hidden'));
+
+    // 第二步：显示匹配的叶子文件及它们的祖先
+    fileLis.forEach(li => {
+      if (nameMatches(li, query)) {
+        li.classList.remove('search-hidden');
+        // 逐级向上显示父文件夹
+        let parent = li.parentElement?.closest('li.tree-folder');
+        while (parent) {
+          parent.classList.remove('search-hidden');
+          const children = parent.querySelector(':scope > .tree-children');
+          if (children) children.classList.remove('search-hidden');
+          parent = parent.parentElement?.closest('li.tree-folder');
+        }
+      }
+    });
+
+    // 第三步：显示名称匹配的文件夹（及其所有后代）
+    folderLis.forEach(folder => {
+      if (nameMatches(folder, query)) {
+        folder.classList.remove('search-hidden');
+        folder.querySelectorAll('.search-hidden').forEach(el => el.classList.remove('search-hidden'));
+        // 显示祖先文件夹
+        let parent = folder.parentElement?.closest('li.tree-folder');
+        while (parent) {
+          parent.classList.remove('search-hidden');
+          parent.querySelectorAll('.search-hidden').forEach(el => el.classList.remove('search-hidden'));
+          parent = parent.parentElement?.closest('li.tree-folder');
+        }
+      }
+    });
+  });
+
+  // 清除按钮
+  searchClear.addEventListener('click', function() {
+    searchInput.value = '';
+    searchInput.dispatchEvent(new Event('input'));
+    searchInput.focus();
+  });
+
+  // ESC 键清除搜索
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      this.value = '';
+      this.dispatchEvent(new Event('input'));
+      this.blur();
+    }
+  });
+});
+
 // ====== Keyboard ======
 document.addEventListener('keydown', function(e) {
   const visibleFiles = [...document.querySelectorAll('.tree-file')];

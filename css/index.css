@@ -38,7 +38,7 @@ body {
   overflow: hidden;
 }
 .sidebar-header {
-  padding: 18px 18px 14px;
+  padding: 5px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
   flex-shrink: 0;
   position: relative;
@@ -111,7 +111,7 @@ body {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 6px 0;
+  padding: 0;
 }
 .tree-nav ul { list-style: none; }
 .tree-nav ul ul { padding-left: 0; }
@@ -289,6 +289,52 @@ body {
 }
 .welcome .icon { font-size: 4em; margin-bottom: 16px; }
 .welcome h2 { color: #999; font-weight: 400; }
+
+/* ====== Search Box ====== */
+.sidebar-search {
+  padding: 5px 15px 0 10px;
+  flex-shrink: 0;
+  position: relative;
+}
+.sidebar-search input {
+  width: 100%;
+  padding: 7px 30px 7px 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.07);
+  color: #c8d6e5;
+  font-size: 0.8em;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.sidebar-search input::placeholder {
+  color: #5a7999;
+}
+.sidebar-search input:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.12);
+}
+.search-clear {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #7a9ab5;
+  cursor: pointer;
+  font-size: 0.85em;
+  padding: 2px 4px;
+  line-height: 1;
+}
+.search-clear:hover {
+  color: #fff;
+}
+
+/* 搜索模式下：隐藏不匹配的项 */
+.searching .search-hidden {
+  display: none;
+}
 
 /* Scrollbar */
 .sidebar::-webkit-scrollbar { width: 5px; }
