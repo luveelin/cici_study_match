@@ -3,7 +3,7 @@
 ## 项目概述
 配合AI智能体使用，把数学题图片放入项目目录，让AI解答，生成对应网页，更新HTML内容，总结崽数学知识分类要点。
 
-**纯静态 HTML** 的初中数学题库项目，收录 **13 大题** 初中数学题（含完整解答，附 32 道同类拓展子题），以树形导航分类展示。所有解题严格基于**初中数学知识**。
+**纯静态 HTML** 的初中数学题库项目，收录 **15 大题** 初中数学题（含完整解答，附 38 道同类拓展子题），以树形导航分类展示。所有解题严格基于**初中数学知识**。
 
 每道题页面包含：原题图片、✍️ 解题过程、📌 知识点总结（可折叠，默认收起）、📚 南昌/江西中考类似题（同类拓展，附真题来源链接）。
 
@@ -17,7 +17,7 @@
 /workspace/
 ├── build.js                 # 核心构建脚本（模板 + KaTeX 渲染 + 生成 index/题目页），require 下方数据模块
 │                           #   构建时把 node_modules/katex/dist/katex.min.css 复制到 problems/katex.css
-├── problems-data.js          # 14 道题目数据（内容较长，从 build.js 抽出，require 引入）
+├── problems-data.js          # 53 道题目数据（内容较长，从 build.js 抽出，require 引入）
 ├── index.html               # 首页（左侧树形导航 + 右侧 iframe 内容区），外链 css/index.css + js/app.js
 ├── initData.js             # 预置"已掌握"默认标绿清单（共享给所有访客，随站点发布）
 ├── css/
@@ -29,7 +29,7 @@
 ├── problems/                # 题目页面
 │   ├── katex.css           # KaTeX 样式（构建时从 node_modules 复制，内部 url(fonts/) 解析到 problems/fonts/）
 │   ├── images/             # 原题图片 + 生成的 SVG（p3_ic.svg 题图 / p3_grid.svg 解答图；p3a1_*/p3a2_* 为 p3 子题 SVG）
-│   ├── p1.html … p19.html   # 独立题目页（含同类拓展子题，当前共 45 页；仅正文 + 外链 css/js，无内联样式/脚本）
+│   ├── p1.html … p21.html   # 独立题目页（含同类拓展子题，当前共 53 页；仅正文 + 外链 css/js，无内联样式/脚本）
 │   ├── p3a1.html / p3a2.html # p3「同类拓展」题1/题2 的详细解答页（位于 problems/，作为 p3 的子菜单）
 ├── fonts/                  # KaTeX 字体（60 个 .woff2/.woff/.ttf，渲染公式必须）
 ├── node_modules/katex/     # KaTeX 依赖（已安装，无需再 npm install）
@@ -57,7 +57,7 @@
 ## 构建与运行
 
 ```bash
-# 1) 生成全部页面（index.html + 全部 problems/*.html，当前 45 页）
+# 1) 生成全部页面（index.html + 全部 problems/*.html，当前 53 页）
 node build.js
 
 # 2) 启动本地静态服务（从项目根目录启动，端口 8000）
@@ -161,8 +161,8 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 }
 ```
 
-`content` 内section顺序（已按需求调整）：
-1. 原题图片 + 题干
+`content` 内 section 顺序（已按需求调整）：
+1. **题干**（原题图片由 `image` 字段在页面**顶部统一渲染一次**，content 内不再重复内嵌原图，避免重复显示）
 2. **📌 知识点总结**（`<details class="kb-details">` 包裹，**默认收起**，点击展开/收起）
 3. ✍️ 解题过程
 4. 📚 南昌/江西中考类似题（同类拓展）—— 真实中考真题，附 `江西省20xx` 来源链接
@@ -195,7 +195,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 
 > 说明：早期 p3/p4 的子题用过旧式命名 `p3同类拓展·题1`（中文「同类拓展·题N」），与新规范（`p{N}a{N}` 前缀）不一致。**新题目一律采用新规范**（`p{N}a{N} 主题`）。
 
-## 题目清单（14 道）
+## 题目清单（15 道）
 
 > 📐 **坐标轴几何**：几何图形绘制在 XY 直角坐标系上、并用坐标点（如 $A(0,2)$）标注的几何题。
 
@@ -212,6 +212,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 | p3a1 | 填空 | ★★★☆ | p3a1 网格角度求和（嵌套在 p3 下） |
 | p3a2 | 证明 | ★★★☆ | p3a2 网格中证明 ∠AOB=45°（嵌套在 p3 下） |
 | p16  | 几何综合 | ★★★★ | 菱形中的动点 |
+| p21  | 填空 | ★★★☆ | 完美勾股数（含子菜单 p21a1/p21a2/p21a3 同类拓展） |
 
 ### 二次根式
 | id | 题型 | 难度 | 标题 |
@@ -231,6 +232,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 ### 函数与统计
 | id | 题型 | 难度 | 标题 |
 |------|--------------|------|------|
+| p20  | 选择填空 | ★★★☆ | 表格规律与勾股数 |
 | p15  | 选择填空 | ★★☆☆ | 函数的判断 |
 | p17  | 函数与统计 | ★★☆☆ | 弹簧长度与质量的函数关系 |
 | p18  | 函数与统计 | ★★★☆ | 甲乙两组成绩分析（四分位数 + 箱线图 + 方差） |
@@ -269,7 +271,7 @@ python feature/drawSVG/generate_grid.py --input a.png --output a_ic.svg --vertic
 
 > 行为示例：预置 `p3a1`、`p3a2` → 页面打开时 p3 自动收起；若用户在预置基础上双击取消 `p3a1`，该取消记入 `unmastered`，刷新后 `p3a1` 不标绿、p3 因子题未全部掌握而展开。
 
-> ⚠️ **新增子题自动标绿规则**：每次在 `problems-data.js` 中新建 `p{m}a{n}` 子题（生成对应 `problems/p{m}a{n}.html`），**必须同步把该 id 加入 `initData.js` 的 `window.__INIT_MASTERED__` 数组**，让所有访客默认标绿。漏加则该子题不会出现在预置清单中。当前已全部预置 32 个 `p{m}a{n}` 子题（详见 `initData.js`）。
+> ⚠️ **新增子题自动标绿规则**：每次在 `problems-data.js` 中新建 `p{m}a{n}` 子题（生成对应 `problems/p{m}a{n}.html`），**必须同步把该 id 加入 `initData.js` 的 `window.__INIT_MASTERED__` 数组**，让所有访客默认标绿。漏加则该子题不会出现在预置清单中。当前已全部预置 38 个 `p{m}a{n}` 子题（详见 `initData.js`）。
 
 ## 中考真题来源
 
@@ -358,8 +360,7 @@ node build.js             # 重新构建
   </div>
   ```
 
-  > 要点：`openImgOverlay` / `closeImgOverlay` / `startDrag` / `startResize` 已在每道题页脚的
-  > `<script>` 中定义，无需重复实现。调用时传的 `id` 仅作为标识，**overlay 容器 `id` 必须是
+  > 要点：`openImgOverlay` / `closeImgOverlay` / `startDrag` / `startResize` 已在公共脚本 `js/problem.js` 中统一定义（题目页已通过外链 `<script src="../js/problem.js">` 引入），无需每页重复实现。调用时传的 `id` 仅作为标识，**overlay 容器 `id` 必须是
   > `overlay-` + 该 id**，box 的 `id` 必须是 `overlayBox-` + 该 id，否则脚本找不到元素。
   > 缩放靠拖拽 `img-resize-handle`（右下角手柄），没有独立的 ± 按钮。
 
