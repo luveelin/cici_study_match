@@ -16,12 +16,6 @@
     <button class="sidebar-toggle" onclick="toggleSidebar()" title="收起侧边栏">◀</button>
   </div>
 
-  <!-- 搜索框 -->
-  <div class="sidebar-search">
-    <input type="text" id="menuSearch" placeholder="搜索题目..." autocomplete="off">
-    <button class="search-clear" id="searchClear" title="清除搜索" style="display:none;">✕</button>
-  </div>
-
   <!-- 树形导航 -->
   <nav class="tree-nav">
     <ul>
@@ -57,7 +51,7 @@
             <span class="tree-arrow">▶</span>
             <span class="tree-folder-icon">📁</span>
             <span class="tree-folder-name">几何综合</span>
-            <span class="tree-count">10</span>
+            <span class="tree-count">18</span>
           </div>
           <ul class="tree-children">
             <li class="tree-folder tree-subfolder">
@@ -84,6 +78,42 @@
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p3a2 网格中证明∠AOB=45°</span>
                 <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+              </ul>
+            </li>
+            <li class="tree-folder tree-subfolder">
+              <div class="tree-folder-header" data-file="problems/p7.html" onclick="toggleFolderAndLoad(this, 'problems/p7.html', 'p7')" ondblclick="toggleMastered('p7')" title="p7 多边形内角和的错算问题" data-id="p7" data-cat="几何综合">
+                <span class="tree-arrow">▶</span>
+                <span class="tree-checkmark" id="check-p7"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p7 多边形内角和的错算问题</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </div>
+              <ul class="tree-children">
+                
+            <li>
+              <a class="tree-file" href="problems/p7a1.html" data-id="p7a1" data-cat="几何综合" onclick="loadProblem(this, 'problems/p7a1.html');return false;" ondblclick="toggleMastered('p7a1')" title="p7a1 内角和基本型求边数">
+                <span class="tree-checkmark" id="check-p7a1"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p7a1 内角和基本型求边数</span>
+                <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p7a2.html" data-id="p7a2" data-cat="几何综合" onclick="loadProblem(this, 'problems/p7a2.html');return false;" ondblclick="toggleMastered('p7a2')" title="p7a2 多算内角求边数与内角">
+                <span class="tree-checkmark" id="check-p7a2"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p7a2 多算内角求边数与内角</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p7a3.html" data-id="p7a3" data-cat="几何综合" onclick="loadProblem(this, 'problems/p7a3.html');return false;" ondblclick="toggleMastered('p7a3')" title="p7a3 漏算内角直接求值">
+                <span class="tree-checkmark" id="check-p7a3"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p7a3 漏算内角直接求值</span>
+                <span class="tree-file-diff">★★☆☆</span>
               </a>
             </li>
               </ul>
@@ -120,6 +150,42 @@
                 <span class="tree-file-icon">📄</span>
                 <span class="tree-file-name">p16a3 矩形中动点与三角形面积最值</span>
                 <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+              </ul>
+            </li>
+            <li class="tree-folder tree-subfolder">
+              <div class="tree-folder-header" data-file="problems/p8.html" onclick="toggleFolderAndLoad(this, 'problems/p8.html', 'p8')" ondblclick="toggleMastered('p8')" title="p8 镜面反射最短路径问题" data-id="p8" data-cat="几何综合">
+                <span class="tree-arrow">▶</span>
+                <span class="tree-checkmark" id="check-p8"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p8 镜面反射最短路径问题</span>
+                <span class="tree-file-diff">★★★★</span>
+              </div>
+              <ul class="tree-children">
+                
+            <li>
+              <a class="tree-file" href="problems/p8a1.html" data-id="p8a1" data-cat="几何综合" onclick="loadProblem(this, 'problems/p8a1.html');return false;" ondblclick="toggleMastered('p8a1')" title="p8a1 将军饮马基础型">
+                <span class="tree-checkmark" id="check-p8a1"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p8a1 将军饮马基础型</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p8a2.html" data-id="p8a2" data-cat="几何综合" onclick="loadProblem(this, 'problems/p8a2.html');return false;" ondblclick="toggleMastered('p8a2')" title="p8a2 镜面反射变角度求 PD">
+                <span class="tree-checkmark" id="check-p8a2"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p8a2 镜面反射变角度求 PD</span>
+                <span class="tree-file-diff">★★★★</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p8a3.html" data-id="p8a3" data-cat="几何综合" onclick="loadProblem(this, 'problems/p8a3.html');return false;" ondblclick="toggleMastered('p8a3')" title="p8a3 两次反射的光路总长">
+                <span class="tree-checkmark" id="check-p8a3"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p8a3 两次反射的光路总长</span>
+                <span class="tree-file-diff">★★★★</span>
               </a>
             </li>
               </ul>
