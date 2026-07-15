@@ -201,7 +201,7 @@ function buildTreeHTML() {
             <span class="tree-arrow">▶</span>
             <span class="tree-folder-icon">📁</span>
             <span class="tree-folder-name">${cat}</span>
-            <span class="tree-count">${probs.length}</span>
+            <span class="tree-count" title="点击折叠/展开本分组内的二级子菜单" onclick="toggleGroupSubfolders(this);event.stopPropagation();return false;">${probs.length}</span>
           </div>
           <ul class="tree-children">`;
     topLevel.forEach(p => {

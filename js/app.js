@@ -83,6 +83,37 @@ function toggleFolder(header) {
   }
 }
 
+// 点击分组右侧的数字：折叠/展开该分组内所有“二级子菜单”（带三级子题的父题），
+// 同时保持分组本身展开、顶层题目可见。若分组内没有二级子菜单，则退化为折叠/展开整个分组。
+function toggleGroupSubfolders(countEl) {
+  const folder = countEl.closest('.tree-folder:not(.tree-subfolder)');
+  if (!folder) return;
+  const subfolders = folder.querySelectorAll(':scope > .tree-children > li.tree-subfolder');
+  if (subfolders.length === 0) {
+    // 没有二级子菜单：退化为折叠/展开整个分组
+    const header = folder.querySelector(':scope > .tree-folder-header');
+    if (header) toggleFolder(header);
+    return;
+  }
+  // 只要有任一二级子菜单处于展开状态 → 全部收起；否则 → 全部展开
+  const anyExpanded = [...subfolders].some(sf => {
+    const ch = sf.querySelector(':scope > .tree-children');
+    return ch && !ch.classList.contains('hidden');
+  });
+  subfolders.forEach(sf => {
+    const header = sf.querySelector(':scope > .tree-folder-header');
+    const ch = sf.querySelector(':scope > .tree-children');
+    if (!header || !ch) return;
+    if (anyExpanded) {
+      ch.classList.add('hidden');
+      header.classList.add('collapsed');
+    } else {
+      ch.classList.remove('hidden');
+      header.classList.remove('collapsed');
+    }
+  });
+}
+
 // 仅加载父题头对应的题目内容，不处理折叠/展开
 function loadHeaderProblem(header, file, id) {
   document.querySelectorAll('.tree-file').forEach(el => el.classList.remove('active'));

@@ -145,6 +145,12 @@ body {
   padding: 1px 7px;
   border-radius: 8px;
   color: #7a9ab5;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.tree-folder-header .tree-count:hover {
+  background: rgba(255,255,255,0.25);
+  color: #c8d6e5;
 }
 
 /* Tree children */
