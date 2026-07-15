@@ -35,42 +35,50 @@ const { problems } = require('./problems-data.js');
 // 若写成单反斜杠，JS 求值后变成 sqrt（字母），KaTeX(throwOnError:false) 会把它
 // 当普通文本渲染，页面显示 "sqrt2" 而非 √2，且不报错，极难发现。故构建时强制拦截。
 function validateKatexBackslashes() {
-  const src = fs.readFileSync('./problems-data.js', 'utf-8');
-  // 1) 找出所有「数学字段」模板字符串的起止位置（白名单：可能含公式的字段）
+  // 数据已拆分到多个文件（problems-data.<分类>.js + 聚合 problems-data.js），
+  // 故需扫描所有数据文件，而非仅 problems-data.js。
   const MATH_FIELDS = ['content', 'knowledge', 'extensions', 'solution', 'hint', 'answer', 'analysis'];
   const fieldRe = new RegExp('(' + MATH_FIELDS.join('|') + '):\\s*`', 'g');
-  const regions = [];
-  let fm;
-  while ((fm = fieldRe.exec(src)) !== null) {
-    const start = fm.index + fm[0].length;
-    const end = src.indexOf('`', start);
-    if (end === -1) continue;
-    regions.push({ field: fm[1], start, end, fieldPos: fm.index });
-  }
-  // 2) 记录所有 id 位置，用于报错时定位到具体题目
   const idRe = /id:\s*"([^"]+)"/g;
-  const ids = [];
-  let im;
-  while ((im = idRe.exec(src)) !== null) ids.push({ pos: im.index, id: im[1] });
-  // 3) 在每个字段内扫描「孤立单反斜杠 + 字母」（已正确的双反斜杠不会被命中）
+  const re = /(?<!\\)\\(?!\\)[A-Za-z]+/g;
+  const files = fs.readdirSync('.').filter(f => /^problems-data(\..+)?\.js$/.test(f) && !f.endsWith('.bak'));
   const errors = [];
-  for (const r of regions) {
-    const seg = src.slice(r.start, r.end);
-    const re = /(?<!\\)\\(?!\\)[A-Za-z]+/g;
-    let m;
-    while ((m = re.exec(seg)) !== null) {
-      let curId = '(unknown)';
-      for (let i = ids.length - 1; i >= 0; i--) {
-        if (ids[i].pos < r.fieldPos) { curId = ids[i].id; break; }
+  for (const file of files) {
+    const src = fs.readFileSync(file, 'utf-8');
+    // 1) 找出所有「数学字段」模板字符串的起止位置
+    const regions = [];
+    let fm;
+    fieldRe.lastIndex = 0;
+    while ((fm = fieldRe.exec(src)) !== null) {
+      const start = fm.index + fm[0].length;
+      const end = src.indexOf('`', start);
+      if (end === -1) continue;
+      regions.push({ field: fm[1], start, end, fieldPos: fm.index });
+    }
+    // 2) 记录所有 id 位置，用于报错时定位到具体题目
+    const ids = [];
+    let im;
+    idRe.lastIndex = 0;
+    while ((im = idRe.exec(src)) !== null) ids.push({ pos: im.index, id: im[1] });
+    // 3) 在每个字段内扫描「孤立单反斜杠 + 字母」
+    for (const r of regions) {
+      const seg = src.slice(r.start, r.end);
+      re.lastIndex = 0;
+      let m;
+      while ((m = re.exec(seg)) !== null) {
+        let curId = '(unknown)';
+        for (let i = ids.length - 1; i >= 0; i--) {
+          if (ids[i].pos < r.fieldPos) { curId = ids[i].id; break; }
+        }
+        errors.push('    [' + file + '] 题目 ' + curId + ' 的 ' + r.field + ' 字段存在单反斜杠 KaTeX 命令 "\\' + m[0] + '"，必须写成双反斜杠 "\\\\' + m[0] + '"');
       }
-      errors.push('    题目 ' + curId + ' 的 ' + r.field + ' 字段存在单反斜杠 KaTeX 命令 "\\' + m[0] + '"，必须写成双反斜杠 "\\\\' + m[0] + '"');
     }
   }
   if (errors.length) {
     console.error('\n❌ 检测到 ' + errors.length + ' 处 KaTeX 反斜杠错误（content 必须用双反斜杠），已中止构建：\n' + errors.slice(0, 30).join('\n') + (errors.length > 30 ? '\n    …' : ''));
     process.exit(1);
   }
-  console.log('  ✓ KaTeX 反斜杠校验通过（无单反斜杠命令）');
+  console.log('  ✓ KaTeX 反斜杠校验通过（无单反斜杠命令，已扫描 ' + files.length + ' 个数据文件）');
 }
 
 validateKatexBackslashes();
@@ -138,6 +146,12 @@ problems.forEach(p => {
   (childrenOf[p.parent] = childrenOf[p.parent] || []).push(p);
 });
 
+// 从题号（如 "p12"、"p3a1"）中提取数字，用于按"题号顺序"排序
+function numId(id) {
+  const m = /(\d+)/.exec(id);
+  return m ? parseInt(m[1], 10) : 0;
+}
+
 // 生成单个题目的菜单项 <li>
 function fileLinkHtml(p) {
   const stars = '★'.repeat(p.difficulty) + '☆'.repeat(4 - p.difficulty);
@@ -165,7 +179,7 @@ function subFolderHtml(p, kids) {
                 <span class="tree-file-diff">${stars}</span>
               </div>
               <ul class="tree-children">
-                ${kids.map(k => fileLinkHtml(k)).join('')}
+                ${kids.sort((a, b) => numId(a.id) - numId(b.id)).map(k => fileLinkHtml(k)).join('')}
               </ul>
             </li>`;
 }
@@ -179,7 +193,8 @@ function buildTreeHTML() {
     // 顶层题目（没有 parent 的）直接挂在分类下；有 parent 的作为子菜单嵌套到父题
     const topLevel = probs.filter(p => !p.parent);
     if (topLevel.length === 0) continue;
-    topLevel.sort((a, b) => a.difficulty - b.difficulty);
+    // 按题号从小到大排序（如 p7 之后是 p8，再是 p10）
+    topLevel.sort((a, b) => numId(a.id) - numId(b.id));
     html += `
         <li class="tree-folder">
           <div class="tree-folder-header" onclick="toggleFolder(this)" title="${cat}">
