@@ -16,6 +16,12 @@
     <button class="sidebar-toggle" onclick="toggleSidebar()" title="收起侧边栏">◀</button>
   </div>
 
+  <!-- 搜索框：按题目/分组名称过滤左侧菜单 -->
+  <div class="tree-search">
+    <input type="text" id="menuSearch" class="tree-search-input" placeholder="搜索题目…" autocomplete="off">
+    <button type="button" id="searchClear" class="tree-search-clear" title="清除搜索" style="display:none;">✕</button>
+  </div>
+
   <!-- 树形导航 -->
   <nav class="tree-nav">
     <ul>
@@ -469,9 +475,45 @@
             <span class="tree-arrow">▶</span>
             <span class="tree-folder-icon">📁</span>
             <span class="tree-folder-name">函数与统计</span>
-            <span class="tree-count" title="点击折叠/展开本分组内的二级子菜单" onclick="toggleGroupSubfolders(this);event.stopPropagation();return false;">15</span>
+            <span class="tree-count" title="点击折叠/展开本分组内的二级子菜单" onclick="toggleGroupSubfolders(this);event.stopPropagation();return false;">19</span>
           </div>
           <ul class="tree-children">
+            <li class="tree-folder tree-subfolder">
+              <div class="tree-folder-header" data-file="problems/p11.html" onclick="toggleFolderAndLoad(this, 'problems/p11.html', 'p11')" ondblclick="toggleMastered('p11')" title="p11 被墨水污染数据的箱线图分析" data-id="p11" data-cat="函数与统计">
+                <span class="tree-arrow">▶</span>
+                <span class="tree-checkmark" id="check-p11"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p11 被墨水污染数据的箱线图分析</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </div>
+              <ul class="tree-children">
+                
+            <li>
+              <a class="tree-file" href="problems/p11a1.html" data-id="p11a1" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p11a1.html');return false;" ondblclick="toggleMastered('p11a1')" title="p11a1 由中位数反求未知数并算四分位数">
+                <span class="tree-checkmark" id="check-p11a1"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p11a1 由中位数反求未知数并算四分位数</span>
+                <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p11a2.html" data-id="p11a2" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p11a2.html');return false;" ondblclick="toggleMastered('p11a2')" title="p11a2 由四分位数约束求未知数范围">
+                <span class="tree-checkmark" id="check-p11a2"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p11a2 由四分位数约束求未知数范围</span>
+                <span class="tree-file-diff">★★★☆</span>
+              </a>
+            </li>
+            <li>
+              <a class="tree-file" href="problems/p11a3.html" data-id="p11a3" data-cat="函数与统计" onclick="loadProblem(this, 'problems/p11a3.html');return false;" ondblclick="toggleMastered('p11a3')" title="p11a3 箱线图五数信息辨析（选错题）">
+                <span class="tree-checkmark" id="check-p11a3"></span>
+                <span class="tree-file-icon">📄</span>
+                <span class="tree-file-name">p11a3 箱线图五数信息辨析（选错题）</span>
+                <span class="tree-file-diff">★★☆☆</span>
+              </a>
+            </li>
+              </ul>
+            </li>
             <li class="tree-folder tree-subfolder">
               <div class="tree-folder-header" data-file="problems/p15.html" onclick="toggleFolderAndLoad(this, 'problems/p15.html', 'p15')" ondblclick="toggleMastered('p15')" title="p15 函数的判断" data-id="p15" data-cat="函数与统计">
                 <span class="tree-arrow">▶</span>

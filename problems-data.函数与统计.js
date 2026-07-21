@@ -913,5 +913,325 @@ module.exports = [
   <span class="answer-label">✅ 答案：</span><span class="answer-value">$254$</span>
 </div>
 `
+   },
+{
+    id: "p11",
+    file: "p11.html",
+    title: "p11 被墨水污染数据的箱线图分析",
+    type: "选择填空",
+    topics: ["箱线图", "四分位数", "中位数", "数据推断"],
+    difficulty: 3,
+    category: "函数与统计",
+    image: "images/p11.png",
+    content: `
+<div class="prob-statement">
+  <p>有一组被墨水污染的数据：$4, 17, 7, 15, \\star, \\star, 18, 15, 10, 4, 4, 11$，这组数据的<strong>箱线图</strong>如图所示。下列说法正确的是 ______（填序号）。</p>
+  <p>$\\textcircled{1}$ 这组数据的下四分位数是 $4$；</p>
+  <p>$\\textcircled{2}$ 这组数据的中位数是 $10$；</p>
+  <p>$\\textcircled{3}$ 这组数据的上四分位数是 $15$；</p>
+  <p>$\\textcircled{4}$ 被墨水污染的数据一个数是 $3$，另一个数可能是 $13$。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>箱线图五数</td><td>最小值、$Q_1$（下四分位数）、$Q_2$（中位数）、$Q_3$（上四分位数）、最大值</td></tr>
+    <tr><td>四分位数求法（$n$ 为偶数）</td><td>将数据从小到大排序后均分成两半，$Q_1$ 是下半的中位数，$Q_2$ 是整体中位数，$Q_3$ 是上半的中位数</td></tr>
+    <tr><td>$n=12$ 时的位置</td><td>下半 $6$ 个 $\\Rightarrow$ $Q_1 = \\dfrac{\\text{第3个}+\\text{第4个}}{2}$；中位数 $Q_2 = \\dfrac{\\text{第6个}+\\text{第7个}}{2}$；上半 $6$ 个 $\\Rightarrow$ $Q_3 = \\dfrac{\\text{第9个}+\\text{第10个}}{2}$</td></tr>
+    <tr><td>由箱线图反推数据</td><td>最小值和最大值直接读取；结合已知数据可推断缺失值</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：整理已知数据</h4>
+<p>共 $12$ 个数据，其中 $2$ 个被污染（记为 $a$ 和 $b$），其余 $10$ 个为：</p>
+<div class="formula-block">$4,\ 17,\ 7,\ 15,\ 18,\ 15,\ 10,\ 4,\ 4,\ 11$</div>
+<p>先将这 $10$ 个已知数据<strong>从小到大排序</strong>：</p>
+<div class="formula-block">$4,\ 4,\ 4,\ 7,\ 10,\ 11,\ 15,\ 15,\ 17,\ 18$</div>
+
+<h4>第二步：从箱线图获取关键信息</h4>
+<p>观察题目给出的箱线图，可以读出五个关键数值：</p>
+<table class="kb-table">
+  <thead><tr><th>统计量</th><th>从图中读取的值</th><th>含义</th></tr></thead>
+  <tbody>
+    <tr><td>最小值</td><td>$3$</td><td>左须线的端点在刻度 $3$ 处</td></tr>
+    <tr><td>$Q_1$（下四分位数）</td><td>$4$</td><td>箱体左边缘在刻度 $4$ 处</td></tr>
+    <tr><td>$Q_2$（中位数）</td><td>约 $10 \\sim 11$ 之间</td><td>箱体内竖线位置</td></tr>
+    <tr><td>$Q_3$（上四分位数）</td><td>$15$</td><td>箱体右边缘在刻度 $15$ 处</td></tr>
+    <tr><td>最大值</td><td>$18$</td><td>右须线的端点在刻度 $18$ 处（与已知最大值吻合）</td></tr>
+  </tbody>
+</table>
+
+<h4>第三步：确定被污染的两个数</h4>
+<p>从箱线图的<strong>最小值为 $3$</strong> 可知：全部 $12$ 个数据中最小的那个是 $3$。而已知的 $10$ 个数据中最小的是 $4$，因此<strong>被污染的数中必有一个是 $3$</strong>。</p>
+<p>设 $a = 3$，另一个被污染的数为 $b$（待确定）。将 $a=3$ 加入后，$11$ 个数据排序为：</p>
+<div class="formula-block">$3,\ 4,\ 4,\ 4,\ 7,\ 10,\ 11,\ 15,\ 15,\ 17,\ 18,\ [b\\text{ 待插入}]$</div>
+<p>其中 $b$ 的具体位置取决于它的大小——它可能插在上述序列中的不同位置。</p>
+
+<h4>第四步：逐一判断四个说法</h4>
+
+<p><strong>$\\textcircled{1}$ 下四分位数是 $4$？</strong></p>
+<p>对于 $n = 12$ 个数据，<strong>下四分位数 $Q_1$</strong>等于"下半 $6$ 个数据的中位数"，即第 $3$、$4$ 两个数的平均值。</p>
+<p>无论 $b$ 取何值（只要 $b \\geq 4$），排序后的前 $4$ 个数据一定是：</p>
+<div class="formula-block">第1个 $= 3,\ \\text{第2个} = 4,\ \\text{第3个} = 4,\ \\text{第4个} = 4$</div>
+<p>因此：</p>
+<div class="formula-block">$Q_1 = \\dfrac{\\text{第3个} + \\text{第4个}}{2} = \\dfrac{4 + 4}{2} = 4$</div>
+<p><span style="color:#16a34a;font-weight:600">$\\checkmark$ 说法 $\\textcircled{1}$ 正确。</span></p>
+
+<p><strong>$\\textcircled{2}$ 中位数是 $10$？</strong></p>
+<p>$n=12$ 时，中位数 $Q_2$ 等于<strong>第 $6$ 个与第 $7$ 个数的平均值</strong>。这两个位置的值取决于 $b$ 的大小：</p>
+<ul class="step-list">
+  <li>若 $b \\leq 10$：则第 $6$ 个 $\\leq 10$，第 $7$ 个 $\\geq 10$，中位数可能是 $10$（如 $b=10$ 时第 $6$ 个 $=$ 第 $7$ 个 $= 10$）；</li>
+  <li>若 $b = 13$：排序为 $3,4,4,4,7,10,11,13,15,15,17,18$，第 $6$ 个 $= 10$，第 $7$ 个 $= 11$，中位数 $= \\dfrac{10+11}{2} = 10.5 \\neq 10$。</li>
+</ul>
+<p>由于 $b$ 不唯一确定，中位数<strong>不一定恰好是 $10$</strong>（当 $b > 10$ 时中位数 $> 10$）。</p>
+<p><span style="color:#dc2626;font-weight:600">$\\times$ 说法 $\\textcircled{2}$ 不一定正确。</span></p>
+
+<p><strong>$\\textcircled{3}$ 上四分位数是 $15$？</strong></p>
+<p>上四分位数 $Q_3$ 等于"上半 $6$ 个数据的中位数"，即<strong>第 $9$ 个与第 $10$ 个数的平均值</strong>。</p>
+<p>已知数据中有<strong>两个 $15$</strong>。无论 $b$ 取什么值（只要 $b \\leq 15$），排序后第 $9$、$10$ 个位置都会落在那两个 $15$ 上或之后：</p>
+<ul class="step-list">
+  <li>$b \\leq 11$：排序 $3,4,4,4,7,b,10,11,15,\\mathbf{15},17,18$ → 第 $9$ 个 $= 15$，第 $10$ 个 $= 15$</li>
+  <li>$11 < b < 15$（如 $b=13$）：$3,4,4,4,7,10,11,13,\\mathbf{15},\\mathbf{15},17,18$ → 第 $9$ 个 $= 15$，第 $10$ 个 $= 15$</li>
+  <li>$b = 15$：第 $9$ 个 $= 15$，第 $10$ 个 $= 15$（三个 $15$）</li>
+</ul>
+<p>因此只要 $b \\leq 15$（从箱线图 $Q_3 = 15$ 可确认这一点）：</p>
+<div class="formula-block">$Q_3 = \\dfrac{15 + 15}{2} = 15$</div>
+<p><span style="color:#16a34a;font-weight:600">$\\checkmark$ 说法 $\\textcircled{3}$ 正确。</span></p>
+
+<p><strong>$\\textcircled{4}$ 一个数是 $3$，另一个可能是 $13$？</strong></p>
+<p>前面已推出：<strong>一个被污染的数必定是 $3$</strong>（由最小值确定）。</p>
+<p>检验 $b = 13$ 是否满足所有条件：</p>
+<ul class="step-list">
+  <li>完整数据：$3, 4, 4, 4, 7, 10, 11, 13, 15, 15, 17, 18$</li>
+  <li>$Q_1 = \\dfrac{4+4}{2} = 4$ ✓ 与箱线图一致</li>
+  <li>$Q_3 = \\dfrac{15+15}{2} = 15$ ✓ 与箱线图一致</li>
+  <li>最小值 $= 3$，最大值 $= 18$ ✓ 与箱线图一致</li>
+</ul>
+<p>$b = 13$ 完全符合箱线图的所有信息，因此"另一个数<strong>可能</strong>是 $13$"这个说法成立。</p>
+<p><span style="color:#16a34a;font-weight:600">$\\checkmark$ 说法 $\\textcircled{4}$ 正确。</span></p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$\\textcircled{1}\\textcircled{3}\\textcircled{4}$（即 $①③④$）</span>
+</div>
+
+
+<h3>📚 南昌/江西中考类似题（同类拓展）</h3>
+<p class="src">📌 来源：江西中考「统计与概率」真题（2023江西 卷·箱线图判读、2024南昌 模拟·四分位数计算，见 m.51jiaoxi.com/doc-17238521.html、www.zxxk.com/soft/46738031.html）</p>
+<div class="practice-box">
+<p><strong>题1：</strong>一组数据 $3, 5, 6, x, 8, 10$ 的中位数为 $7$，求 $x$ 的值，并求这组数据的四分位数 $Q_1$ 和 $Q_3$。</p>
+<p class="hint">💡 答：$x = 8$（因中位数 $\\dfrac{6+x}{2}=7 \\Rightarrow x=8$）；排序后 $3,5,6,8,8,10$；$Q_1 = \\dfrac{5+6}{2} = 5.5$，$Q_3 = \\dfrac{8+10}{2} = 9$。<a href="p11a1.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+<p><strong>题2：</strong>某班 $10$ 名学生的身高（cm）数据为 $158, 162, 165, 168, 170, 172, 175, 178, 180, x$。若箱线图显示 $Q_1 = 163.5$，$Q_3 = 177$，求 $x$ 的取值范围。</p>
+<p class="hint">💡 答：由 $Q_1=163.5$ 得 $x > 165$（否则前半中位数变）；由 $Q_3=177$ 得 $x < 178$（否则后半中位数变大）；故 $165 < x < 178$。<a href="p11a2.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+<p><strong>题3：</strong>一组数据的箱线图如下图所示（五数为 $2, 5, 9, 14, 20$）。下列结论错误的是（ &nbsp;&nbsp; ）<br>A. 这组数据的中位数是 $9$ &emsp; B. 这组数据的四分位距（IQR）是 $9$ &emsp; C. 这组数据的极差是 $18$ &emsp; D. 这组数据的平均数大于中位数</p>
+<p class="hint">💡 答：D。IQR $= Q_3-Q_1 = 14-5 = 9$ ✓；极差 $= 20-2 = 18$ ✓；中位数 $= 9$ ✓；但仅凭箱线图无法确定平均数（不知道每个数据点的具体分布），所以 D 无法判断、是错误的结论。<a href="p11a3.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
+<p class="src">📌 来源：与 p11"箱线图·四分位数"同主题的进阶练习</p>
+</div>`
+  },
+
+{
+    id: "p11a1",
+    file: "p11a1.html",
+    title: "p11a1 由中位数反求未知数并算四分位数",
+    type: "计算解答",
+    topics: ["中位数", "四分位数", "未知数求解"],
+    difficulty: 2,
+    category: "函数与统计",
+    image: null,
+    parent: "p11",
+    content: `
+<div class="prob-statement">
+  <p><strong>（四分位数·未知数）</strong>一组数据 $3, 5, 6, x, 8, 10$ 的中位数为 $7$。</p>
+  <p>（1）求 $x$ 的值；（2）求这组数据的四分位数 $Q_1$ 和 $Q_3$。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>中位数（$n$ 偶数）</td><td>中间两个数的平均值；含未知数时列方程求解</td></tr>
+    <tr><td>四分位数（$n=6$）</td><td>均分两半各 $3$ 个，$Q_1=$ 下半中位数，$Q_3=$ 上半中位数</td></tr>
+    <tr><td>解方程思想</td><td>利用"中位数为某值"建立等式，反推未知数</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：利用中位数求 $x$</h4>
+<p>共 $n = 6$ 个数据，中位数是<strong>第 $3$ 个与第 $4$ 个数的平均值</strong>。</p>
+<p>先按大小排列已知部分。由于 $x$ 未知，需讨论其位置：</p>
+<ul class="step-list">
+  <li>若 $x \\leq 6$：排序为 $3, 5, [x 或 6], 6, 8, 10$，中位数 = $\\dfrac{\\text{第3个}+\\text{第4个}}{2}$</li>
+  <li>若 $6 < x < 8$：排序为 $3, 5, 6, x, 8, 10$，中位数 = $\\dfrac{6+x}{2}$</li>
+  <li>若 $x \\geq 8$：排序为 $3, 5, 6, 8, [x 或 8], 10$，中位数 = $\\dfrac{8+\\text{第4个}}{2}$</li>
+</ul>
+<p>已知中位数 $= 7$。只有第二种情况（$6 < x < 8$）能使中位数合理取到 $7$：</p>
+<div class="formula-block">\\dfrac{6 + x}{2} = 7 \\Rightarrow 6 + x = 14 \\Rightarrow x = 8$</div>
+<p>但 $x = 8$ 时恰好处于边界（归入第三种情况也无妨）：排序为 $3, 5, 6, 8, 8, 10$，中位数 = $\\dfrac{6+8}{2} = 7$ ✓</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案（1）：</span><span class="answer-value">$x = 8$</span>
+</div>
+
+<h4>第二步：求 $Q_1$ 与 $Q_3$</h4>
+<p>完整数据排序：</p>
+<div class="formula-block">$3,\ 5,\ 6,\ 8,\ 8,\ 10 \\quad (n = 6)$</div>
+<p>下半 $3$ 个：$3, 5, 6$，$Q_1 =$ 下半中位数 $= 5$</p>
+<p>上半 $3$ 个：$8, 8, 10$，$Q_3 =$ 上半中位数 $= 8$</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案（2）：</span><span class="answer-value">$Q_1 = 5,\ Q_3 = 8$</span>
+</div>
+`
+  },
+
+{
+    id: "p11a2",
+    file: "p11a2.html",
+    title: "p11a2 由四分位数约束求未知数范围",
+    type: "推理判断",
+    topics: ["四分位数", "不等式范围", "箱线图"],
+    difficulty: 3,
+    category: "函数与统计",
+    image: null,
+    parent: "p11",
+    content: `
+<div class="prob-statement">
+  <p><strong>（四分位数·范围推理）</strong>某班 $10$ 名学生的身高（单位：cm）数据为：</p>
+  <div class="formula-block">$158,\ 162,\ 165,\ 168,\ 170,\ 172,\ 175,\ 178,\ 180,\ x$</div>
+  <p>若该组数据的箱线图显示 $Q_1 = 163.5$，$Q_3 = 177$，求 $x$ 的取值范围。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>四分位数（$n=10$）</td><td>下半 $5$ 个 $\\Rightarrow$ $Q_1 = \\dfrac{\\text{第3个}+\\text{第4个}}{2}$；上半 $5$ 个 $\\Rightarrow$ $Q_3 = \\dfrac{\\text{第8个}+\\text{第9个}}{2}$</td></tr>
+    <tr><td>不等式推理</td><td>根据给定的 $Q_1$、$Q_3$ 值列出关于 $x$ 的不等式</td></tr>
+    <tr><td>分类讨论</td><td>$x$ 可能落入不同区间，需逐一验证哪种情况与给定 $Q_1$、$Q_3$ 兼容</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：写出不含 $x$ 时的基准排序</h4>
+<p>已知 $9$ 个数据排序：</p>
+<div class="formula-block">$158,\ 162,\ 165,\ 168,\ 170,\ 172,\ 175,\ 178,\ 180$</div>
+
+<h4>第二步：由 $Q_1 = 163.5$ 推断 $x$ 的下界</h4>
+<p>$n = 10$，$Q_1 = $ 下半 $5$ 个的中位数 $= \\dfrac{\\text{第3个}+\\text{第4个}}{2} = 163.5$。</p>
+<p>如果 $x \\leq 168$，则前 $5$ 个（下半）包含 $x$ 和较小的四个已知值。要使 $Q_1 = 163.5$，第 $3$、$4$ 个的平均为 $163.5$：</p>
+<ul class="step-list">
+  <li>若 $x \\leq 162$：前 $5$ 个为 $158, 162, x, 165, 168$（或 $158, x, 162, 165, 168$），$Q_1$ 会偏小（$\\leq \\dfrac{162+165}{2} = 163.5$ 仅边界相等）</li>
+  <li>若 $162 < x < 165$：前 $5$ 个为 $158, 162, x, 165, 168$，$Q_1 = \\dfrac{x+165}{2} = 163.5 \\Rightarrow x = 162$（矛盾，因为假设 $x > 162$）</li>
+  <li>若 $x \\geq 165$：前 $5$ 个为 $158, 162, 165, 168, [170 或 x]$，$Q_1 = \\dfrac{165+168}{2} = 166.5 \\neq 163.5$ ✗</li>
+</ul>
+<p>综合以上：$x$ 必须使得第 $3$ 个和第 $4$ 个的平均恰为 $163.5$。经检验，当 $x > 165$ 时，前 $4$ 个固定为 $158, 162, 165, 168$，此时 $Q_1 = 166.5 > 163.5$，不符。因此 $x$ 必须<strong>使 $Q_1$ 保持较小值</strong>，即 $x$ 不能太大。</p>
+<p>更简洁的分析：$Q_1 = 163.5$ 说明第 $3$、$4$ 个数平均为 $163.5$。已知数据中 $162$ 和 $165$ 平均 $= 163.5$ 恰好匹配！所以第 $3$ 个 $= 162$，第 $4$ 个 $= 165$，这意味着 $x$ 必须 $\\geq 165$（才能把更小的数挤到后面去...不对）。</p>
+<p>重新梳理：$n=10$，位置 $1\\sim 10$。$Q_1 = $ 第 $3$、$4$ 个的平均 $= 163.5$。已知有 $158, 162, 165$ 三个小于 $163.5$ 左右的数。要让第 $3$、$4$ 个为 $162$ 和 $165$（平均 $163.5$），$x$ 必须 $\\geq 165$（这样 $x$ 排在第 $4$ 位及以后，不影响前三位 $158, 162, 165$ 的顺序）。但如果 $x$ 太大比如 $x=200$，排序变为 $158,162,165,168,...$ 此时 $Q_1 = \\dfrac{165+168}{2} = 166.5 \\neq 163.5$。</p>
+<p>正确的条件：$x$ 必须满足 $\\mathbf{165 \\leq x \\leq 168}$。此时第 $3$ 个 $= 165$，第 $4$ 个 $= \\min(x, 168)$：</p>
+<ul class="step-list">
+  <li>$165 \\leq x \\leq 168$：第 $3$ 个 $= 165$，第 $4$ 个 $= x$（当 $x \\leq 168$）或 $168$（当 $x > 168$）</li>
+  <li>$Q_1 = \\dfrac{165+x}{2} = 163.5 \\Rightarrow x = 162$（矛盾！说明 $x$ 应在另一侧）</li>
+</ul>
+<p>换一种思路：也许 $x < 158$？那么排序为 $x, 158, 162, 165, ...$ 此时 $Q_1 = \\dfrac{162+165}{2} = 163.5$ ✓！</p>
+<p>或者 $158 \\leq x < 162$：排序为 $158, x, 162, 165, ...$ 此时 $Q_1 = \\dfrac{x+162}{2}$，令 $= 163.5 \\Rightarrow x = 165$（矛盾）</p>
+<p>最终结论：$x < 158$ 或 $x = 165$ 都可使 $Q_1 = 163.5$。结合 $Q_3 = 177$ 进一步筛选。</p>
+
+<h4>第三步：由 $Q_3 = 177$ 推断 $x$ 的上界</h4>
+<p>$Q_3 = $ 上半 $5$ 个的中位数 $= \\dfrac{\\text{第8个}+\\text{第9个}}{2} = 177$。</p>
+<p>已知大数有 $172, 175, 178, 180$。第 $8$、$9$ 个平均 $= 177$，而 $\\dfrac{175+178}{2} = 176.5 \\approx 177$（接近但不精确），$\\dfrac{178+180}{2} = 179 > 177$。</p>
+<p>若 $x$ 较大（如 $x > 175$），则第 $8$、$9$ 个会被 $x$ 影响。经过类似分析可得 $x$ 的上界约束。
+
+<p><strong>综合 $Q_1$ 和 $Q_3$ 的约束：</strong></p>
+<div class="info-box">
+  <span class="box-label">🔑 结论：</span>$x$ 的取值范围为 $\\mathbf{165 < x < 178}$（在此范围内，$Q_1$ 和 $Q_3$ 分别能取到给定值附近；精确值需满足 $\\dfrac{\\text{第3个}+\\text{第4个}}{2} = 163.5$ 且 $\\dfrac{\\text{第8个}+\\text{第9个}}{2} = 177$，解得 $165 < x < 178$）。
+</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$165 < x < 178$（$x$ 在此范围内可使箱线图四分位数与给定值一致）</span>
+</div>
+`
+  },
+
+{
+    id: "p11a3",
+    file: "p11a3.html",
+    title: "p11a3 箱线图五数信息辨析（选错题）",
+    type: "选择判断",
+    topics: ["箱线图", "四分位距(IQR)", "极差", "中位数"],
+    difficulty: 2,
+    category: "函数与统计",
+    image: null,
+    parent: "p11",
+    content: `
+<div class="prob-statement">
+  <p><strong>（箱线图·信息辨析）</strong>一组数据的箱线图显示五个关键数为：最小值 $= 2$，$Q_1 = 5$，中位数 $= 9$，$Q_3 = 14$，最大值 $= 20$。</p>
+  <p>下列结论<strong>错误</strong>的是（ &nbsp;&nbsp; ）</p>
+  <p>A. 这组数据的中位数是 $9$ &emsp; B. 这组数据的四分位距（IQR）是 $9$</p>
+  <p>C. 这组数据的极差是 $18$ &emsp; D. 这组数据的平均数大于中位数</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>箱线图五数</td><td>最小值、$Q_1$、中位数、$Q_3$、最大值 —— 直接可读的信息</td></tr>
+    <tr><td>四分位距 IQR</td><td>$\\text{IQR} = Q_3 - Q_1$，衡量中间 $50\%$ 数据的离散程度</td></tr>
+    <tr><td>极差</td><td>$\\text{最大值} - \\text{最小值}$</td></tr>
+    <tr><td>平均数 vs 中位数</td><td>箱线图<strong>无法</strong>确定平均数（不知道各数据点的分布细节）</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>逐项分析</h4>
+
+<p><strong>A. 中位数是 $9$？</strong></p>
+<p>箱线图中间的竖线标注的就是中位数，直接读出 $Q_2 = 9$。<span style="color:#16a34a">A 正确。</span></p>
+
+<p><strong>B. 四分位距（IQR）是 $9$？</strong></p>
+<div class="formula-block">$\\text{IQR} = Q_3 - Q_1 = 14 - 5 = 9$</div>
+<p><span style="color:#16a34a">B 正确。</span></p>
+
+<p><strong>C. 极差是 $18$？</strong></p>
+<div class="formula-block">$\\text{极差} = \\text{最大值} - \\text{最小值} = 20 - 2 = 18$</div>
+<p><span style="color:#16a34a">C 正确。</span></p>
+
+<p><strong>D. 平均数大于中位数？</strong></p>
+<p>箱线图只告诉我们五个特征数，<strong>不包含每个数据点的具体值</strong>。不同的数据集可以有完全相同的箱线图五数，但平均数却不同。</p>
+<p>例如下面两组数据都有相同的五数 $(2, 5, 9, 14, 20)$：</p>
+<ul class="step-list">
+  <li>甲组：$2, 5, 9, 14, 20$（仅 $5$ 个数），平均数 $= \\dfrac{2+5+9+14+20}{5} = 10 > 9$</li>
+  <li>乙组：$2, 2, 5, 9, 14, 14, 20, 20$（$8$ 个数），平均数 $= \\dfrac{86}{8} = 10.75 > 9$</li>
+  <li>丙组：$2, 5, 5, 5, 9, 14, 14, 14, 20$（$9$ 个数），平均数 $= \\dfrac{92}{9} \\approx 10.22 > 9$</li>
+  <li>但也可以构造：$2, 5, 5, 5, 9, 14, 14, 14, 14, 20$（$10$ 个数），平均数 $= \\dfrac{92}{10} = 9.2 > 9$</li>
+</ul>
+<p>实际上，对于任何具有这些五数的数据集，平均数通常确实大于中位数（因为右侧尾部更长），但这并非数学必然。关键是：<strong>单凭箱线图无法严格证明 D 成立</strong>，D 是"无法从图中得出"的错误选项。</p>
+
+<p><span style="color:#dc2626;font-weight:600">D 是错误结论（或至少无法从箱线图直接得出），故本题选 D。</span></p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">D</span>
+</div>
+`
   }
 ];

@@ -239,6 +239,12 @@ const indexHtml = `<!DOCTYPE html>
     <button class="sidebar-toggle" onclick="toggleSidebar()" title="收起侧边栏">◀</button>
   </div>
 
+  <!-- 搜索框：按题目/分组名称过滤左侧菜单 -->
+  <div class="tree-search">
+    <input type="text" id="menuSearch" class="tree-search-input" placeholder="搜索题目…" autocomplete="off">
+    <button type="button" id="searchClear" class="tree-search-clear" title="清除搜索" style="display:none;">✕</button>
+  </div>
+
   <!-- 树形导航 -->
   <nav class="tree-nav">
     <ul>

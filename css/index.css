@@ -337,6 +337,47 @@ body {
   color: #fff;
 }
 
+/* 搜索框 */
+.tree-search {
+  position: relative;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.tree-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 26px 6px 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  background: rgba(0,0,0,0.25);
+  color: #e6eef7;
+  font-size: 0.8em;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.tree-search-input:focus {
+  border-color: #4a90d9;
+}
+.tree-search-input::placeholder {
+  color: #6b8299;
+}
+.tree-search-clear {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #8aa0b5;
+  cursor: pointer;
+  font-size: 0.85em;
+  line-height: 1;
+  padding: 2px 4px;
+}
+.tree-search-clear:hover {
+  color: #e6eef7;
+}
+
 /* 搜索模式下：隐藏不匹配的项 */
 .searching .search-hidden {
   display: none;
