@@ -431,10 +431,36 @@ module.exports = [
     category: "几何综合",
     image: null,
     parent: "p16",
-    content: `
-<div class="prob-statement">
+    content: `<div class="prob-statement">
   <p><strong>（几何动点·面积函数图象进阶）</strong>菱形 $ABCD$ 中 $\\angle BAD = 60°$，点 $P$ 在对角线 $BD$ 上以 $\\sqrt{3}\\text{ cm/s}$ 从 $B$ 向 $D$ 运动，同时点 $Q$ 在 $BC$ 上以 $1\\text{ cm/s}$ 从 $B$ 向 $C$ 运动。设时间为 $x(\\text{s})$，$y = S_{\\triangle BPQ}$。</p>
   <p>求 $y$ 与 $x$ 的函数关系式。</p>
+</div>
+
+<div style="text-align:center;margin:12px 0;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif" style="width:100%;max-width:440px;">
+  <polygon points="50,270 270,270 380,79.5 160,79.5" fill="none" stroke="#334155" stroke-width="2.5"/>
+  <line x1="270" y1="270" x2="160" y2="79.5" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="6 4"/>
+  <polygon points="270,270 222.4,187.5 297.5,222.4" fill="#dbeafe" fill-opacity="0.7" stroke="#2563eb" stroke-width="2"/>
+  <line x1="222.4" y1="187.5" x2="293.8" y2="228.75" stroke="#ef4444" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="250" y="244" fill="#0ea5e9" font-size="13" font-weight="600">60°</text>
+  <text x="62" y="262" fill="#334155" font-size="13" font-weight="600">60°</text>
+  <path d="M293.8,228.75 L288.3,238.3 L278.8,232.8 L284.3,223.3 Z" fill="none" stroke="#ef4444" stroke-width="1.2"/>
+  <circle cx="50" cy="270" r="3.2" fill="#334155"/>
+  <circle cx="270" cy="270" r="3.2" fill="#334155"/>
+  <circle cx="380" cy="79.5" r="3.2" fill="#334155"/>
+  <circle cx="160" cy="79.5" r="3.2" fill="#334155"/>
+  <circle cx="222.4" cy="187.5" r="3.6" fill="#2563eb"/>
+  <circle cx="297.5" cy="222.4" r="3.6" fill="#2563eb"/>
+  <circle cx="293.8" cy="228.75" r="3" fill="#ef4444"/>
+  <text x="40" y="285" fill="#334155" font-size="14">A</text>
+  <text x="276" y="288" fill="#334155" font-size="14">B</text>
+  <text x="388" y="80" fill="#334155" font-size="14">C</text>
+  <text x="150" y="74" fill="#334155" font-size="14">D</text>
+  <text x="206" y="182" fill="#2563eb" font-size="14" font-weight="600">P</text>
+  <text x="303" y="218" fill="#2563eb" font-size="14" font-weight="600">Q</text>
+  <text x="298" y="246" fill="#ef4444" font-size="13" font-weight="600">H</text>
+</svg>
+<p class="src">▲ 蓝虚线 $BD$ 为点 $P$ 的运动路径；红虚线 $PH$ 为 $\\triangle BPQ$ 中边 $BQ$ 上的高；红色直角标记在 $H$ 处。</p>
 </div>
 
 <details class="kb-details">
@@ -446,30 +472,35 @@ module.exports = [
   <tbody>
     <tr><td>菱形邻角互补</td><td>$\\angle ABC = 180° - \\angle BAD$</td></tr>
     <tr><td>对角线平分内角</td><td>$BD$ 平分 $\\angle ABC$，故 $\\angle DBC = \\dfrac{1}{2}\\angle ABC$</td></tr>
-    <tr><td>三角形面积</td><td>$S = \\dfrac{1}{2}\\times\\text{底}\\times\\text{高}$</td></tr>
-    <tr><td>含 $30°$ 角的直角三角形</td><td>$30°$ 角所对直角边 $= \\dfrac{1}{2}$ 斜边（纯几何结论，不用三角函数）</td></tr>
+    <tr><td>三角形面积</td><td>$S = \\dfrac{1}{2}·\\text{底}·\\text{高}$</td></tr>
+    <tr><td>含 $30°$ 角的直角三角形</td><td>$30°$ 所对直角边 $= \\dfrac{1}{2}$ 斜边；$60°$ 所对直角边 $= \\dfrac{\\sqrt{3}}{2}$ 斜边（纯几何结论，不用三角函数）</td></tr>
   </tbody>
 </table>
 </details>
 
 <h3>✍️ 解题过程</h3>
 
-<h4>第一步：菱形的角</h4>
-<p>菱形邻角互补：$\\angle ABC = 180° - 60° = 120°$。</p>
-<p>对角线 $BD$ 平分 $\\angle ABC$，所以 $\\angle DBC = \\dfrac{120°}{2} = 60°$。</p>
-<p>点 $P$ 在 $BD$ 上、点 $Q$ 在 $BC$ 上，因此 $\\angle PBQ = \\angle DBC = 60°$。</p>
+<h4>第一步：菱形的角（全程只用几何性质，不用 sin / cos / tan）</h4>
+<p>菱形邻角互补：$\\angle ABC = 180° - \\angle BAD = 180° - 60° = 120°$。</p>
+<p>对角线 $BD$ 平分 $\\angle ABC$，所以 $\\angle ABD = \\angle DBC = \\dfrac{120°}{2} = 60°$。</p>
+<p>$\\angle BPH = 30°$。</p>
 
-<h4>第二步：用「底 × 高 ÷ 2」求面积（不套用含三角函数的面积公式）</h4>
-<p>过 $P$ 作 $PH \\perp BC$，垂足为 $H$，则 $PH$ 是 $\\triangle BPQ$ 中边 $BQ$ 上的高。</p>
-<p>运动 $x$ 秒后：$BP = \\sqrt{3}x$，$BQ = x$。</p>
-<p>在 $\\text{Rt}\\triangle PBH$ 中，$\\angle PBH = 60°$，则 $\\angle BPH = 30°$。根据<strong>含 $30°$ 角的直角三角形性质</strong>：</p>
-<div class="formula-block">$PH = \\dfrac{1}{2}\\,BP = \\dfrac{1}{2}\\cdot \\sqrt{3}x = \\dfrac{\\sqrt{3}}{2}x$</div>
+<h4>第二步：作高 $PH$，用勾股定理求高</h4>
+<p>过 $P$ 作 $PH \\perp BC$，垂足为 $H$，则 $PH$ 是 $\\triangle BPQ$ 中边 $BQ$ 上的高（图中红虚线）。</p>
+<p>在 $\\text{Rt}\\triangle PBH$ 中，直角在 $H$，$\\angle PBH = 60°$，所以 $\\angle BPH = 30°$，<strong>斜边是 $PB$</strong>。</p>
+<p>1. 由 $30°$ 所对直角边：$BH = \\dfrac{1}{2}BP = \\dfrac{1}{2}\\cdot \\sqrt{3}\\,x = \\dfrac{\\sqrt{3}}{2}x$。</p>
+<p>2. 勾股定理：$BH^2 + PH^2 = PB^2$，代入 $BP = \\sqrt{3}x$：</p>
+<div class="formula-block">$\\left(\\dfrac{\\sqrt{3}}{2}x\\right)^2 + PH^2 = (\\sqrt{3}x)^2 \;\\Rightarrow\; \\dfrac{3}{4}x^2 + PH^2 = 3x^2 \;\\Rightarrow\; PH^2 = \\dfrac{9}{4}x^2 \;\\Rightarrow\; PH = \\dfrac{3}{2}x$</div>
+<p>取 $x = 1$ 检验：$BH = \\dfrac{\\sqrt{3}}{2}$，$PH = \\dfrac{3}{2}$，满足 $BH^2 + PH^2 = \\dfrac{3}{4} + \\dfrac{9}{4} = 3 = PB^2$，故一秒时高 $PH = \\dfrac{3}{2}$ 正确。</p>
+<div class="def-red">直角三角形中 $30°$ 所对的边长等于斜边的 $\\dfrac{1}{2}$。</div>
+
 
 <h4>第三步：代入面积公式</h4>
-<div class="formula-block">$y = S_{\\triangle BPQ} = \\dfrac{1}{2}\\cdot BQ \\cdot PH = \\dfrac{1}{2}\\cdot x \\cdot \\dfrac{\\sqrt{3}}{2}x = \\dfrac{\\sqrt{3}}{4}x^2$</div>
+<div class="formula-block">$y = S_{\\triangle BPQ} = \\dfrac{1}{2}\\cdot BQ \\cdot PH = \\dfrac{1}{2}\\cdot x \\cdot \\dfrac{1}{2}(4 - x) = \\dfrac{1}{4}x(4 - x)$</div>
 <div class="answer-box">
-  <span class="answer-label">✅ 答案：</span><span class="answer-value">$y = \\dfrac{\\sqrt{3}}{4}x^2$</span>
+  <span class="answer-label">✅ 答案（1）：</span><span class="answer-value">$y = \\dfrac{1}{4}x(4 - x)$</span>
 </div>
+
 `
   },
 
@@ -606,6 +637,8 @@ module.exports = [
 <h3>✍️ 解题过程</h3>
 
 <h4>第一步：回顾核心公式</h4>
+<div class="formula-block">$a^2 + n^2 = (n+1)^2$</div>
+<p>展开右边 $(n+1)^2 = n^2 + 2n + 1$，两边消去 $n^2$，化简后得到：</p>
 <div class="formula-block">$a^2 = 2n+1$</div>
 
 <h4>第二种情况：$a$ 是奇数</h4>
@@ -613,13 +646,12 @@ module.exports = [
 <p>进一步：</p>
 <div class="formula-block">$n = \\dfrac{a^2-1}{2} = \\dfrac{(a-1)(a+1)}{2}$</div>
 <p>$a-1$ 与 $a+1$ 是两个连续偶数，其中必有一个被 $4$ 整除，所以乘积 $(a-1)(a+1)$ 一定是 $8$ 的倍数 $\\Rightarrow$ $n$ 一定是 $4$ 的倍数（$n$ 为偶数且能被 $4$ 整除）。</p>
+<p class="def-red">注意：最小的正奇数 $a=1$ 会使 $n=\\dfrac{1^2-1}{2}=0$，$n=0$ 不是正整数，不符合"完美勾股数"的正整数边要求，故不能从 $a=1$ 开始验证，最小合法奇数从 $a=3$ 起。</p>
 <p>验证：$a=3\\Rightarrow n=4$（$4$ 的倍数 ✓）；$a=5\\Rightarrow n=12$（$4$ 的倍数 ✓）；$a=7\\Rightarrow n=24$（$4$ 的倍数 ✓）。</p>
 
 <h4>第三种情况：$a$ 是偶数</h4>
-<p>$a$ 偶 $\\Rightarrow$ $a^2$ 是 $4$ 的倍数 $\\Rightarrow$ $a^2\\equiv 0\\pmod 4$。</p>
-<p>但 $2n+1$ 是奇数，模 $4$ 只能为 $1$ 或 $3$，不可能为 $0$。</p>
-<p>所以 $a$ 是偶数时方程无正整数解。</p>
-
+<p>由第一步化简结果 $a^2 = 2n+1$。</p>
+<p>若 $a$ 是偶数，则 $a^2$ 也是偶数；而 $2n+1$ 恒为奇数。偶数不可能等于奇数，矛盾，故 $a$ 是偶数时方程无正整数解。</p>
 <div class="answer-box">
   <span class="answer-label">✅ 答案：</span><span class="answer-value">$a$ 奇时 $n$ 是 $4$ 的倍数；$a$ 偶时无正整数解</span>
 </div>
@@ -939,7 +971,7 @@ module.exports = [
 </div>
 
 <p>
-  <img src="images/p8_grid.svg" alt="p8 坐标系与光路示意图：OB 为 x 轴、OA 为 y=√3x，P 在高度 5，对称点 P′，光路 P→D→E" onclick="openImgOverlay('p8grid')" style="max-width: 360px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
+  <img src="images/p8_grid.svg" alt="p8 坐标系与光路示意图：OB 为 x 轴、OA 为 y=√3x，P 在高度 5，对称点 P′，光路 P→D→E" onclick="openImgOverlay('p8grid')" style="max-width: 410px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
 </p>
 <p class="original-image-caption" onclick="openImgOverlay('p8grid')">🔍 点击查看原图</p>
 <div class="img-overlay" id="overlay-p8grid">
@@ -978,6 +1010,7 @@ module.exports = [
 <h4>第二步：建立坐标系求 $P'$ 的坐标</h4>
 <p>以 $O$ 为原点，$OB$ 为 $x$ 轴，则镜面 $OA$ 的方程为：</p>
 <div class="formula-block">$y = \\sqrt{3}x$</div>
+<p><strong>为什么镜面方程是 $y=\\sqrt{3}x$（初二方法，不用三角函数）：</strong>过镜面端点 $A$ 作 $AN\\perp OB$ 于 $N$，得到直角三角形 $OAN$。</p><p>因为 $\\angle AON = 60^\\circ$（镜面与地面的夹角），所以 $\\angle OAN = 30^\\circ$。</p><p>由初二结论“$30^\\circ$ 所对的直角边等于斜边的一半”：$ON = \\dfrac{1}{2}OA$。设 $ON = a$，则 $OA = 2a$。</p><p>用勾股定理：$AN = \\sqrt{OA^2 - ON^2} = \\sqrt{(2a)^2 - a^2} = \\sqrt{3}a$。</p><p>点 $A$ 的横坐标 $x = ON = a$，纵坐标 $y = AN = \\sqrt{3}a$，于是 $\\dfrac{y}{x} = \\dfrac{\\sqrt{3}a}{a} = \\sqrt{3}$，所以镜面方程为 $y = \\sqrt{3}x$。</p>
 <p>设光源 $P$ 的坐标为 $(x_0,5)$（因它到地面 $OB$ 的距离为 $5$）。</p>
 <p>点 $(x_0,y_0)$ 关于直线 $\\sqrt{3}x-y=0$ 的对称点公式为：</p>
 <div class="formula-block">$x' = \\dfrac{5\\sqrt{3}-x_0}{2},\\quad y' = \\dfrac{5+\\sqrt{3}x_0}{2}$</div>
@@ -1143,7 +1176,8 @@ module.exports = [
 <p>$BE$ 是 $\\angle ABC$ 的平分线，且交 $CD$ 于点 $E$。在 $\\triangle BCD$ 中，$BE$ 平分 $\\angle CBD$ 并交对边 $CD$ 于 $E$。</p>
 <p>根据角平分线定理：</p>
 <div class="formula-block">$\\dfrac{DE}{EC} = \\dfrac{BD}{BC} = \\dfrac{3}{5}$</div>
-<p>设 $DE = 3k$，$EC = 5k$，则：</p>
+<div class="def-red"><span class="box-label">📎 口诀：</span>角平分线所分<strong>角的两边之比</strong>，等于它在底边上截得的<strong>两段之比</strong>，即 $\\dfrac{BD}{BC}=\\dfrac{DE}{EC}$。</div>
+<p>前面第一步已求得 $CD=4$；又由角平分线定理知 $\\dfrac{BD}{BC}=\\dfrac{3}{5}$，所以设 $DE=3k$、$EC=5k$。</p>
 <div class="formula-block">$DE + EC = CD = 4$</div>
 <div class="formula-block">$3k + 5k = 4 \\Rightarrow 8k = 4 \\Rightarrow k = \\dfrac{1}{2}$</div>
 <p>因此：</p>

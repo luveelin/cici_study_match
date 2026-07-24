@@ -122,6 +122,7 @@ module.exports = [
 
 <h4>第二步：分析 $a$ 的奇偶性</h4>
 <p>$2n+1$ 是奇数，所以 $a^2$ 必须是奇数 $\\Rightarrow$ $a$ 也必须是奇数。</p>
+<div class="def-red"><strong>奇数的平方也是奇数</strong>（这正是 $a^2$ 为奇数 $\\Rightarrow$ $a$ 为奇数的原因）。</div>
 <p>题目给的两个例子：</p>
 <div class="formula-block">$a=3,n=4 \\Rightarrow a^2=9=2\\times 4+1$ ✓</div>
 <div class="formula-block">$a=5,n=12 \\Rightarrow a^2=25=2\\times 12+1$ ✓</div>
