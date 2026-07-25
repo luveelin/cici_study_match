@@ -38,7 +38,7 @@ module.exports = [
 
 <h4>第一步：在网格中标注关键点</h4>
 <p>设每个小正方形边长为 $1$。原题中 <strong>$\\angle 1$ 的顶点在格点 $(1,0)$</strong>、<strong>$\\angle 2$ 的顶点在格点 $(1,1)$</strong>（见图中实色三角形与弧标）。为便于计算，把这两个角平移到左下角公共顶点 $O$，并取辅助格点：</p>
-<div class="formula-block">$A(3,1),\\quad C(1,2)$</div>
+<div class="formula-block">$A(3,1),\\\quad C(1,2)$</div>
 <p>
   <img src="images/p3_grid.svg" alt="标注点 A、C 的 4×4 网格示意图" onclick="openImgOverlay('p3grid')" style="max-width: 340px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
 </p>
@@ -250,7 +250,7 @@ module.exports = [
 
 <h4>第一步：设定坐标系</h4>
 <p>设顶点 $O$ 在网格原点 $(0,0)$。根据题意：</p>
-<div class="formula-block">$A(3,1),\\quad B(1,2)$</div>
+<div class="formula-block">$A(3,1),\\\quad B(1,2)$</div>
 <p>即 $OA$ 经过格点 $(3,1)$，$OB$ 经过格点 $(1,2)$。所以 $\\angle AOB$ 就是向量 $\\vec{OA}$ 与 $\\vec{OB}$ 之间的夹角。</p>
 
 <h4>第二步：计算三边长</h4>
@@ -274,7 +274,7 @@ module.exports = [
 
 <h4>第三步：发现等腰关系</h4>
 <p>比较三边：</p>
-<div class="formula-block">$OA = \\sqrt{10},\\quad OB = \\sqrt{5},\\quad AB = \\sqrt{5}$</div>
+<div class="formula-block">$OA = \\sqrt{10},\\\quad OB = \\sqrt{5},\\\quad AB = \\sqrt{5}$</div>
 <p>所以 $OB = AB = \\sqrt{5}$（两腰相等），$OA$ 为最长边（斜边候选）。</p>
 
 <h4>第四步：用勾股定理逆定理证明直角</h4>
@@ -342,7 +342,7 @@ module.exports = [
 
 <h4>第三步：由图象最大值直接求出 $m$</h4>
 <p>图 2 中 $y$ 与 $x$ 是开口向上的抛物线，最大面积 $\\dfrac{3\\sqrt{3}}{2}$ 在 $x = m$ 处取得，代入函数式：</p>
-<div class="formula-block">$\\dfrac{\\sqrt{3}}{4}m^2 = \\dfrac{3\\sqrt{3}}{2} \\quad \\Rightarrow \\quad m^2 = 6$</div>
+<div class="formula-block">$\\dfrac{\\sqrt{3}}{4}m^2 = \\dfrac{3\\sqrt{3}}{2} \\\quad \\Rightarrow \\\quad m^2 = 6$</div>
 <p>因为运动时间 $x > 0$，所以 $m = \\sqrt{6}$。</p>
 <p class="hint">💡 说明：图象在 $x = m$ 处终止，是因为动点 $P$ 恰好走完对角线 $BD$ 全程；但求 $m$ 的值时，<strong>只需用面积函数的最大值即可直接算出，不必先求菱形边长</strong>，整个过程没有用到任何 sin、cos、tan。</p>
 
@@ -1011,26 +1011,41 @@ module.exports = [
 <p>以 $O$ 为原点，$OB$ 为 $x$ 轴，则镜面 $OA$ 的方程为：</p>
 <div class="formula-block">$y = \\sqrt{3}x$</div>
 <p><strong>为什么镜面方程是 $y=\\sqrt{3}x$（初二方法，不用三角函数）：</strong>过镜面端点 $A$ 作 $AN\\perp OB$ 于 $N$，得到直角三角形 $OAN$。</p><p>因为 $\\angle AON = 60^\\circ$（镜面与地面的夹角），所以 $\\angle OAN = 30^\\circ$。</p><p>由初二结论“$30^\\circ$ 所对的直角边等于斜边的一半”：$ON = \\dfrac{1}{2}OA$。设 $ON = a$，则 $OA = 2a$。</p><p>用勾股定理：$AN = \\sqrt{OA^2 - ON^2} = \\sqrt{(2a)^2 - a^2} = \\sqrt{3}a$。</p><p>点 $A$ 的横坐标 $x = ON = a$，纵坐标 $y = AN = \\sqrt{3}a$，于是 $\\dfrac{y}{x} = \\dfrac{\\sqrt{3}a}{a} = \\sqrt{3}$，所以镜面方程为 $y = \\sqrt{3}x$。</p>
-<p>设光源 $P$ 的坐标为 $(x_0,5)$（因它到地面 $OB$ 的距离为 $5$）。</p>
-<p>点 $(x_0,y_0)$ 关于直线 $\\sqrt{3}x-y=0$ 的对称点公式为：</p>
-<div class="formula-block">$x' = \\dfrac{5\\sqrt{3}-x_0}{2},\\quad y' = \\dfrac{5+\\sqrt{3}x_0}{2}$</div>
-<p>所以 $P'$ 到地面 $OB$ 的距离就是 $y' = \\dfrac{5+\\sqrt{3}x_0}{2}$。</p>
+<p>设光源 $P$ 的坐标为 $(x_0,5)$（因它到地面 $OB$ 的距离为 $5$，即纵坐标 $y_0 = 5$）。</p>
+<p><strong>下面用初二方法推导对称点 $P'(x', y')$ 的坐标，全程不使用三角函数。</strong></p>
+<p>设 $P(x_0, y_0)$ 关于直线 $y = \\sqrt{3}x$ 的对称点为 $P'(x', y')$。对称点要满足两个条件：</p>
+<p><strong>条件一：$PP'$ 的中点 $M$ 在对称轴 $OA$ 上。</strong></p>
+<p>中点 $M$ 的坐标为 $\\left(\\dfrac{x_0+x'}{2},\\; \\dfrac{y_0+y'}{2}\\right)$。因为 $M$ 在 $y=\\sqrt{3}x$ 上，代入得：</p>
+<div class="formula-block">$\\dfrac{y_0+y'}{2} = \\sqrt{3} \\cdot \\dfrac{x_0+x'}{2}$</div>
+<p>两边乘 $2$，化简：</p>
+<div class="formula-block">$y_0 + y' = \\sqrt{3}x_0 + \\sqrt{3}x' \\\quad\\cdots (1)$</div>
+<p><strong>条件二：$PP'$ 垂直于对称轴 $OA$。</strong></p>
+<p>$OA$ 的斜率为 $\\sqrt{3}$。由一次函数的性质，两条直线垂直时斜率乘积为 $-1$，所以 $PP'$ 的斜率为 $-\\dfrac{1}{\\sqrt{3}}$：</p>
+<div class="formula-block">$\\dfrac{y'-y_0}{x'-x_0} = -\\dfrac{1}{\\sqrt{3}}$</div>
+<p>交叉相乘并整理：</p>
+<div class="formula-block">$\\sqrt{3}(y'-y_0) = -(x'-x_0)$</div>
+<div class="formula-block">$x' + \\sqrt{3}y' = x_0 + \\sqrt{3}y_0 \\\quad\\cdots (2)$</div>
+<p><strong>把化简后的 (1)(2) 列出，两个方程，已知 $y_0, y'$，可以求出 $x_0, x'$：</strong></p>
+<div class="formula-block">$(1)\\quad y_0 + y' = \\sqrt{3}x_0 + \\sqrt{3}x'$</div>
+<div class="formula-block">$(2)\\quad x' + \\sqrt{3}y' = x_0 + \\sqrt{3}y_0$</div>
+<p class="def-red">两方程求解，只需要求 $x'$，不需要算 $x_0$。</p>
+<p>题目要求的是 $PD$。由轴对称可知 $PD$ 的对称段就是 $P'D$；又已知 $P'E = 8$，要求 $P'D$ 只需先求出 $DE$（因为 $P'D = P'E - DE$）。而 $DE$ 就是 $D$ 点的纵坐标 $y_D$，只要解出 $D$ 的横坐标，就能代入镜面方程 $y = \\sqrt{3}x$ 算出 $DE$。所以本题只需解出 $P'$ 的横坐标 $x'$，不必先求 $x_0$。</p>
+<p>将 (2) 式两边同乘 $\\sqrt{3}$：</p>
+<div class="formula-block">$\\sqrt{3}x' + 3y' = \\sqrt{3}x_0 + 3y_0$</div>
+<p>用这一式减去 (1) 式（左边减左边，右边减右边），$x_0$ 项正好抵消：</p>
+<div class="formula-block">$(\\sqrt{3}x' + 3y') - (y_0 + y') = (\\sqrt{3}x_0 + 3y_0) - (\\sqrt{3}x_0 + \\sqrt{3}x')$</div>
+<div class="formula-block">$\\sqrt{3}x' + 2y' - y_0 = 3y_0 - \\sqrt{3}x'$</div>
+<div class="formula-block">$2\\sqrt{3}x' = 4y_0 - 2y'$</div>
+<div class="formula-block">$x' = \\dfrac{2y_0 - y'}{\\sqrt{3}}$</div>
+<p>代入本题已知 $y_0 = 5,\\ y' = 8$：</p>
+<div class="formula-block">$x' = \\dfrac{2\\times 5 - 8}{\\sqrt{3}} = \\dfrac{2}{\\sqrt{3}} = \\dfrac{2\\sqrt{3}}{3}$</div>
 
-<h4>第三步：由最短路径长度确定 $P$ 的位置</h4>
-<p>题目给出最短路径为 $8$，即 $P'$ 到 $OB$ 的垂线段长为 $8$：</p>
-<div class="formula-block">$\\dfrac{5+\\sqrt{3}x_0}{2} = 8$</div>
-<div class="formula-block">$5+\\sqrt{3}x_0 = 16$</div>
-<div class="formula-block">$x_0 = \\dfrac{11}{\\sqrt{3}} = \\dfrac{11\\sqrt{3}}{3}$</div>
-<p>代回 $P'$ 坐标：</p>
-<div class="formula-block">$x' = \\dfrac{5\\sqrt{3} - \\dfrac{11\\sqrt{3}}{3}}{2} = \\dfrac{2\\sqrt{3}}{3},\\quad y' = 8$</div>
-
-<h4>第四步：求 $PD$ 的长度</h4>
-<p>因为最短路径 $P'E$ 垂直于地面 $OB$，所以垂足 $E$ 的坐标为 $\\left(\\dfrac{2\\sqrt{3}}{3},0\\right)$。</p>
-<p>反射点 $D$ 是线段 $P'E$ 与镜面 $OA$ 的交点。$D$ 在 $OA$ 上，满足 $y_D = \\sqrt{3}x_D$：</p>
-<div class="formula-block">$y_D = \\sqrt{3} \\cdot \\dfrac{2\\sqrt{3}}{3} = 2$</div>
-<p>所以：</p>
-<div class="formula-block">$DE = 2,\\quad P'D = 8-2 = 6$</div>
-<p>由 $PD = P'D$，得：</p>
+<h4>第三步：用 $x'$ 直接求 $PD$</h4>
+<p>现已知 $x' = \\dfrac{2\\sqrt{3}}{3}$，它也就是 $D$ 点的横坐标；$OA$ 的方程为 $y = \\sqrt{3}x$，$D$ 点在 $OA$ 上，代入即得 $D$ 点的纵坐标（即 $DE$）：</p>
+<div class="formula-block">$y_D = \\sqrt{3}\\cdot\\dfrac{2\\sqrt{3}}{3} = \\dfrac{2\\cdot 3}{3} = 2$</div>
+<p>因此 $DE = 2$。又已知最短路径 $P'E = 8$，于是：</p>
+<div class="formula-block">$P'D = P'E - DE = 8 - 2 = 6$</div>
+<p>由轴对称性质 $PD = P'D$，得：</p>
 
 <div class="answer-box">
   <span class="answer-label">✅ 答案：</span><span class="answer-value">$PD = 6\\ \\text{dm}$</span>
@@ -1069,7 +1084,7 @@ module.exports = [
 <div class="formula-block">$PA+PB = PA'+PB$</div>
 <p>当 $A'$、$P$、$B$ 三点共线时，$PA'+PB$ 最小，等于 $A'B$。</p>
 <p>把 $A'$ 与 $B$ 的垂直距离和水平距离分开看：</p>
-<div class="formula-block">$\\text{垂直距离} = 3+5 = 8,\\quad \\text{水平距离} = 8$</div>
+<div class="formula-block">$\\text{垂直距离} = 3+5 = 8,\\\quad \\text{水平距离} = 8$</div>
 <p>由勾股定理：</p>
 <div class="formula-block">$A'B = \\sqrt{8^2+8^2} = \\sqrt{128} = 8\\sqrt{2}$</div>
 <div class="answer-box">

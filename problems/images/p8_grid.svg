@@ -32,6 +32,9 @@
   <line x1="94" y1="297" x2="94" y2="365" stroke="#ef4444" stroke-width="2.5"/>
   <text x="104" y="150" fill="#94a3b8" font-size="12">8</text>
 
+  <!-- 对称点连线 PP'（虚线，交 OA 于 M，M 为 PP' 的中点） -->
+  <line x1="271" y1="195" x2="94" y2="93" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5 4"/>
+
   <!-- 实际光路 P→D -->
   <line x1="271" y1="195" x2="94" y2="297" stroke="#ef4444" stroke-width="2.5"/>
 
@@ -43,6 +46,7 @@
   <circle cx="94" cy="93" r="4" fill="#f59e0b"/>
   <circle cx="94" cy="297" r="4" fill="#8b5cf6"/>
   <circle cx="94" cy="365" r="4" fill="#10b981"/>
+  <circle cx="183" cy="144" r="3.8" fill="#f97316"/>
 
   <!-- 顶点标签 -->
   <text x="44" y="381" fill="#334155" font-size="13">O</text>
@@ -52,6 +56,7 @@
   <text x="66" y="88" fill="#f59e0b" font-size="13">P′</text>
   <text x="102" y="301" fill="#8b5cf6" font-size="13">D</text>
   <text x="82" y="381" fill="#10b981" font-size="13">E</text>
+  <text x="191" y="138" fill="#f97316" font-size="13">M</text>
 
   <!-- 图例 -->
   <g font-size="11">
@@ -61,5 +66,7 @@
     <text x="290" y="82" fill="#334155">展开直线 P′E（PD=P′D）</text>
     <line x1="255" y1="101" x2="285" y2="101" stroke="#0ea5e9" stroke-width="2.5"/>
     <text x="290" y="105" fill="#334155">镜面 OA（y=√3x）</text>
+    <line x1="255" y1="124" x2="285" y2="124" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="290" y="128" fill="#334155">PP′连线（⊥OA，M为中点）</text>
   </g>
 </svg>
