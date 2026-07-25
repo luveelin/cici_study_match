@@ -970,10 +970,25 @@ module.exports = [
   <p>如图，一面镜子 $OA$ 倾斜固定在地面 $OB$ 上，且 $\\angle AOB=60^{\\circ}$，点 $P$ 是距离地面 $OB$ 为 $5\\ \\text{dm}$ 的一个光源。光线射出经过镜面 $D$ 处反射到地面点 $E$ 处。当光线经过的路径 $P \\to D \\to E$ 长最短为 $8\\ \\text{dm}$ 时，$PD$ 的长是 $\\boxed{?}\\ \\text{dm}$。</p>
 </div>
 
-<p>
-  <img src="images/p8_grid.svg" alt="p8 坐标系与光路示意图：OB 为 x 轴、OA 为 y=√3x，P 在高度 5，对称点 P′，光路 P→D→E" onclick="openImgOverlay('p8grid')" style="max-width: 410px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
-</p>
-<p class="original-image-caption" onclick="openImgOverlay('p8grid')">🔍 点击查看原图</p>
+<div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; margin-top:8px;">
+  <div style="flex:1 1 300px; min-width:280px;">
+    <p style="font-size:13px; color:#334155; margin:0 0 4px;">原题图（仅坐标轴、镜面 OA、光路 P→D→E）</p>
+    <img src="images/p8_orig.svg" alt="p8 原题图：坐标轴、镜面 OA、光路 P→D→E" onclick="openImgOverlay('p8orig')" style="max-width:100%; border:1px solid #e2e8f0; border-radius:6px; cursor:zoom-in;">
+    <p class="original-image-caption" onclick="openImgOverlay('p8orig')">🔍 点击查看原图</p>
+  </div>
+  <div style="flex:1 1 300px; min-width:280px;">
+    <p style="font-size:13px; color:#334155; margin:0 0 4px;">解答图（含对称构造 P′、垂足等辅助线）</p>
+    <img src="images/p8_grid.svg" alt="p8 坐标系与光路示意图：OB 为 x 轴、OA 为 y=√3x，P 在高度 5，对称点 P′，光路 P→D→E" onclick="openImgOverlay('p8grid')" style="max-width:100%; border:1px solid #e2e8f0; border-radius:6px; cursor:zoom-in;">
+    <p class="original-image-caption" onclick="openImgOverlay('p8grid')">🔍 点击查看解答图</p>
+  </div>
+</div>
+<div class="img-overlay" id="overlay-p8orig">
+  <div class="img-overlay-box" id="overlayBox-p8orig" onmousedown="startDrag(event,'p8orig')">
+    <span class="img-overlay-close" onclick="closeImgOverlay('p8orig')">✕</span>
+    <img src="images/p8_orig.svg" alt="p8 原题图原图">
+    <span class="img-resize-handle" onmousedown="startResize(event,'p8orig')"></span>
+  </div>
+</div>
 <div class="img-overlay" id="overlay-p8grid">
   <div class="img-overlay-box" id="overlayBox-p8grid" onmousedown="startDrag(event,'p8grid')">
     <span class="img-overlay-close" onclick="closeImgOverlay('p8grid')">✕</span>

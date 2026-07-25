@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 400" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- 坐标系：x 轴 = 地面 OB，y 轴竖直 -->
+  <line x1="55" y1="365" x2="361" y2="365" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="55" y1="365" x2="55" y2="59" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="350" y="382" fill="#64748b" font-size="12">x（OB·地面）</text>
+  <text x="40" y="52" fill="#64748b" font-size="12">y</text>
+
+  <!-- 60° 角弧（题设条件 ∠AOB=60°） -->
+  <path d="M 95 365 Q 95 342.5 75 330" fill="none" stroke="#475569" stroke-width="1.2"/>
+  <text x="58" y="356" fill="#334155" font-size="12">60°</text>
+
+  <!-- 镜面 OA：y = √3 x -->
+  <line x1="55" y1="365" x2="225" y2="71" stroke="#0ea5e9" stroke-width="2.5"/>
+  <text x="150" y="215" fill="#0ea5e9" font-size="12">OA（镜面）</text>
+
+  <!-- 光路 P → D → E（原题所求路径） -->
+  <line x1="271" y1="195" x2="94" y2="297" stroke="#ef4444" stroke-width="2.5"/>
+  <line x1="94" y1="297" x2="94" y2="365" stroke="#ef4444" stroke-width="2.5"/>
+
+  <!-- P 到地面 OB 的竖直高度（题设 P 距地面 5 dm） -->
+  <line x1="271" y1="195" x2="271" y2="365" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="282" y="285" fill="#94a3b8" font-size="12">5</text>
+
+  <!-- 顶点 -->
+  <circle cx="55" cy="365" r="3.2" fill="#334155"/>
+  <circle cx="225" cy="71" r="4" fill="#0ea5e9"/>
+  <circle cx="271" cy="195" r="4" fill="#ef4444"/>
+  <circle cx="94" cy="297" r="4" fill="#ef4444"/>
+  <circle cx="94" cy="365" r="4" fill="#ef4444"/>
+
+  <!-- 顶点标签 -->
+  <text x="44" y="381" fill="#334155" font-size="13">O</text>
+  <text x="233" y="67" fill="#0ea5e9" font-size="13">A</text>
+  <text x="278" y="190" fill="#ef4444" font-size="13">P</text>
+  <text x="102" y="301" fill="#ef4444" font-size="13">D</text>
+  <text x="82" y="381" fill="#ef4444" font-size="13">E</text>
+  <text x="150" y="262" fill="#ef4444" font-size="12">光路 P→D→E</text>
+</svg>
