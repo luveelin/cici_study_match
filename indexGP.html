@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>511090 择时速查卡</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+         margin: 0; padding: 16px; background: #f5f6f8; color: #1f2329; font-size: 16px; line-height: 1.5; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: #6b7280; font-size: 13px; margin-bottom: 16px; }
+  .card { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 14px;
+          box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card h2 { font-size: 16px; margin: 0 0 10px; color: #0b5fff; display: flex; align-items: center; gap: 6px; }
+  .step { border: 2px solid #e5e7eb; border-radius: 10px; padding: 10px 12px; margin: 8px 0; background: #fafbfc; }
+  .step .n { display: inline-block; width: 22px; height: 22px; line-height: 22px; text-align: center;
+             background: #0b5fff; color: #fff; border-radius: 50%; font-size: 13px; font-weight: 700; margin-right: 8px; }
+  .step b { color: #111; }
+  .arrow { text-align: center; color: #9aa0a6; font-size: 18px; margin: 2px 0; }
+  .buy { border-color: #16a34a; background: #f0fdf4; }
+  .sell-choppy { border-color: #d97706; background: #fffbeb; }
+  .sell-trend { border-color: #2563eb; background: #eff6ff; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .tag.b { background: #dcfce7; color: #15803d; }
+  .tag.c { background: #fef3c7; color: #b45309; }
+  .tag.t { background: #dbeafe; color: #1d4ed8; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { padding: 7px 6px; text-align: center; border-bottom: 1px solid #eee; }
+  th { background: #f3f4f6; color: #374151; font-weight: 600; }
+  td.l { text-align: left; }
+  .hi { background: #ecfdf5; font-weight: 700; }
+  code { background: #eef1f5; padding: 2px 6px; border-radius: 5px; font-size: 13px; color: #b91c1c; }
+  .warn { font-size: 13px; color: #92400e; background: #fff7ed; border-left: 4px solid #f59e0b; padding: 8px 10px; border-radius: 6px; }
+  .path { font-size: 12px; color: #6b7280; word-break: break-all; }
+  ul { margin: 6px 0; padding-left: 18px; } li { margin: 4px 0; }
+</style>
+</head>
+<body>
+  <h1>📈 511090 择时速查卡</h1>
+  <div class="sub">30年国债ETF · 混合(regime切换)策略 · 数据至 2026-07-24（755交易日）</div>
+
+  <!-- 买入信号 -->
+  <div class="card">
+    <h2>① 买入信号（固定）</h2>
+    <div class="step buy">
+      <span class="n">1</span><b>连跌 2 日</b> 成立（当日 cdr===2）
+    </div>
+    <div class="arrow">↓</div>
+    <div class="step buy">
+      <span class="n">2</span><b>次日收涨</b> → 在<b>次日收盘买入 100%</b>
+    </div>
+    <div class="sub" style="margin:8px 0 0">不抄连跌当天的底，只做已被反弹确认的交易。</div>
+  </div>
+
+  <!-- regime判定 -->
+  <div class="card">
+    <h2>② 市场状态判定（每日）</h2>
+    <div class="step">
+      <span class="n">·</span>算 MA20 斜率 = (今日MA20 − 20日前MA20) / 20日前MA20 ×100%
+    </div>
+    <div class="arrow">↓</div>
+    <div class="step">
+      <span class="n">A</span><b>|斜率| ≥ 2%</b> → <span class="tag t">趋势 / 破位</span><br>
+      <span class="n">B</span><b>|斜率| &lt; 2%</b> → <span class="tag c">震荡</span>
+    </div>
+    <div class="sub" style="margin:8px 0 0">阈值可调：运行加 <code>HYBRID_TH=2</code></div>
+  </div>
+
+  <!-- 卖出规则 -->
+  <div class="card">
+    <h2>③ 卖出规则（按状态）</h2>
+    <div class="step sell-choppy">
+      <span class="tag c">震荡</span> <b>止盈0.5% / 止损0.5%</b>（以买入价为锚）<br>
+      · 收盘价 ≥ 买价×1.005 → <b>止盈</b>（+0.5%）<br>
+      · 收盘价 ≤ 买价×0.995 → <b>止损</b>（-0.5%）
+    </div>
+    <div class="step sell-trend">
+      <span class="tag t">趋势/破位</span> <b>回撤1%卖</b>（以持仓峰值为锚）<br>
+      · 每日刷新峰值 = max(峰值, 收盘价)<br>
+      · 收盘价 ≤ 峰值×0.99 → <b>卖出</b>（从高点回落1%）
+    </div>
+    <div class="sub" style="margin:8px 0 0">脚本每日自动算好「次日监视价位」，照价执行即可。</div>
+  </div>
+
+  <!-- 每日命令 -->
+  <div class="card">
+    <h2>④ 每日实操命令</h2>
+    <div style="background:#111;color:#0f0;padding:10px;border-radius:8px;font-family:monospace;font-size:13px;">
+      node daily-signal-hybrid.js
+    </div>
+    <div class="sub" style="margin:8px 0 0">每个交易日<b>收盘后</b>跑一次，照打印的「今日动作」执行买卖。</div>
+    <div class="path">持仓状态：doc/report预测23日展示/hybrid-state.json（脚本自动维护，跨会话接力）</div>
+  </div>
+
+  <!-- 关键数字 -->
+  <div class="card">
+    <h2>⑤ 回测关键数字（全样本755日）</h2>
+    <table>
+      <tr><th class="l">策略</th><th>胜率</th><th>收益</th><th>超额</th></tr>
+      <tr class="hi"><td class="l"><b>混合(切换)</b></td><td><b>63.9%</b></td><td><b>+10.2%</b></td><td>-6.02%</td></tr>
+      <tr><td class="l">纯 回撤1%</td><td>54.2%</td><td>+18.73%</td><td>+2.50%</td></tr>
+      <tr><td class="l">纯 止盈0.5%</td><td>61.5%</td><td>+1.71%</td><td>-14.5%</td></tr>
+      <tr><td class="l">跌了就卖(原)</td><td>37.8%</td><td>+3.92%</td><td>-12.3%</td></tr>
+      <tr><td class="l">买入持有</td><td>—</td><td>+16.22%</td><td>—</td></tr>
+    </table>
+    <div class="sub" style="margin:8px 0 0">混合 = 胜率最高 + 收益远好于纯止盈，不在趋势年踏空。</div>
+    <div style="margin-top:10px;font-size:13px;font-weight:600;color:#374151;">逐年策略收益 / 胜率</div>
+    <table>
+      <tr><th>2023</th><th>2024</th><th>2025</th><th>2026至今</th></tr>
+      <tr><td>+2.81%<br>77.8%</td><td>+3.68%<br>60.0%</td><td>-1.12%<br>30.0%</td><td>+4.56%<br>100%</td></tr>
+    </table>
+  </div>
+
+  <!-- 风险 -->
+  <div class="card">
+    <h2>⑥ 风险提示</h2>
+    <div class="warn">
+      · 选「混合/优先止盈0.5%」基于「2026是震荡年」的<b>显式下注</b>；若变趋势市脚本自动切回撤1%，但2025式阴跌年胜率仅30%。<br>
+      · 2026至今仅7笔，100%胜率为小样本噪声，不可外推。<br>
+      · 511090是慢牛债基，近半时间持现金会错过天然涨幅；本策略定位=高胜率低回撤的小波段工具，非替代长期持有。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>⑦ 完整文档</h2>
+    <ul>
+      <li>策略全文与推导：<code>STRATEGY-511090.md</code></li>
+      <li>回测报告：<code>doc/report预测23日展示/backtest-hybrid-report.html</code></li>
+    </ul>
+  </div>
+</body>
+</html>
