@@ -1027,14 +1027,14 @@ module.exports = [
 <div class="formula-block">$x' + \\sqrt{3}y' = x_0 + \\sqrt{3}y_0 \\\quad\\cdots (2)$</div>
 <p><strong>把化简后的 (1)(2) 列出，两个方程，已知 $y_0, y'$，可以求出 $x_0, x'$：</strong></p>
 <div class="formula-block">$(1)\\quad y_0 + y' = \\sqrt{3}x_0 + \\sqrt{3}x'$</div>
-<div class="formula-block">$(2)\\quad x' + \\sqrt{3}y' = x_0 + \\sqrt{3}y_0$</div>
+<div class="formula-block">$(2)\\quad \\sqrt{3}y' - \\sqrt{3}y_0 = x_0 - x'$</div>
 <p class="def-red">两方程求解，只需要求 $x'$，不需要算 $x_0$。利用两式相减消除 $x_0$（原因在下）。</p>
 <p>题目要求的是 $PD$。由轴对称可知 $PD$ 的对称段就是 $P'D$；又已知 $P'E = 8$，要求 $P'D$ 只需先求出 $DE$（因为 $P'D = P'E - DE$）。而 $DE$ 就是 $D$ 点的纵坐标 $y_D$，只要解出 $D$ 的横坐标，就能代入镜面方程 $y = \\sqrt{3}x$ 算出 $DE$。所以本题只需解出 $P'$ 的横坐标 $x'$，不必先求 $x_0$。</p>
 <p>将 (2) 式两边同乘 $\\sqrt{3}$：</p>
-<div class="formula-block">$\\sqrt{3}x' + 3y' = \\sqrt{3}x_0 + 3y_0$</div>
+<div class="formula-block">$3y' - 3y_0 = \\sqrt{3}x_0 - \\sqrt{3}x'$</div>
 <p>用这一式减去 (1) 式（左边减左边，右边减右边），$x_0$ 项正好抵消：</p>
-<div class="formula-block">$(\\sqrt{3}x' + 3y') - (y_0 + y') = (\\sqrt{3}x_0 + 3y_0) - (\\sqrt{3}x_0 + \\sqrt{3}x')$</div>
-<div class="formula-block">$\\sqrt{3}x' + 2y' - y_0 = 3y_0 - \\sqrt{3}x'$</div>
+<div class="formula-block">$(3y' - 3y_0) - (y_0 + y') = (\\sqrt{3}x_0 - \\sqrt{3}x') - (\\sqrt{3}x_0 + \\sqrt{3}x')$</div>
+<div class="formula-block">$2y' - 4y_0 = -2\\sqrt{3}x'$</div>
 <div class="formula-block">$2\\sqrt{3}x' = 4y_0 - 2y'$</div>
 <div class="formula-block">$x' = \\dfrac{2y_0 - y'}{\\sqrt{3}}$</div>
 <p>代入本题已知 $y_0 = 5,\\ y' = 8$：</p>
