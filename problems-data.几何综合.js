@@ -14,7 +14,7 @@ module.exports = [
     image: "images/p3.png",
     content: `
 <div class="prob-statement">
-  <p>如图，在 $4 \\times 4$ 的正方形网格中，$\\angle 1 + \\angle 2 = $ ______。</p>
+  <p>如图，在 $4 \\times 4$ 的正方形网格中，$\\\angle 1 + \\angle 2 = $ ______。</p>
 </div>
 
 <details class="kb-details">
@@ -27,7 +27,7 @@ module.exports = [
     <tr><td>网格几何</td><td>格点三角形的边长可用勾股定理计算</td></tr>
     <tr><td>勾股定理</td><td>直角三角形：$a^2 + b^2 = c^2$</td></tr>
     <tr><td>勾股定理逆定理</td><td>若 $a^2 + b^2 = c^2$，则该三角形是直角三角形</td></tr>
-    <tr><td>等腰直角三角形</td><td>两腰相等的直角三角形，底角为 $45^\\circ$</td></tr>
+    <tr><td>等腰直角三角形</td><td>两腰相等的直角三角形，底角为 $45^\\\circ$</td></tr>
     <tr><td>全等三角形</td><td>直角边对应相等的两个直角三角形全等（SAS）</td></tr>
     <tr><td>互余关系</td><td>直角三角形两锐角互余，和为 $90^\\circ$</td></tr>
   </tbody>
@@ -333,7 +333,7 @@ module.exports = [
 <p>点 $P$ 在 $BD$ 上、点 $Q$ 在 $BC$ 上，因此 $\\angle PBQ = \\angle DBC = 30°$。</p>
 
 <h4>第二步：用「底 × 高 ÷ 2」求 $\\triangle BPQ$ 的面积（不套用含三角函数的面积公式）</h4>
-<p>过 $P$ 作 $PH \\perp BC$，垂足为 $H$，则 $PH$ 就是 $\\triangle BPQ$ 中边 $BQ$ 上的高。</p>
+<p>过 $P$ 作 $PH \\\perp BC$，垂足为 $H$，则 $PH$ 就是 $\\triangle BPQ$ 中边 $BQ$ 上的高。</p>
 <p>在 $\\text{Rt}\\triangle PBH$ 中，$\\angle PBH = 30°$，根据<strong>含 $30°$ 角的直角三角形性质</strong>（即 $30°$ 角所对的直角边等于斜边的一半；该结论可由等边三角形 + 勾股定理证明，属于几何知识而非三角函数）：</p>
 <div class="formula-block">$PH = \\dfrac{1}{2}\\,BP$</div>
 <p>运动 $x$ 秒后：$BP = \\sqrt{3}\\,x$，$BQ = x$，于是</p>
@@ -1021,13 +1021,18 @@ module.exports = [
 <p>因此光线走过的路径：</p>
 <div class="formula-block">$PD+DE = P'D+DE = P'E$</div>
 <p>当 $E$ 在地面 $OB$ 上自由移动时，$P'E$ 最短就是点 $P'$ 到直线 $OB$ 的垂线段长度。</p>
+<p><span style="color:#ef4444">为什么 $DE\\perp OB$（即 $\\angle DEO=90^\\circ$）？</span>因为路径 $PDE=PD+DE$，题目已知 $PDE$ 最短为 $8$；要让 $PD$ 最短，必然 $DE$ 也得最短，而 $DE$ 最短只能是 $DE\\perp OB$（垂线段最短）。</p>
 
 <h4>第二步：建立坐标系求 $P'$ 的坐标</h4>
-<p>以 $O$ 为原点，$OB$ 为 $x$ 轴，则镜面 $OA$ 的方程为：</p>
-<div class="formula-block">$y = \\sqrt{3}x$</div>
-<p><strong>为什么镜面方程是 $y=\\sqrt{3}x$（初二方法，不用三角函数）：</strong>过镜面端点 $A$ 作 $AN\\perp OB$ 于 $N$，得到直角三角形 $OAN$。</p><p>因为 $\\angle AON = 60^\\circ$（镜面与地面的夹角），所以 $\\angle OAN = 30^\\circ$。</p><p>由初二结论“$30^\\circ$ 所对的直角边等于斜边的一半”：$ON = \\dfrac{1}{2}OA$。设 $ON = a$，则 $OA = 2a$。</p><p>用勾股定理：$AN = \\sqrt{OA^2 - ON^2} = \\sqrt{(2a)^2 - a^2} = \\sqrt{3}a$。</p><p>点 $A$ 的横坐标 $x = ON = a$，纵坐标 $y = AN = \\sqrt{3}a$，于是 $\\dfrac{y}{x} = \\dfrac{\\sqrt{3}a}{a} = \\sqrt{3}$，所以镜面方程为 $y = \\sqrt{3}x$。</p>
+<p><strong>先回顾斜率的通用定义（过原点的直线，斜率 = 纵坐标 ÷ 横坐标）：</strong></p>
+<div class="def-red">斜率 $= \\dfrac{y}{x}$</div>
+
+
+<p>以 $O$ 为原点，$OB$ 为 $x$ 轴，则镜面 $OA$ 的斜率为：</p>
+<div class="formula-block">$\\dfrac{y}{x} = \\sqrt{3}$</div>
+<p>设 $ON = a$（即 $OE = a$），在直角三角形 $ODE$ 中，$\\angle ODE = 30^\\circ$，由 "$30^\\circ$ 所对的直角边等于斜边的一半" 得 $OD = 2a$；再用勾股定理得 $DE = \\sqrt{OD^2 - OE^2} = \\sqrt{3}a$。所以 $OA$ 的斜率 $\\dfrac{y}{x} = \\dfrac{DE}{OE} = \\dfrac{\\sqrt{3}a}{a} = \\sqrt{3}$。</p>
 <p>设光源 $P$ 的坐标为 $(x_0,5)$（因它到地面 $OB$ 的距离为 $5$，即纵坐标 $y_0 = 5$）。</p>
-<p><strong>下面用初二方法推导对称点 $P'(x', y')$ 的坐标，全程不使用三角函数。</strong></p>
+
 <p>设 $P(x_0, y_0)$ 关于直线 $y = \\sqrt{3}x$ 的对称点为 $P'(x', y')$。对称点要满足两个条件：</p>
 <p><strong>条件一：$PP'$ 的中点 $M$ 在对称轴 $OA$ 上。</strong></p>
 <p>中点 $M$ 的坐标为 $\\left(\\dfrac{x_0+x'}{2},\\; \\dfrac{y_0+y'}{2}\\right)$。因为 $M$ 在 $y=\\sqrt{3}x$ 上，代入得：</p>
@@ -1035,7 +1040,7 @@ module.exports = [
 <p>两边乘 $2$，化简：</p>
 <div class="formula-block">$y_0 + y' = \\sqrt{3}x_0 + \\sqrt{3}x' \\\quad\\cdots (1)$</div>
 <p><strong>条件二：$PP'$ 垂直于对称轴 $OA$。</strong></p>
-<p>$OA$ 的斜率为 $\\sqrt{3}$。由一次函数的性质，两条直线垂直时斜率乘积为 $-1$，所以 $PP'$ 的斜率为 $-\\dfrac{1}{\\sqrt{3}}$：</p>
+<p>$OA$ 的斜率为 $\\sqrt{3}$。由一次函数的性质，<span style="color:#ef4444">两条直线垂直时斜率乘积为 $-1$</span>，所以 $PP'$ 的斜率为 $-\\dfrac{1}{\\sqrt{3}}$：</p>
 <div class="formula-block">$\\dfrac{y'-y_0}{x'-x_0} = -\\dfrac{1}{\\sqrt{3}}$</div>
 <p>交叉相乘并整理：</p>
 <div class="formula-block">$\\sqrt{3}(y'-y_0) = -(x'-x_0)$</div>
