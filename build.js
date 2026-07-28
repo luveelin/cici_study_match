@@ -1,6 +1,10 @@
 const fs = require('fs');
 const katex = require('katex');
 
+// 构建版本号（时间戳）：每次 `node build.js` 重新生成，自动追加到所有 CSS/JS 的 URL 后面。
+// 浏览器按完整 URL 缓存，URL 一变即视为新资源重新下载，解决 GitHub/Cloudflare Pages 静态资源更新后被缓存的问题。
+const BUILD_VERSION = Date.now();
+
 // Helper: render KaTeX formula
 function katexRender(formula, displayMode) {
   try {
@@ -106,8 +110,8 @@ problems.forEach(p => {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${p.title}  - cici_study_math</title>
-<link rel="stylesheet" href="katex.css">
-<link rel="stylesheet" href="../css/problem.css">
+<link rel="stylesheet" href="katex.css?v=${BUILD_VERSION}">
+<link rel="stylesheet" href="../css/problem.css?v=${BUILD_VERSION}">
 </head>
 <body>
 <h2>${p.title}</h2>
@@ -118,7 +122,7 @@ problems.forEach(p => {
 </div>
 ${imageHtml}
 ${bodyHtml}
-<script src="../js/problem.js"></script>
+<script src="../js/problem.js?v=${BUILD_VERSION}"></script>
 </body>
 </html>`;
   const outDir = './problems';
@@ -227,7 +231,7 @@ const indexHtml = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>cici_study_math</title>
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/index.css?v=${BUILD_VERSION}">
 </head>
 <body>
 
@@ -269,8 +273,8 @@ const indexHtml = `<!DOCTYPE html>
   <iframe id="contentFrame" class="main-content" style="display:none;" sandbox="allow-same-origin allow-scripts"></iframe>
 </main>
 
-<script src="initData.js"></script>
-<script src="js/app.js"></script>
+<script src="initData.js?v=${BUILD_VERSION}"></script>
+<script src="js/app.js?v=${BUILD_VERSION}"></script>
 
 </body>
 </html>`;
