@@ -1396,7 +1396,7 @@ module.exports = [
 <p>于是 $\\angle OCE = \\angle BOM$。又因为 $\\triangle OCE$、$\\triangle BOM$ 都是直角三角形，所以：</p>
 <div class="formula-block">$\\triangle OCE \\sim \\triangle BOM \\quad (\\text{AA})$</div>
 
-<p>💡 考试技巧：孩子如果在考场上遇到这道题是<strong>选择题或填空题</strong>，辅助线一旦做出来，就<strong>大胆假设 $\\triangle OCE \\sim \\triangle BOM\\ (\\text{AA})$</strong>，<strong>不要去证明</strong>，太浪费时间——看过去像全等就是全等，然后直接算，可以算出答案直接选。</p>
+<p>💡 考试技巧：如果在考场上遇到这道题是<strong>选择题或填空题</strong>，辅助线一旦做出来，就<strong>大胆假设 $\\triangle OCE \\sim \\triangle BOM\\ (\\text{AA})$</strong>，<strong>不要去证明</strong>，太浪费时间——看过去像全等就是全等，然后直接算，可以算出答案直接选。</p>
 
 <h4>第四步：用相似求出 $BF = 2\\cdot OE$</h4>
 <p>在相似三角形中，对应边成比例：</p>
