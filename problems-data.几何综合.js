@@ -1328,4 +1328,98 @@ module.exports = [
 </div>
 `
   }
+,
+
+{
+    id: "p13",
+    file: "p13.html",
+    title: "p13 圆中垂径与弧中点求 BC",
+    type: "填空",
+    topics: ["圆", "直径", "垂径定理", "相似三角形", "勾股定理"],
+    difficulty: 4,
+    category: "几何综合",
+    image: "images/p13.png",
+    content: `
+<div class="prob-statement">
+  <p>如图，$AB$ 是 $\\odot O$ 的直径，$CD$ 为 $\\odot O$ 的弦，且 $CD \\perp AB$ 于点 $E$，点 $F$ 为圆上一点。若 $AE = BF$，$\\overset{\\frown}{AD} = \\overset{\\frown}{CF}$，$OE = 1$，则 $BC$ 的长为 ______。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>垂径定理</td><td>直径 $AB$ 垂直于弦 $CD$ 于 $E$ $\\Rightarrow$ $CE = ED$，且 $\\overset{\\frown}{AC} = \\overset{\\frown}{AD}$</td></tr>
+    <tr><td>等弧对等圆心角</td><td>$\\overset{\\frown}{AD} = \\overset{\\frown}{CF}$ 且 $\\overset{\\frown}{AC} = \\overset{\\frown}{AD}$ $\\Rightarrow$ $\\angle AOC = \\angle COF$</td></tr>
+    <tr><td>相似三角形（AA）</td><td>两个直角三角形若有一组锐角相等，则它们相似</td></tr>
+    <tr><td>勾股定理</td><td>在 $\\text{Rt}\\triangle$ 中，两直角边的平方和等于斜边的平方</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<p>设 $\\odot O$ 的半径为 $R$。由 $OE = 1$ 且 $E$ 在 $A$、$O$ 之间，可知 $AE = R - 1$，$BE = R + 1$。</p>
+
+<h4>第一步：垂径定理</h4>
+<p>因为 $AB$ 是直径且 $CD \\perp AB$ 于 $E$，由垂径定理：</p>
+<div class="formula-block">$\\overset{\\frown}{AC} = \\overset{\\frown}{AD}$</div>
+
+<h4>第二步：由弧相等得到角的关系</h4>
+<p>已知 $\\overset{\\frown}{AD} = \\overset{\\frown}{CF}$，结合上式得 $\\overset{\\frown}{AC} = \\overset{\\frown}{CF}$，于是它们对应的圆心角相等：</p>
+<div class="formula-block">$\\angle AOC = \\angle COF = \\angle 3$</div>
+<p>因为 $A$、$O$、$B$ 共线（直径），$\\angle AOB = 180^{\\circ}$，所以：</p>
+<div class="formula-block">$\\angle BOF = 180^{\\circ} - \\angle AOF = 180^{\\circ} - 2\\angle 3$</div>
+
+<h4>第三步：作辅助线，构造相似三角形</h4>
+<div class="def-red"><span class="box-label">📎 辅助线：</span>连接 $OC$；过圆心 $O$ 作 $OM \\perp BF$ 于点 $M$。</div>
+
+<div style="text-align:center;margin:16px 0;">
+  <img class="original-image" style="width:520px;height:auto;" src="images/p13_sol.svg" alt="p13 辅助线解法图" />
+  <p class="original-image-caption" onclick="openImgOverlay('p13-sol')">📷 点击查看原图</p>
+  <div class="img-overlay" id="overlay-p13-sol">
+    <div class="img-overlay-box" id="overlayBox-p13-sol" onmousedown="startDrag(event,'p13-sol')">
+      <span class="img-overlay-close" onclick="closeImgOverlay('p13-sol')">✕</span>
+      <img src="images/p13_sol.svg" alt="p13 辅助线解法图">
+      <span class="img-resize-handle" onmousedown="startResize(event,'p13-sol')"></span>
+    </div>
+  </div>
+  <p style="color:#64748b;font-size:13px;margin-top:8px;">辅助线构造：连接 $OC$，过 $O$ 作 $OM \\perp BF$ 于 $M$，证 $\\triangle OCE \\sim \\triangle BOM$，从而 $BM = OE$。</p>
+</div>
+
+<p>由垂径定理（圆心到弦的垂线平分该弦，也平分所对的圆心角），$M$ 是 $BF$ 的中点，且：</p>
+<div class="formula-block">$\\angle BOM = \\dfrac{1}{2}\\angle BOF = \\dfrac{1}{2}(180^{\\circ} - 2\\angle 3) = 90^{\\circ} - \\angle 3$</div>
+<p>在 $\\text{Rt}\\triangle OCE$ 中，$\\angle COE = \\angle 3$（即 $\\angle AOC$），所以：</p>
+<div class="formula-block">$\\angle OCE = 90^{\\circ} - \\angle 3$</div>
+<p>于是 $\\angle OCE = \\angle BOM$。又因为 $\\triangle OCE$、$\\triangle BOM$ 都是直角三角形，所以：</p>
+<div class="formula-block">$\\triangle OCE \\sim \\triangle BOM \\quad (\\text{AA})$</div>
+
+<h4>第四步：用相似求出 $BF = 2\\cdot OE$</h4>
+<p>在相似三角形中，对应边成比例：</p>
+<div class="formula-block">$\\dfrac{OE}{BM} = \\dfrac{OC}{OB}$</div>
+<p>而 $OC = OB = R$（都是半径），故 $\\dfrac{OC}{OB} = 1$，从而 $BM = OE = 1$。</p>
+<p>$M$ 是 $BF$ 的中点，所以：</p>
+<div class="formula-block">$BF = 2 \\cdot BM = 2 \\cdot OE = 2 \\times 1 = 2$</div>
+<div class="def-red"><span class="box-label">📎 关键：</span>$BF = 2\\cdot OE$ 只由弧相等的几何关系决定，与半径 $R$ 无关。</div>
+
+<h4>第五步：由 $AE = BF$ 求半径 $R$</h4>
+<p>$AE = R - OE = R - 1$，又已知 $AE = BF = 2$，故：</p>
+<div class="formula-block">$R - 1 = 2 \\Rightarrow R = 3$</div>
+
+<h4>第六步：勾股定理求 $BC$</h4>
+<p>在 $\\text{Rt}\\triangle OCE$ 中，$CE = \\sqrt{OC^2 - OE^2} = \\sqrt{R^2 - 1} = \\sqrt{9 - 1} = 2\\sqrt{2}$。</p>
+<p>因为 $CD \\perp AB$，在 $\\text{Rt}\\triangle BCE$ 中（直角在 $E$）：</p>
+<div class="formula-block">$BC^2 = BE^2 + CE^2 = (R + 1)^2 + (2\\sqrt{2})^2 = 4^2 + 8 = 16 + 8 = 24$</div>
+<div class="formula-block">$BC = \\sqrt{24} = 2\\sqrt{6}$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$BC = 2\\sqrt{6}$</span>
+</div>
+
+`
+  },
+
+
 ];

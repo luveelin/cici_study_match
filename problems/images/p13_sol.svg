@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" width="520" height="420" font-family="'Segoe UI','Microsoft YaHei',sans-serif">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="520" height="420" fill="#ffffff"/>
+
+  <!-- 圆 -->
+  <circle cx="260" cy="210" r="150" fill="#f1f5f9" stroke="#334155" stroke-width="2.5"/>
+
+  <!-- 相似三角形高亮（先画，后压线） -->
+  <polygon points="260,210 210,69 210,210" fill="#dbeafe" fill-opacity="0.55"/>
+  <polygon points="410,210 260,210 393,163" fill="#dcfce7" fill-opacity="0.6"/>
+
+  <!-- 直径 AB -->
+  <line x1="110" y1="210" x2="410" y2="210" stroke="#475569" stroke-width="2.5"/>
+  <!-- 弦 CD -->
+  <line x1="210" y1="69" x2="210" y2="351" stroke="#475569" stroke-width="2.5"/>
+  <!-- 弦 BF -->
+  <line x1="410" y1="210" x2="377" y2="116" stroke="#475569" stroke-width="2.5"/>
+  <!-- 半径 OF（红色虚线） -->
+  <line x1="260" y1="210" x2="377" y2="116" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- 实线连接 BC、AF（题目所求/涉及的弦） -->
+  <line x1="410" y1="210" x2="210" y2="69" stroke="#000000" stroke-width="2.8"/>
+  <line x1="110" y1="210" x2="377" y2="116" stroke="#000000" stroke-width="2.8"/>
+
+  <!-- 辅助线 OC（蓝虚线） -->
+  <line x1="260" y1="210" x2="210" y2="69" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- 辅助线 OM⊥BF（绿虚线） -->
+  <line x1="260" y1="210" x2="393" y2="163" stroke="#16a34a" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <!-- E 处直角（CD⊥AB） -->
+  <path d="M210 210 L218 210 L218 202 L210 202 Z" fill="none" stroke="#475569" stroke-width="1.2"/>
+  <!-- M 处直角（OM⊥BF） -->
+  <path d="M390.35 155.46 L397.9 152.8 L400.54 160.34" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+
+  <!-- 等角 α：∠OCE（C 处） -->
+  <path d="M217.3 89.7 A 22 22 0 0 1 210 91" fill="none" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="215" y="100" font-size="14" fill="#2563eb" font-style="italic">α</text>
+  <!-- 等角 α：∠BOM（O 处，OB 与 OM 之间） -->
+  <path d="M290 210 A 30 30 0 0 0 288.3 200" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+  <text x="299" y="205" font-size="14" fill="#16a34a" font-style="italic">α</text>
+  <!-- ∠3 标记（∠COE = ∠AOC，移至 O 点与 E 点之间、OE 线段下方） -->
+  <text x="235" y="230" font-size="14" fill="#334155" text-anchor="middle" font-style="italic">∠3</text>
+
+  <!-- 各点 -->
+  <circle cx="260" cy="210" r="3.2" fill="#334155"/>
+  <circle cx="210" cy="210" r="3" fill="#334155"/>
+  <circle cx="210" cy="69" r="3" fill="#334155"/>
+  <circle cx="210" cy="351" r="3" fill="#334155"/>
+  <circle cx="377" cy="116" r="3" fill="#334155"/>
+  <circle cx="393" cy="163" r="2.6" fill="#16a34a"/>
+
+  <!-- 点标签 -->
+  <text x="102" y="214" font-size="15" fill="#334155" text-anchor="end">A</text>
+  <text x="420" y="214" font-size="15" fill="#334155" text-anchor="start">B</text>
+  <text x="260" y="232" font-size="15" fill="#334155" text-anchor="middle">O</text>
+  <text x="198" y="66" font-size="15" fill="#334155" text-anchor="end">C</text>
+  <text x="198" y="358" font-size="15" fill="#334155" text-anchor="end">D</text>
+  <text x="216" y="226" font-size="14" fill="#334155" text-anchor="start">E</text>
+  <text x="388" y="108" font-size="15" fill="#334155" text-anchor="start">F</text>
+  <text x="399" y="166" font-size="12" fill="#16a34a" text-anchor="start">M</text>
+
+  <!-- 尺寸标注 -->
+  <text x="224" y="198" font-size="13" fill="#334155" text-anchor="middle">OE = 1</text>
+  <text x="414" y="182" font-size="13" fill="#16a34a" text-anchor="start">BM = 1</text>
+
+  <!-- 已知弧相等提示 -->
+  <text x="300" y="38" font-size="13" fill="#2563eb" text-anchor="middle">已知 ⌒AD = ⌒CF，且 ⌒AC = ⌒AD ⇒ ⌒AC = ⌒CF</text>
+
+  <!-- 图例 -->
+  <text x="260" y="402" font-size="12.5" fill="#475569" text-anchor="middle">蓝虚线 OC　绿虚线 OM⊥BF　证 △OCE ∽ △BOM ⇒ BM = OE</text>
+</svg>
