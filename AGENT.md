@@ -42,6 +42,21 @@
 - **标绿**：新父题 id 加入 `initData.js` 的 `window.__INIT_MASTERED__` 数组，所有访客默认标绿。
 - **子题机制**：在 `problems-data.*.js` 追加题目对象并设 `parent: "<父题id>"`，`build.js` 自动嵌套为父题的三级子菜单；子题页不含「举一反三」「同类拓展」。命名规范：父题 `p{N} 主题`、子题 `p{N}a{N} 主题`。
 
+## 🔄 静态资源缓存与版本化（改公共文件才全量刷新）
+
+部署到 GitHub/Cloudflare Pages 后，浏览器会缓存 CSS/JS。**本项目用「内容哈希版本号」保证更新即时生效，请务必理解刷新范围，避免改一处却刷全站、或改了却看不到更新。**
+
+- **机制**：`build.js` 对所有 CSS/JS 引用自动追加 `?v=<文件内容 MD5 前 8 位>`（见 `assetVersion()`）。HTML 本身**不缓存**（`_headers` 中 `/*.html` 为 `max-age=0, must-revalidate`），CSS/JS 缓存 1 年 `immutable`。只有文件**内容真的变**时哈希才变 → 引用它的页面 `?v=` 才变 → 浏览器重新下载。
+- **改单题数据**（如只改 p13 的 `content`）：仅 `problems/pXX.html` 重建，其引用的资源哈希**不变** → 浏览器继续命中缓存、不重新下载 CSS/JS；其他 73 页与 `index.html` 完全不动。`git status --short` 只会显示该题 HTML + 对应 `problems-data.*.js`。用户访问该题立即看到新解答（HTML 不缓存）。
+- **改公共资源**会让**所有引用它的页面**版本号变化、重新部署、用户重新下载（这是预期且必要的）：
+  - `css/index.css` / `js/app.js` → `index.html` 全量刷新
+  - `css/problem.css` / `js/problem.js` / `problems/katex.css` → 全部 74 个题目页刷新
+  - 升级 KaTeX（`node_modules/katex`）→ `problems/katex.css` 哈希变 → 所有题目页刷新
+- **铁律**：
+  - **不要手动给 URL 加/改 `?v=`**，也不要改 `assetVersion()` 逻辑；要让某文件刷新，直接改它的**内容**，构建会自动算出新哈希。
+  - **切勿把 `?v=` 改成固定值或删掉**，否则用户可能看不到更新（URL 不变 → 浏览器用缓存）。
+  - 改完跑 `git status --short` 确认只有预期文件出现；若误出现大量不相关页面，多半是不小心改动了公共资源（或 `node_modules/katex` 被升级）。
+
 ## 🧩 新增/修改一道几何题的最简流程
 1. 图片放 `problems/images/`，题数据追加进对应 `problems-data.*.js` 数组（末尾对象闭合 `}` 后**必须加逗号**再插新对象）。
 2. `content` 按标准 section 顺序写：原题图片（`image` 字段顶部自动渲染）→ 📌 知识点总结（`<details class="kb-details">` 默认收起）→ ✍️ 解题过程 → 📚 同类拓展（父题有，子题无）。

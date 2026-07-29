@@ -1389,7 +1389,7 @@ module.exports = [
   <p style="color:#64748b;font-size:13px;margin-top:8px;">辅助线构造：连接 $OC$，过 $O$ 作 $OM \\perp BF$ 于 $M$，证明 $\\triangle OCE \\cong \\triangle BOM$（全等），从而 $BM = OE$。</p>
 </div>
 
-<p>由已知 $\\overset{\\frown}{AD} = \\overset{\\frown}{CF}$，且由第一步垂径定理得 $\\overset{\\frown}{AD} = \\overset{\\frown}{AC}$，所以 $\\overset{\\frown}{AC} = \\overset{\\frown}{CF}$，故它们所对的圆心角相等：$\\angle COA = \\angle COF$。过圆心 $O$ 作 $OM \\perp BF$ 于 $M$（$M$ 为 $BF$ 中点），由垂径定理的推论 $OM$ 平分 $\\angle BOF$，所以：</p>
+<p>由已知 $\\overset{\\frown}{AD} = \\overset{\\frown}{CF}$，且由第一步垂径定理得 $\\overset{\\frown}{AD} = \\overset{\\frown}{AC}$，所以 $\\overset{\\frown}{AC} = \\overset{\\frown}{CF}$，故它们所对的圆心角相等：$\\angle COA = \\angle COF = \\angle 3$。过圆心 $O$ 作 $OM \\perp BF$ 于 $M$（$M$ 为 $BF$ 中点），由垂径定理的推论 $OM$ 平分 $\\angle BOF$，所以：</p>
 <div class="formula-block">$\\angle BOM = \\dfrac{1}{2}\\angle BOF = \\dfrac{1}{2}\\bigl(180^{\\circ} - (\\angle AOC + \\angle COF)\\bigr) = \\dfrac{1}{2}(180^{\\circ} - 2\\angle 3) = 90^{\\circ} - \\angle 3$</div>
 <p>在 $\\text{Rt}\\triangle OCE$ 中，$\\angle COE = \\angle 3$（即 $\\angle AOC$），所以：</p>
 <div class="formula-block">$\\angle OCE = 90^{\\circ} - \\angle 3$</div>
