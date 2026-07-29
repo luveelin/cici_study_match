@@ -1386,22 +1386,21 @@ module.exports = [
       <span class="img-resize-handle" onmousedown="startResize(event,'p13-sol')"></span>
     </div>
   </div>
-  <p style="color:#64748b;font-size:13px;margin-top:8px;">辅助线构造：连接 $OC$，过 $O$ 作 $OM \\perp BF$ 于 $M$，证 $\\triangle OCE \\sim \\triangle BOM$，从而 $BM = OE$。</p>
+  <p style="color:#64748b;font-size:13px;margin-top:8px;">辅助线构造：连接 $OC$，过 $O$ 作 $OM \\perp BF$ 于 $M$，证明 $\\triangle OCE \\cong \\triangle BOM$（全等），从而 $BM = OE$。</p>
 </div>
 
-<p>由垂径定理（圆心到弦的垂线平分该弦，也平分所对的圆心角），$M$ 是 $BF$ 的中点，且：</p>
-<div class="formula-block">$\\angle BOM = \\dfrac{1}{2}\\angle BOF = \\dfrac{1}{2}(180^{\\circ} - 2\\angle 3) = 90^{\\circ} - \\angle 3$</div>
+<p>由已知 $\\overset{\\frown}{AD} = \\overset{\\frown}{CF}$，且由第一步垂径定理得 $\\overset{\\frown}{AD} = \\overset{\\frown}{AC}$，所以 $\\overset{\\frown}{AC} = \\overset{\\frown}{CF}$，故它们所对的圆心角相等：$\\angle COA = \\angle COF$。过圆心 $O$ 作 $OM \\perp BF$ 于 $M$（$M$ 为 $BF$ 中点），由垂径定理的推论 $OM$ 平分 $\\angle BOF$，所以：</p>
+<div class="formula-block">$\\angle BOM = \\dfrac{1}{2}\\angle BOF = \\dfrac{1}{2}\\bigl(180^{\\circ} - (\\angle AOC + \\angle COF)\\bigr) = \\dfrac{1}{2}(180^{\\circ} - 2\\angle 3) = 90^{\\circ} - \\angle 3$</div>
 <p>在 $\\text{Rt}\\triangle OCE$ 中，$\\angle COE = \\angle 3$（即 $\\angle AOC$），所以：</p>
 <div class="formula-block">$\\angle OCE = 90^{\\circ} - \\angle 3$</div>
-<p>于是 $\\angle OCE = \\angle BOM$。又因为 $\\triangle OCE$、$\\triangle BOM$ 都是直角三角形，所以：</p>
-<div class="formula-block">$\\triangle OCE \\sim \\triangle BOM \\quad (\\text{AA})$</div>
+<p>于是 $\\angle OCE = \\angle BOM$。又因为 $\\triangle OCE$、$\\triangle BOM$ 都是直角三角形（直角分别在 $E$、$M$），且 $OC = OB$（同为圆的半径），所以：</p>
+<div class="formula-block">$\\triangle OCE \\cong \\triangle BOM \\quad (\\text{AAS})$</div>
 
-<p>💡 考试技巧：如果在考场上遇到这道题是<strong>选择题或填空题</strong>，辅助线一旦做出来，就<strong>大胆假设 $\\triangle OCE \\sim \\triangle BOM\\ (\\text{AA})$</strong>，<strong>不要去证明</strong>，太浪费时间——看过去像全等就是全等，然后直接算，可以算出答案直接选。</p>
+<p>💡 考试技巧：如果在考场上遇到这道题是<strong>选择题或填空题</strong>，辅助线一旦做出来，就<strong>大胆假设 $\\triangle OCE \\cong \\triangle BOM\\ (\\text{AAS})$</strong>，<strong>不要去证明</strong>，太浪费时间——看过去像全等就是全等，然后直接算，可以算出答案直接选。</p>
 
-<h4>第四步：用相似求出 $BF = 2\\cdot OE$</h4>
-<p>在相似三角形中，对应边成比例：</p>
-<div class="formula-block">$\\dfrac{OE}{BM} = \\dfrac{OC}{OB}$</div>
-<p>而 $OC = OB = R$（都是半径），故 $\\dfrac{OC}{OB} = 1$，从而 $BM = OE = 1$。</p>
+<h4>第四步：由全等求出 $BF = 2\\cdot OE$</h4>
+<p>由 $\\triangle OCE \\cong \\triangle BOM\\ (\\text{AAS})$，对应边相等，所以：</p>
+<div class="formula-block">$BM = OE = 1$</div>
 <p>$M$ 是 $BF$ 的中点，所以：</p>
 <div class="formula-block">$BF = 2 \\cdot BM = 2 \\cdot OE = 2 \\times 1 = 2$</div>
 <div class="def-red"><span class="box-label">📎 关键：</span>$BF = 2\\cdot OE$ 只由弧相等的几何关系决定，与半径 $R$ 无关。</div>

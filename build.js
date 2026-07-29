@@ -1,9 +1,18 @@
 const fs = require('fs');
 const katex = require('katex');
+const crypto = require('crypto');
 
-// 构建版本号（时间戳）：每次 `node build.js` 重新生成，自动追加到所有 CSS/JS 的 URL 后面。
-// 浏览器按完整 URL 缓存，URL 一变即视为新资源重新下载，解决 GitHub/Cloudflare Pages 静态资源更新后被缓存的问题。
-const BUILD_VERSION = Date.now();
+// 资源版本号：基于「文件内容的 MD5 短哈希」，而不是全局时间戳。
+// 只有文件内容真正改变时哈希才变 → 引用它的页面 URL 才变 → 仅这些页面需重新部署；
+// 内容未改的文件哈希不变，引用页面 URL 不变、文本不变，git 不会标记、也不会重新上传。
+// 这样改 p13 时，只有 p13.html（及真正改动的资源）会变，其他页面保持原样，命中浏览器缓存。
+function assetVersion(relPath) {
+  try {
+    return crypto.createHash('md5').update(fs.readFileSync(relPath)).digest('hex').slice(0, 8);
+  } catch (e) {
+    return '0';
+  }
+}
 
 // Helper: render KaTeX formula
 function katexRender(formula, displayMode) {
@@ -110,8 +119,8 @@ problems.forEach(p => {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${p.title}  - cici_study_math</title>
-<link rel="stylesheet" href="katex.css?v=${BUILD_VERSION}">
-<link rel="stylesheet" href="../css/problem.css?v=${BUILD_VERSION}">
+<link rel="stylesheet" href="katex.css?v=${assetVersion('./problems/katex.css')}">
+<link rel="stylesheet" href="../css/problem.css?v=${assetVersion('./css/problem.css')}">
 </head>
 <body>
 <h2>${p.title}</h2>
@@ -122,7 +131,7 @@ problems.forEach(p => {
 </div>
 ${imageHtml}
 ${bodyHtml}
-<script src="../js/problem.js?v=${BUILD_VERSION}"></script>
+<script src="../js/problem.js?v=${assetVersion('./js/problem.js')}"></script>
 </body>
 </html>`;
   const outDir = './problems';
@@ -231,7 +240,7 @@ const indexHtml = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>cici_study_math</title>
-<link rel="stylesheet" href="css/index.css?v=${BUILD_VERSION}">
+<link rel="stylesheet" href="css/index.css?v=${assetVersion('./css/index.css')}">
 </head>
 <body>
 
@@ -273,8 +282,8 @@ const indexHtml = `<!DOCTYPE html>
   <iframe id="contentFrame" class="main-content" style="display:none;" sandbox="allow-same-origin allow-scripts"></iframe>
 </main>
 
-<script src="initData.js?v=${BUILD_VERSION}"></script>
-<script src="js/app.js?v=${BUILD_VERSION}"></script>
+<script src="initData.js?v=${assetVersion('./initData.js')}"></script>
+<script src="js/app.js?v=${assetVersion('./js/app.js')}"></script>
 
 </body>
 </html>`;
