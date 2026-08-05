@@ -1231,5 +1231,152 @@ module.exports = [
   <span class="answer-label">✅ 答案：</span><span class="answer-value">D</span>
 </div>
 `
+  },
+
+  {
+    id: "p23",
+    file: "p23.html",
+    title: "p23 抛物线 a(x-2)^2+c 上的点与对应方程的解",
+    type: "函数与统计",
+    topics: ["二次函数", "抛物线", "代入法", "一元二次方程"],
+    difficulty: 2,
+    category: "函数与统计",
+    image: "images/p23.png",
+    content: `
+<div class="prob-statement">
+  <p>[2026 遵义期末] 点 $A(3, 2)$ 在抛物线 $y = a(x - 2)^2 + c$（$a \\neq 0$）上，则关于 $x$ 的一元二次方程 $a(x - 3)^2 + c + 3 = 5$ 的解是（　　）</p>
+  <p>A. $x_1 = 0,\ x_2 = 2$　　B. $x_1 = x_2 = 3$　　C. $x_1 = 2,\ x_2 = 4$　　D. $x_1 = 1,\ x_2 = 5$</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>点在抛物线上</td><td>点 $(x_0, y_0)$ 在 $y = f(x)$ 上 ⇔ $y_0 = f(x_0)$</td></tr>
+    <tr><td>代入求 $a + c$</td><td>$2 = a(3-2)^2 + c = a + c$</td></tr>
+    <tr><td>方程化简</td><td>$a(x-3)^2 + c = 2$</td></tr>
+    <tr><td>等量替换</td><td>把右边的 $2$ 换成 $a + c$，便于消去 $c$</td></tr>
+    <tr><td>约去 $a$</td><td>$a(x-3)^2 = a \\Rightarrow (x-3)^2 = 1$（$a \\neq 0$）</td></tr>
+    <tr><td>开平方</td><td>$x - 3 = \\pm 1 \\Rightarrow x = 2$ 或 $x = 4$</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：由 $A(3, 2)$ 在抛物线上，求 $a + c$</h4>
+<p>把 $x = 3$、$y = 2$ 代入 $y = a(x - 2)^2 + c$：</p>
+<div class="formula-block">$2 = a(3 - 2)^2 + c = a \\cdot 1^2 + c = a + c$</div>
+<p>因此 $a + c = 2$。</p>
+
+<h4>第二步：化简待解方程</h4>
+<p>原方程：</p>
+<div class="formula-block">$a(x - 3)^2 + c + 3 = 5$</div>
+<p>两边同时减 $3$，得</p>
+<div class="formula-block">$a(x - 3)^2 + c = 2$</div>
+
+<h4>第三步：等量代换，消去 $c$</h4>
+<p>把右边的 $2$ 替换成 $a + c$：</p>
+<div class="formula-block">$a(x - 3)^2 + c = a + c$</div>
+<p>两边同时减 $c$：</p>
+<div class="formula-block">$a(x - 3)^2 = a$</div>
+
+<h4>第四步：约去 $a$，解一元二次方程</h4>
+<p>因为 $a \\neq 0$，两边除以 $a$：</p>
+<div class="formula-block">$(x - 3)^2 = 1$</div>
+<p>开平方（注意正负两根）：</p>
+<div class="formula-block">$x - 3 = \\pm 1$</div>
+<p>因此</p>
+<div class="formula-block">$x = 3 + 1 = 4 \\quad \\text{或} \\quad x = 3 - 1 = 2$</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$x_1 = 2,\ x_2 = 4$，故选 C</span>
+</div>
+`
+   },
+
+  {
+    id: "p24",
+    file: "p24.html",
+    title: "p24 函数图象与坐标轴恰有两个公共点",
+    type: "函数与统计",
+    topics: ["二次函数", "分类讨论", "判别式", "抛物线与坐标轴"],
+    difficulty: 3,
+    category: "函数与统计",
+    image: "images/p24.png",
+    content: `
+<div class="prob-statement">
+  <p>[2026 中考题] 已知函数 $y = mx^2 + 3mx + m - 1$ 的图象与坐标轴恰有两个公共点，则实数 $m$ 的值为 ______。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>一次函数退化</td><td>$m = 0$ 时 $y = -1$，与坐标轴只有 1 个公共点</td></tr>
+    <tr><td>二次函数与坐标轴交点</td><td>由 $y$ 轴交点 $(0,\ m - 1)$ 与 $x$ 轴交点（$\\Delta$ 决定个数）共同决定</td></tr>
+    <tr><td>判别式 $\\Delta$</td><td>$\\Delta = 0 \\Leftrightarrow$ 抛物线与 $x$ 轴恰 1 个交点（顶点在 $x$ 轴上）</td></tr>
+    <tr><td>过原点</td><td>常数项 $= 0$（即 $m = 1$）$\\Leftrightarrow$ 抛物线过原点</td></tr>
+    <tr><td>恰两个公共点的拆分</td><td>(1) 过原点 ＋ 与 $x$ 轴再交于另一点（原点被两轴共享）；<br>(2) $\\Delta = 0$（与 $x$ 轴 1 点）＋ $y$ 轴另 1 个非原点交点。</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：分类讨论 $m = 0$ 情形</h4>
+<p>若 $m = 0$，函数退化为一次函数 $y = -1$，是一条平行于 $x$ 轴的直线。</p>
+<ul>
+  <li>与 $y$ 轴交于 $(0,\\ -1)$；</li>
+  <li>与 $x$ 轴没有交点。</li>
+</ul>
+<p>此时图象与坐标轴共有 <strong>$1$ 个</strong>公共点，<strong>不满足"恰有两个公共点"</strong>。</p>
+<div class="def-red"><strong>结论：</strong>$m \\neq 0$，原式是二次函数（抛物线）。</div>
+
+<h4>第二步：分析 $y$ 轴交点</h4>
+<p>令 $x = 0$，得 $y = m - 1$，因此抛物线与 $y$ 轴交于</p>
+<div class="formula-block">$(0,\\ m - 1)$</div>
+<p>当 $m = 1$ 时，这个交点正好是原点 $(0,\\ 0)$（即抛物线过原点）。</p>
+
+<h4>第三步：明确"恰有两个公共点"的两种情形</h4>
+<p>对抛物线而言，与两轴的总交点 =（$y$ 轴交点数）+（$x$ 轴交点数）。要恰好等于 $2$，有两种可能：</p>
+
+<table class="kb-table">
+  <thead><tr><th>情形</th><th>条件</th><th>几何意义</th><th>公共点构成</th></tr></thead>
+  <tbody>
+    <tr><td>① 抛物线过原点</td><td>$m = 1$</td><td>$y$ 轴交点 = $(0,0)$，$x$ 轴再交于另一点</td><td>原点 + 另 1 点 → 共 $2$ 个</td></tr>
+    <tr><td>② 抛物线顶点在 $x$ 轴上</td><td>判别式 $\\Delta = 0$（且 $m \\neq 1$）</td><td>$x$ 轴恰 $1$ 个交点；$y$ 轴 $1$ 个非原点交点</td><td>$1+1$ → 共 $2$ 个</td></tr>
+  </tbody>
+</table>
+
+<div class="def-red"><strong>排除：</strong>$\\Delta > 0$ 且 $m \\neq 1$ 时，$x$ 轴 $2$ 点 ＋ $y$ 轴 $1$ 点 = $3$ 个；$\\Delta < 0$ 时，$x$ 轴 $0$ 点 ＋ $y$ 轴 $1$ 点 = $1$ 个，均不满足。</div>
+
+<h4>第四步：求情形 ①（$m = 1$）</h4>
+<p>当 $m = 1$ 时，函数化为</p>
+<div class="formula-block">$y = x^2 + 3x = x(x + 3)$</div>
+<p>令 $y = 0$：$x(x + 3) = 0$，解得</p>
+<div class="formula-block">$x = 0 \\quad\\text{或}\\quad x = -3$</div>
+<p>因此与 $x$ 轴交于 $(0,\\ 0)$ 和 $(-3,\\ 0)$，与 $y$ 轴也交于 $(0,\\ 0)$（同一点重合）。</p>
+<p>故共有 <strong>$2$ 个</strong>公共点：$(0,\\ 0)$、$(-3,\\ 0)$。✓</p>
+
+<h4>第五步：求情形 ②（$\\Delta = 0$）</h4>
+<p>抛物线与 $x$ 轴交点由方程 $mx^2 + 3mx + m - 1 = 0$ 决定，其判别式为</p>
+<div class="formula-block">$\\Delta = (3m)^2 - 4m(m - 1) = 9m^2 - 4m^2 + 4m = 5m^2 + 4m = m(5m + 4)$</div>
+<p>令 $\\Delta = 0$。因 $m \\neq 0$，两边除以 $m$，得</p>
+<div class="formula-block">$5m + 4 = 0 \\quad\\Longrightarrow\\quad m = -\\dfrac{4}{5}$</div>
+<p>验证：此时 $m - 1 = -\\dfrac{4}{5} - 1 = -\\dfrac{9}{5} \\neq 0$，故 $y$ 轴交点 $(0,\\ -\\dfrac{9}{5})$ 不在 $x$ 轴上；抛物线顶点落在 $x$ 轴上，与 $x$ 轴恰有 <strong>$1$ 个</strong>交点。</p>
+<p>故共有 <strong>$2$ 个</strong>公共点。✓</p>
+
+<h4>第六步：汇总答案</h4>
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$m = 1$ 或 $m = -\\dfrac{4}{5}$</span>
+</div>
+`
   }
 ];
