@@ -1423,4 +1423,111 @@ module.exports = [
   },
 
 
+
+  {
+    id: "p25",
+    file: "p25.html",
+    title: "p25 等边三角形双动点：直角三角形与四边形面积",
+    type: "几何综合",
+    topics: ["等边三角形", "动点问题", "30-60-90直角三角形", "勾股定理", "判别式"],
+    difficulty: 3,
+    category: "几何综合",
+    image: "images/p25.png",
+    content: `
+<div class="prob-statement">
+  <p>[2026 安徽合肥质检·中] 如图，$\\triangle ABC$ 是边长为 $3$ cm 的等边三角形，动点 $P$、$Q$ 同时从 $A$、$B$ 两点出发，分别沿 $AB$、$BC$ 方向匀速运动，它们的速度都是 $1$ cm/s，当点 $P$ 到达点 $B$ 时，$P$、$Q$ 两点停止运动。设点 $P$ 的运动时间为 $t$ s，解答下列问题：</p>
+  <p>（1）当 $t$ 为何值时，$\\triangle PBQ$ 是直角三角形？</p>
+  <p>（2）是否存在某一时刻，使得四边形 $APQC$ 的面积是 $\\triangle ABC$ 面积的 $\\dfrac{2}{3}$？如果存在，求出相应的 $t$ 值；如果不存在，请说明理由。</p>
+  <p><img src="images/p25-fig.png" alt="动点位置示意图（P 在 AB 上，Q 在 BC 上）" style="max-width: 300px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px;"></p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>动点问题的基本量</td><td>速度 $\\times$ 时间 = 路程：$AP = t$，$BQ = t$，$PB = 3 - t$</td></tr>
+    <tr><td>等边三角形</td><td>三边相等、每个内角都是 $60^{\\circ}$；三线合一（中线 = 高线 = 角平分线）</td></tr>
+    <tr><td>30° 所对直角边 = 斜边的一半</td><td>直角三角形中，$30^{\\circ}$ 角所对的直角边等于斜边的一半</td></tr>
+    <tr><td>勾股定理</td><td>$a^2 + b^2 = c^2$（直角三角形两直角边的平方和等于斜边的平方）</td></tr>
+    <tr><td>割补法求面积</td><td>四边形 $APQC$ 的面积 = $\\triangle ABC$ 的面积 $-$ $\\triangle PBQ$ 的面积</td></tr>
+    <tr><td>判别式判断存在性</td><td>$\\Delta < 0 \\Leftrightarrow$ 一元二次方程无实数解 $\\Leftrightarrow$ 这样的 $t$ 不存在</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：用 $t$ 表示各线段</h4>
+<p>两个动点速度都是 $1$ cm/s，运动时间为 $t$ s，所以走过的路程都等于 $t$：</p>
+<div class="formula-block">$AP = t, \\quad BQ = t, \\quad PB = AB - AP = 3 - t$</div>
+<div class="def-red"><strong>注意 $t$ 的取值范围：</strong>点 $P$ 到达 $B$ 时停止，所以 $0 < t \\le 3$。</div>
+
+<h4>第二步：（1）问：分析 $\\triangle PBQ$ 的直角位置</h4>
+<p>$\\triangle PBQ$ 中，$\\angle B = 60^{\\circ}$（等边三角形的内角）。直角三角形只有一个直角，而 $\\angle B = 60^{\\circ}$ 不是直角，所以直角只能是另外两个角：$\\angle BQP$ 或 $\\angle BPQ$。<strong>分两种情况讨论。</strong></p>
+
+<div class="def-red"><strong>情况①：$\\angle BQP = 90^{\\circ}$</strong></div>
+<p>此时三角形内角和还剩 $90^{\\circ} - 60^{\\circ} = 30^{\\circ}$ 给 $\\angle BPQ$，即 $\\angle BPQ = 30^{\\circ}$。</p>
+<p>在 Rt$\\triangle PBQ$ 中，$30^{\\circ}$ 角（$\\angle BPQ$）所对的直角边是 $BQ$，斜边是 $BP$。由"$30^{\\circ}$ 所对的直角边等于斜边的一半"：</p>
+<div class="formula-block">$BQ = \\dfrac{1}{2}BP \\quad\\Longrightarrow\\quad t = \\dfrac{1}{2}(3 - t)$</div>
+<p>解得 $2t = 3 - t$，即 $3t = 3$，所以 $t = 1$。✓（在 $0 < t \\le 3$ 内）</p>
+
+<div class="def-red"><strong>情况②：$\\angle BPQ = 90^{\\circ}$</strong></div>
+<p>同理，此时 $\\angle BQP = 30^{\\circ}$。$30^{\\circ}$ 角（$\\angle BQP$）所对的直角边是 $BP$，斜边是 $BQ$：</p>
+<div class="formula-block">$BP = \\dfrac{1}{2}BQ \\quad\\Longrightarrow\\quad 3 - t = \\dfrac{1}{2}t$</div>
+<p>解得 $6 - 2t = t$，即 $3t = 6$，所以 $t = 2$。✓（在 $0 < t \\le 3$ 内）</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅（1）答案：</span><span class="answer-value">$t = 1$ 或 $t = 2$ 时，$\\triangle PBQ$ 是直角三角形</span>
+</div>
+
+<h4>第三步：（2）问：割补法转化面积</h4>
+<p>点 $P$ 在 $AB$ 上、点 $Q$ 在 $BC$ 上，线段 $PQ$ 恰好把 $\\triangle ABC$ 切成两部分：$\\triangle PBQ$（含点 $B$ 的小角）和四边形 $APQC$（其余部分）。所以：</p>
+<div class="formula-block">$S_{\\text{四边形} APQC} = S_{\\triangle ABC} - S_{\\triangle PBQ}$</div>
+<p>要使四边形 $APQC$ 的面积是 $\\triangle ABC$ 面积的 $\\dfrac{2}{3}$，就等价于：</p>
+<div class="formula-block">$S_{\\triangle PBQ} = \\dfrac{1}{3}S_{\\triangle ABC}$</div>
+
+<h4>第四步：作辅助线，用 $t$ 表示 $S_{\\triangle PBQ}$ 与 $S_{\\triangle ABC}$</h4>
+<p><strong>辅助线：过点 $P$ 作 $PD \\perp BC$，垂足为 $D$（红色虚线）。则 $PD$ 就是 $\\triangle PBQ$ 中 $BQ$ 边上的高。</strong></p>
+<p style="text-align:center;">
+  <img src="images/p25_sol.svg" alt="p25 解题图：等边三角形 ABC、动点 P/Q、辅助线 PD⊥BC" onclick="openImgOverlay('p25sol')" style="max-width: 420px; border: 1px solid #e2e8f0; border-radius: 6px; margin-top: 8px; cursor: zoom-in;">
+</p>
+<p class="original-image-caption" onclick="openImgOverlay('p25sol')">📷 点击查看原图</p>
+<div class="img-overlay" id="overlay-p25sol">
+  <div class="img-overlay-box" id="overlayBox-p25sol" onmousedown="startDrag(event,'p25sol')">
+    <span class="img-overlay-close" onclick="closeImgOverlay('p25sol')">✕</span>
+    <img src="images/p25_sol.svg" alt="p25 解题图原图">
+    <span class="img-resize-handle" onmousedown="startResize(event,'p25sol')"></span>
+  </div>
+</div>
+
+<div class="def-red"><strong>先求 $\\triangle ABC$ 的高：</strong>过 $A$ 作 $AH \\perp BC$ 于 $H$。由等边三角形三线合一，$H$ 是 $BC$ 中点，$BH = \\dfrac{3}{2}$。在 Rt$\\triangle ABH$ 中用勾股定理：</div>
+<div class="formula-block">$AH = \\sqrt{AB^2 - BH^2} = \\sqrt{3^2 - \\left(\\dfrac{3}{2}\\right)^2} = \\sqrt{9 - \\dfrac{9}{4}} = \\sqrt{\\dfrac{27}{4}} = \\dfrac{3\\sqrt{3}}{2}$</div>
+<div class="formula-block">$S_{\\triangle ABC} = \\dfrac{1}{2} \\cdot BC \\cdot AH = \\dfrac{1}{2} \\cdot 3 \\cdot \\dfrac{3\\sqrt{3}}{2} = \\dfrac{9\\sqrt{3}}{4}$</div>
+
+<div class="def-red"><strong>再求 $\\triangle PBQ$ 中 $BQ$ 边上的高 $PD$：</strong>在 Rt$\\triangle PBD$ 中，$\\angle B = 60^{\\circ}$，所以 $\\angle BPD = 30^{\\circ}$。$30^{\\circ}$ 角 $\\angle BPD$ 所对的直角边是 $BD$，斜边是 $PB$，所以 $BD = \\dfrac{1}{2}PB = \\dfrac{3-t}{2}$。再用勾股定理：</div>
+<div class="formula-block">$PD = \\sqrt{PB^2 - BD^2} = \\sqrt{(3-t)^2 - \\dfrac{(3-t)^2}{4}} = \\sqrt{\\dfrac{3(3-t)^2}{4}} = \\dfrac{\\sqrt{3}}{2}(3-t)$</div>
+<p>于是（以 $BQ$ 为底、$PD$ 为高）：</p>
+<div class="formula-block">$S_{\\triangle PBQ} = \\dfrac{1}{2} \\cdot BQ \\cdot PD = \\dfrac{1}{2} \\cdot t \\cdot \\dfrac{\\sqrt{3}}{2}(3-t) = \\dfrac{\\sqrt{3}}{4}t(3-t)$</div>
+<p>两个面积的比（$\\sqrt{3}$ 正好约掉）：</p>
+<div class="formula-block">$\\dfrac{S_{\\triangle PBQ}}{S_{\\triangle ABC}} = \\dfrac{\\dfrac{\\sqrt{3}}{4}t(3-t)}{\\dfrac{9\\sqrt{3}}{4}} = \\dfrac{t(3-t)}{9}$</div>
+
+<h4>第五步：列方程并判断是否存在</h4>
+<p>由第四步的等价条件 $S_{\\triangle PBQ} = \\dfrac{1}{3}S_{\\triangle ABC}$，即面积比等于 $\\dfrac{1}{3}$：</p>
+<div class="formula-block">$\\dfrac{t(3-t)}{9} = \\dfrac{1}{3}$</div>
+<p>两边同乘 $9$：</p>
+<div class="formula-block">$t(3-t) = 3 \\quad\\Longrightarrow\\quad 3t - t^2 = 3 \\quad\\Longrightarrow\\quad t^2 - 3t + 3 = 0$</div>
+<p>这是一个关于 $t$ 的一元二次方程，计算判别式：</p>
+<div class="formula-block">$\\Delta = (-3)^2 - 4 \\times 1 \\times 3 = 9 - 12 = -3 < 0$</div>
+<div class="def-red"><strong>判别式小于零，方程没有实数解。</strong>也就是说，在整个运动过程（$0 < t \\le 3$）中，不存在任何时刻使 $S_{\\triangle PBQ} = \\dfrac{1}{3}S_{\\triangle ABC}$。</div>
+<p>（从图象角度理解：$\\dfrac{t(3-t)}{9}$ 的最大值在 $t = 1.5$ 时取得，只有 $\\dfrac{1.5 \\times 1.5}{9} = \\dfrac{1}{4}$，达不到 $\\dfrac{1}{3}$，所以 $\\triangle PBQ$ 永远"太小"，四边形 $APQC$ 永远比 $\\dfrac{2}{3}$ 大。）</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅（2）答案：</span><span class="answer-value">不存在这样的 $t$。因为方程 $t^2 - 3t + 3 = 0$ 的判别式 $\\Delta = -3 < 0$，无实数解</span>
+</div>
+`
+  }
+
 ];
