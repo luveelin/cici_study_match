@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 480" font-family="'Microsoft YaHei', sans-serif">
+  <!-- 背景 -->
+  <rect width="270" height="480" fill="#ffffff"/>
+
+  <!-- 坐标映射：x_s = 140 + 26x, y_s = 330 - 26y（x、y 等比例尺，保证垂直关系视觉真实） -->
+  <!-- x 轴 -->
+  <line x1="14" y1="330" x2="240" y2="330" stroke="#475569" stroke-width="1.5"/>
+  <path d="M 240 330 l -9 -4 v 8 z" fill="#475569"/>
+  <!-- y 轴 -->
+  <line x1="140" y1="460" x2="140" y2="120" stroke="#475569" stroke-width="1.5"/>
+  <path d="M 140 120 l -4 9 h 8 z" fill="#475569"/>
+
+  <!-- 抛物线 L1: y = x^2+2x-3，顶点 (114,434)，精确二次贝塞尔 -->
+  <path d="M 25.6 133.4 Q 114 734.6 202.4 133.4" fill="none" stroke="#000000" stroke-width="2"/>
+  <text x="208" y="130" font-size="13" fill="#0f172a" font-style="italic">L₁</text>
+
+  <!-- 直线 BC（y = -x + 1 的一段，灰实线） -->
+  <line x1="21.7" y1="185.7" x2="177.7" y2="341.7" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- 辅助线：BC 的垂直平分线 y = x + 4（红虚线），与抛物线交于 D₁、D₂ -->
+  <line x1="16.5" y1="349.5" x2="211.5" y2="154.5" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="108" y="246" transform="rotate(-45 108 246)" font-size="12" fill="#dc2626">y = x + 4</text>
+
+  <!-- BC 中点直角符号（中垂线 ⊥ BC） -->
+  <path d="M 105.2 269.2 L 109.3 265 L 105.2 260.8" fill="none" stroke="#64748b" stroke-width="1.5"/>
+  <circle cx="101" cy="265" r="2.5" fill="#64748b"/>
+
+  <!-- ═══ 第(2)问第二步：DB=DC 的两个勾股直角三角形 ═══ -->
+  <!-- 蓝 △D₁H₁B：斜边 D₁B，竖直直角边 D₁H₁ = y（D₁ 垂直 x 轴，垂足在 x 轴上），水平直角边 H₁B = x−1 -->
+  <!-- 绿 △D₁H₂C：斜边 D₁C，水平直角边 = x+4，竖直直角边 = y−5 -->
+
+  <!-- 斜边：D₁B（蓝实线）、D₁C（绿实线） -->
+  <line x1="197" y1="169" x2="166" y2="330" stroke="#2563eb" stroke-width="2"/>
+  <line x1="197" y1="169" x2="36" y2="200" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- 蓝色竖直直角边：D₁ 垂直 x 轴，垂足 H₁(197,330)，长度 = y -->
+  <line x1="197" y1="169" x2="197" y2="330" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <!-- 蓝色水平直角边：H₁(197,330) → B(166,330)，长度 = x−1（落在 x 轴上） -->
+  <line x1="197" y1="330" x2="166" y2="330" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+  <!-- 绿色水平直角边：D₁ → H₂(36,169)，长度 = x+4 -->
+  <line x1="197" y1="169" x2="36" y2="169" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <!-- 绿色竖直直角边：H₂(36,169) → C(36,200)，长度 = y−5 -->
+  <line x1="36" y1="169" x2="36" y2="200" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+  <!-- 直角顶点：H₁（x 轴垂足）、H₂ -->
+  <circle cx="197" cy="330" r="2.2" fill="#2563eb"/>
+  <circle cx="36" cy="169" r="2.2" fill="#16a34a"/>
+
+  <!-- 直角标记：H₁ 在左上（水平向左、竖直向上），H₂ 在右下 -->
+  <path d="M 197 330 h -7 v -7 h 7 z" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+  <path d="M 36 169 h 7 v 7 h -7 z" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+
+  <!-- 直角边标注 -->
+  <text x="181" y="346" font-size="12" fill="#2563eb" font-style="italic" text-anchor="middle">x − 1</text>
+  <text x="202" y="252" font-size="12" fill="#2563eb" font-style="italic" text-anchor="start">y</text>
+  <text x="100" y="161" font-size="12" fill="#16a34a" font-style="italic" text-anchor="middle">x + 4</text>
+  <text x="18" y="179" font-size="12" fill="#16a34a" font-style="italic" text-anchor="middle">y − 5</text>
+
+  <!-- 斜边标注 -->
+  <text x="176" y="250" font-size="12" fill="#2563eb" font-style="italic" text-anchor="end">DB</text>
+  <text x="118" y="200" font-size="12" fill="#16a34a" font-style="italic">DC</text>
+
+  <!-- 点标记 -->
+  <circle cx="62" cy="330" r="3" fill="#000000"/>
+  <circle cx="166" cy="330" r="3" fill="#000000"/>
+  <circle cx="36" cy="200" r="3" fill="#000000"/>
+  <circle cx="197" cy="169" r="3.5" fill="#dc2626"/>
+  <circle cx="57" cy="309" r="3.5" fill="#dc2626"/>
+
+  <!-- 标注（放在空白区，不压线） -->
+  <text x="132" y="346" font-size="13" fill="#475569">O</text>
+  <text x="58" y="348" font-size="14" fill="#0f172a" text-anchor="middle" font-weight="bold">A</text>
+  <text x="158" y="350" font-size="14" fill="#0f172a" text-anchor="middle" font-weight="bold">B</text>
+  <text x="26" y="194" font-size="14" fill="#0f172a" text-anchor="middle" font-weight="bold">C</text>
+  <text x="204" y="174" font-size="14" fill="#dc2626" text-anchor="start" font-weight="bold">D₁</text>
+  <text x="58" y="292" font-size="14" fill="#dc2626" text-anchor="middle" font-weight="bold">D₂</text>
+  <text x="246" y="336" font-size="14" fill="#475569" font-style="italic">x</text>
+  <text x="130" y="126" font-size="14" fill="#475569" font-style="italic">y</text>
+</svg>

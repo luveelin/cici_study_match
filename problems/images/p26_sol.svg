@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 360" font-family="'Microsoft YaHei', sans-serif">
+  <!-- 背景 -->
+  <rect width="440" height="360" fill="#ffffff"/>
+
+  <!-- 坐标轴（数学 y 向上为正 → 屏幕 y 向下为正：y_s = 142 - 42·y_math） -->
+  <!-- x 轴拉长 -->
+  <line x1="95" y1="142" x2="355" y2="142" stroke="#475569" stroke-width="1.5"/>
+  <path d="M 355 142 l -9 -4 v 8 z" fill="#475569"/>
+  <line x1="180" y1="80" x2="180" y2="335" stroke="#475569" stroke-width="1.5"/>
+  <path d="M 180 80 l -4 9 h 8 z" fill="#475569"/>
+
+  <!-- 抛物线 C1: y=(x-1)^2-4，开口向上，顶点 M(222,310) 在最低点（两端抬离 x 轴） -->
+  <path d="M 129.6 106.7 Q 222 513.3 314.4 106.7" fill="none" stroke="#000000" stroke-width="2"/>
+
+  <!-- 直线 y = -t（灰实线，位于顶点 M 上方；t=1 时即 y=-1） -->
+  <line x1="130" y1="184" x2="315" y2="184" stroke="#64748b" stroke-width="1.5"/>
+  <text x="312" y="176" font-size="12" fill="#64748b" text-anchor="end">y = −t</text>
+
+  <!-- MA、MB（黑实线，从顶点 M 向上张开到 A、B） -->
+  <line x1="222" y1="310" x2="149.3" y2="184" stroke="#000000" stroke-width="1.8"/>
+  <line x1="222" y1="310" x2="294.7" y2="184" stroke="#000000" stroke-width="1.8"/>
+
+  <!-- 辅助线 MN（红虚线）：N 为 AB 中点，MN⊥AB -->
+  <line x1="222" y1="310" x2="222" y2="184" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <!-- N 点直角符号（∠MNB = 90°） -->
+  <path d="M 222 184 L 222 193 L 213 193" fill="none" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- 点标记 -->
+  <circle cx="149.3" cy="184" r="3" fill="#000000"/>
+  <circle cx="294.7" cy="184" r="3" fill="#000000"/>
+  <circle cx="222" cy="310" r="3" fill="#000000"/>
+  <circle cx="222" cy="184" r="3" fill="#1d4ed8"/>
+
+  <!-- 坐标轴标注（移出图像区） -->
+  <text x="361" y="150" font-size="14" fill="#475569" font-style="italic">x</text>
+  <text x="165" y="86" font-size="14" fill="#475569" font-style="italic">y</text>
+  <text x="165" y="158" font-size="13" fill="#475569">O</text>
+
+  <!-- 顶点/交点标注（移到图像外侧，不覆盖抛物线与坐标轴） -->
+  <text x="222" y="330" font-size="15" fill="#0f172a" text-anchor="middle" font-weight="bold">M</text>
+  <text x="124" y="202" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">A</text>
+  <text x="300" y="202" font-size="15" fill="#0f172a" text-anchor="start" font-weight="bold">B</text>
+  <text x="233" y="170" font-size="14" fill="#1d4ed8" text-anchor="start" font-weight="bold">N</text>
+  <text x="233" y="262" font-size="13" fill="#dc2626" text-anchor="start">MN</text>
+</svg>

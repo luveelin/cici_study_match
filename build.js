@@ -148,7 +148,7 @@ problems.forEach(p => {
 });
 
 // 分类显示顺序（左侧菜单分组顺序，第一个为最上方分组）
-const CATEGORY_ORDER = ["坐标轴几何", "几何综合", "二次根式", "最值问题", "函数与统计"];
+const CATEGORY_ORDER = ["坐标轴几何", "几何综合", "二次根式", "最值问题", "函数与统计", "抛物线综合"];
 const orderedCats = CATEGORY_ORDER.filter(c => tree[c])
   .concat(Object.keys(tree).filter(c => !CATEGORY_ORDER.includes(c)));
 
