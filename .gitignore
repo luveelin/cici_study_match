@@ -9,6 +9,7 @@ node_modules/
 temp/
 __pycache__/
 *.pyc
+doc/
 
 # 系统文件
 .DS_Store
