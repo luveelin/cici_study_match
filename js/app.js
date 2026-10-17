@@ -263,7 +263,9 @@ document.addEventListener('DOMContentLoaded', function() {
     targetFile = document.querySelector('.tree-file[data-id="' + lastId + '"]');
   }
   if (!targetFile) {
-    targetFile = document.querySelector('.tree-file');
+    // 兜底默认打开 p32（无 lastProblemId 记录时）
+    targetFile = document.querySelector('.tree-file[data-id="p32"]')
+      || document.querySelector('.tree-file');
   }
   if (targetFile) {
     setTimeout(() => targetFile.click(), 200);
