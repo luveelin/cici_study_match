@@ -23,8 +23,7 @@ function toggleSidebar() {
 function toggleMastered(id) {
   const checkEl = document.getElementById('check-' + id);
   if (!checkEl) return;
-  // 兼容：checkmark 可能在 .tree-file 内，也可能在二级父题 header 内
-  const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
+  const itemEl = checkEl.closest('.tree-file');
   if (!itemEl) return;
   const isMastered = checkEl.classList.toggle('mastered');
   itemEl.classList.toggle('mastered', isMastered);
@@ -43,7 +42,7 @@ function toggleMastered(id) {
   }
   localStorage.setItem('mastered', JSON.stringify(mastered));
   localStorage.setItem('unmastered', JSON.stringify(unmastered));
-  // 子题勾选变化后重算所有菜单的默认折叠态
+  // 勾选变化后重算各分组的默认折叠态
   collapseMasteredFolders();
 }
 
@@ -51,8 +50,7 @@ function toggleMastered(id) {
 function markMastered(id) {
   const checkEl = document.getElementById('check-' + id);
   if (!checkEl) return;
-  // 兼容：可能在 .tree-file 内，也可能在二级父题 header 内
-  const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
+  const itemEl = checkEl.closest('.tree-file');
   if (itemEl) {
     checkEl.classList.add('mastered');
     checkEl.textContent = '✓';
@@ -64,7 +62,7 @@ function markMastered(id) {
 function unmarkMastered(id) {
   const checkEl = document.getElementById('check-' + id);
   if (!checkEl) return;
-  const itemEl = checkEl.closest('.tree-file') || checkEl.closest('.tree-folder-header');
+  const itemEl = checkEl.closest('.tree-file');
   checkEl.classList.remove('mastered');
   checkEl.textContent = '';
   if (itemEl) itemEl.classList.remove('mastered');
@@ -83,120 +81,27 @@ function toggleFolder(header) {
   }
 }
 
-// 点击分组右侧的数字：折叠/展开该分组内所有“二级子菜单”（带三级子题的父题），
-// 同时保持分组本身展开、顶层题目可见。若分组内没有二级子菜单，则退化为折叠/展开整个分组。
+// 点击分组右侧的数字：折叠/展开该分组
 function toggleGroupSubfolders(countEl) {
-  const folder = countEl.closest('.tree-folder:not(.tree-subfolder)');
+  const folder = countEl.closest('.tree-folder');
   if (!folder) return;
-  const subfolders = folder.querySelectorAll(':scope > .tree-children > li.tree-subfolder');
-  if (subfolders.length === 0) {
-    // 没有二级子菜单：退化为折叠/展开整个分组
-    const header = folder.querySelector(':scope > .tree-folder-header');
-    if (header) toggleFolder(header);
-    return;
-  }
-  // 只要有任一二级子菜单处于展开状态 → 全部收起；否则 → 全部展开
-  const anyExpanded = [...subfolders].some(sf => {
-    const ch = sf.querySelector(':scope > .tree-children');
-    return ch && !ch.classList.contains('hidden');
-  });
-  subfolders.forEach(sf => {
-    const header = sf.querySelector(':scope > .tree-folder-header');
-    const ch = sf.querySelector(':scope > .tree-children');
-    if (!header || !ch) return;
-    if (anyExpanded) {
-      ch.classList.add('hidden');
-      header.classList.add('collapsed');
-    } else {
-      ch.classList.remove('hidden');
-      header.classList.remove('collapsed');
-    }
-  });
+  const header = folder.querySelector(':scope > .tree-folder-header');
+  if (header) toggleFolder(header);
 }
 
-// 仅加载父题头对应的题目内容，不处理折叠/展开
-function loadHeaderProblem(header, file, id) {
-  document.querySelectorAll('.tree-file').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.tree-folder-header').forEach(el => el.classList.remove('active'));
-  header.classList.add('active');
-  document.getElementById('welcomeMsg').style.display = 'none';
-  const frame = document.getElementById('contentFrame');
-  frame.style.display = 'block';
-  frame.src = file;
-  document.getElementById('contentWrapper').style.display = 'none';
-  document.getElementById('breadcrumb').textContent = '题目详情';
-  document.getElementById('currentTitle').textContent =
-    header.querySelector('.tree-file-name')?.textContent || '';
-  currentFile = file;
-  if (id) localStorage.setItem('lastProblemId', id);
-}
-
-// 二级父题整行点击：折叠/展开子菜单 + 同时加载该题到右侧
-// forceExpand=true 时只展开不折叠（用于初始化恢复，避免把刚展开的子菜单又折回去）
-function toggleFolderAndLoad(header, file, id, forceExpand) {
-  // 1) 折叠/展开：forceExpand 时强制展开，否则按当前状态 toggle
-  if (forceExpand) {
-    const children = header.nextElementSibling;
-    if (children) {
-      children.classList.remove('hidden');
-      header.classList.remove('collapsed');
-    }
-  } else {
-    toggleFolder(header);
-  }
-  // 2) 加载题目到右侧内容区
-  loadHeaderProblem(header, file, id);
-}
-
-// 判断某个文件夹下“所有三级叶子题目”是否都已打勾。
-function folderAllMastered(folder) {
-  const leaves = folder.querySelectorAll('.tree-file');
-  if (leaves.length === 0) return false;
-  return [...leaves].every(el => el.classList.contains('mastered'));
-}
-
-// 判断一级菜单（顶层分组）的“直接子项”是否全打勾。
-// 直接子项包括：
-//   · .tree-subfolder > .tree-folder-header（带有三级子题的二级父题）
-//   · > .tree-children > li > .tree-file（直接挂在该分组下的普通题目）
+// 判断一级菜单（顶层分组）的直接子题目是否全部打勾
 function topLevelAllMastered(folder) {
   const children = folder.querySelector(':scope > .tree-children');
   if (!children) return false;
-
-  const items = [];
-  // 1) 二级子菜单的 header（有三级子题的父题）
-  children.querySelectorAll(':scope > li.tree-subfolder > .tree-folder-header').forEach(h => {
-    items.push(h);
-  });
-  // 2) 直接挂在该分组下的普通题目（不在 .tree-subfolder 内）
-  children.querySelectorAll(':scope > li > .tree-file').forEach(f => {
-    items.push(f);
-  });
-
+  const items = children.querySelectorAll(':scope > li > .tree-file');
   if (items.length === 0) return false;
-  return items.every(el => el.classList.contains('mastered'));
+  return [...items].every(el => el.classList.contains('mastered'));
 }
 
-// 初始化时根据“打勾”状态设置各层级菜单的默认展开/收起：
-//  · 一级菜单：其下二级菜单（含直接子题）全打勾 → 收缩，否则 → 展开
-//  · 二级菜单：其下所有三级菜单全打勾 → 收缩，否则 → 展开
+// 初始化时根据“打勾”状态设置各分组的默认展开/收起：
+// 分组内题目全打勾 → 收缩，否则 → 展开
 function collapseMasteredFolders() {
-  // 1) 二级菜单（带三级子题的父题）：三级全打勾则收缩，否则全展开
-  document.querySelectorAll('.tree-subfolder').forEach(folder => {
-    const header = folder.querySelector(':scope > .tree-folder-header');
-    const children = folder.querySelector(':scope > .tree-children');
-    if (!header || !children) return;
-    if (folderAllMastered(folder)) {
-      header.classList.add('collapsed');
-      children.classList.add('hidden');
-    } else {
-      header.classList.remove('collapsed');
-      children.classList.remove('hidden');
-    }
-  });
-
-  // 2) 一级菜单（顶层分组）：其下二级项（含直接子题）全打勾则收缩，否则展开
-  document.querySelectorAll('.tree-folder:not(.tree-subfolder)').forEach(folder => {
+  document.querySelectorAll('.tree-folder').forEach(folder => {
     const header = folder.querySelector(':scope > .tree-folder-header');
     const children = folder.querySelector(':scope > .tree-children');
     if (!header || !children) return;
@@ -348,34 +253,19 @@ document.addEventListener('DOMContentLoaded', function() {
     JSON.parse(localStorage.getItem('unmastered') || '[]').forEach(id => unmarkMastered(id));
   } catch (e) {}
 
-  // 3) 全部子项已掌握的文件夹默认收起
+  // 3) 分组内题目全部已掌握的默认收起
   collapseMasteredFolders();
 
-  // 恢复上次打开的题目（可能是叶子题目，也可能是二级父题头）
+  // 恢复上次打开的题目
   const lastId = localStorage.getItem('lastProblemId');
   let targetFile = null;
   if (lastId) {
-    targetFile = document.querySelector('.tree-file[data-id="' + lastId + '"]')
-      || document.querySelector('.tree-folder-header[data-id="' + lastId + '"]');
+    targetFile = document.querySelector('.tree-file[data-id="' + lastId + '"]');
   }
   if (!targetFile) {
     targetFile = document.querySelector('.tree-file');
   }
   if (targetFile) {
-    setTimeout(() => {
-      // 二级父题头：强制展开子菜单并加载，不要 toggle（否则会折回 collapseMasteredFolders 已展开的状态）
-      if (targetFile.classList.contains('tree-folder-header')) {
-        const file = targetFile.getAttribute('data-file') || '';
-        // 若该父题头已被 collapseMasteredFolders 判定为应收缩（子题全掌握），
-        // 则只加载题目，不再强制展开，避免覆盖初始化折叠规则。
-        if (targetFile.classList.contains('collapsed')) {
-          loadHeaderProblem(targetFile, file, lastId);
-        } else {
-          toggleFolderAndLoad(targetFile, file, lastId, true);
-        }
-      } else {
-        targetFile.click();
-      }
-    }, 200);
+    setTimeout(() => targetFile.click(), 200);
   }
 });

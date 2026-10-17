@@ -202,55 +202,9 @@ body {
 .tree-file.mastered .tree-file-name {
   color: #7dcea0;
 }
-/* 二级父题（带子题）：整行可点 = 折叠/展开 + 加载题目，正文与同级题目对齐 */
-.tree-subfolder > .tree-folder-header {
-  padding: 6px 18px 6px 13px;
-  border-left: 3px solid transparent;
-}
-.tree-subfolder > .tree-folder-header:hover { background: var(--hover-bg); }
-.tree-subfolder > .tree-folder-header.active {
-  background: var(--active-bg);
-  border-left-color: var(--accent);
-}
-.tree-subfolder > .tree-folder-header.active .tree-file-name {
-  color: #fff;
-}
-/* 父题头内部元素与普通 tree-file 对齐 */
-.tree-subfolder > .tree-folder-header > .tree-checkmark { margin-right: 2px; }
-.tree-subfolder > .tree-folder-header > .tree-file-icon {
-  font-size: 0.85em;
-  margin-right: 6px;
-  flex-shrink: 0;
-}
-.tree-subfolder > .tree-folder-header > .tree-file-name {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 0.82em;
-  color: var(--sidebar-text);
-}
-.tree-subfolder > .tree-folder-header > .tree-file-diff {
-  margin-left: 6px;
-  font-size: 0.72em;
-  color: #f0c040;
-  flex-shrink: 0;
-}
-/* 掌握态：父题头标题变绿 */
-.tree-subfolder > .tree-folder-header.mastered .tree-file-name {
-  color: #7dcea0;
-}
-/* 箭头回归正常 flow 布局，无需 absolute 定位（整行可点，手机端友好） */
-.tree-subfolder > .tree-folder-header > .tree-arrow {
-  margin-right: 6px;
-}
-/* 二级叶子题：补偿父题头箭头占位(18px)，使标题与同级父题头对齐 */
-.tree-folder:not(.tree-subfolder) > .tree-children > li > .tree-file {
+/* 二级叶子题：缩进一层 */
+.tree-folder > .tree-children > li > .tree-file {
   padding-left: 31px;
-}
-/* 三级子题：比二级再缩进一层(18px) */
-.tree-subfolder > .tree-children .tree-file {
-  padding-left: 49px;
 }
 
 /* ====== MAIN ====== */

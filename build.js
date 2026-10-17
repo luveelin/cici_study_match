@@ -142,7 +142,7 @@ ${bodyHtml}
 // ============ 构建树形结构 ============
 const tree = {};
 problems.forEach(p => {
-  // 所有题目（含带 parent 的子题）都进入导航树；子题通过 parent 嵌套到父题下作为子菜单
+  // 题目按分类挂到导航树（分类 → 题目，共两级）
   if (!tree[p.category]) tree[p.category] = [];
   tree[p.category].push(p);
 });
@@ -151,13 +151,6 @@ problems.forEach(p => {
 const CATEGORY_ORDER = ["坐标轴几何", "几何综合", "二次根式", "最值问题", "最大利润问题", "函数与统计", "抛物线综合"];
 const orderedCats = CATEGORY_ORDER.filter(c => tree[c])
   .concat(Object.keys(tree).filter(c => !CATEGORY_ORDER.includes(c)));
-
-// 父子关系：把子题（parent 指向父题 id）嵌套到父题下作为子菜单
-const childrenOf = {};
-problems.forEach(p => {
-  if (p.sub || !p.parent) return;
-  (childrenOf[p.parent] = childrenOf[p.parent] || []).push(p);
-});
 
 // 从题号（如 "p12"、"p3a1"）中提取数字，用于按"题号顺序"排序
 function numId(id) {
@@ -179,51 +172,25 @@ function fileLinkHtml(p) {
             </li>`;
 }
 
-// 生成二级父题（带子题的题目）菜单项：整行可点 = 折叠/展开 + 加载题目
-function subFolderHtml(p, kids) {
-  const stars = '★'.repeat(p.difficulty) + '☆'.repeat(4 - p.difficulty);
-  return `
-            <li class="tree-folder tree-subfolder">
-              <div class="tree-folder-header" data-file="problems/${p.file}" onclick="toggleFolderAndLoad(this, 'problems/${p.file}', '${p.id}')" ondblclick="toggleMastered('${p.id}')" title="${p.title}" data-id="${p.id}" data-cat="${p.category}">
-                <span class="tree-arrow">▶</span>
-                <span class="tree-checkmark" id="check-${p.id}"></span>
-                <span class="tree-file-icon">📄</span>
-                <span class="tree-file-name">${p.title}</span>
-                <span class="tree-file-diff">${stars}</span>
-              </div>
-              <ul class="tree-children">
-                ${kids.sort((a, b) => numId(a.id) - numId(b.id)).map(k => fileLinkHtml(k)).join('')}
-              </ul>
-            </li>`;
-}
-
 // 生成树形菜单 HTML
 function buildTreeHTML() {
   let html = '';
   for (const cat of orderedCats) {
     const probs = tree[cat];
     if (!probs || probs.length === 0) continue;
-    // 顶层题目（没有 parent 的）直接挂在分类下；有 parent 的作为子菜单嵌套到父题
-    const topLevel = probs.filter(p => !p.parent);
-    if (topLevel.length === 0) continue;
-    // 按题号从小到大排序（如 p7 之后是 p8，再是 p10）
-    topLevel.sort((a, b) => numId(a.id) - numId(b.id));
+    // 分类下的题目按题号从小到大排序（如 p7 之后是 p8，再是 p10）
+    const topLevel = probs.slice().sort((a, b) => numId(a.id) - numId(b.id));
     html += `
         <li class="tree-folder">
           <div class="tree-folder-header" onclick="toggleFolder(this)" title="${cat}">
             <span class="tree-arrow">▶</span>
             <span class="tree-folder-icon">📁</span>
             <span class="tree-folder-name">${cat}</span>
-            <span class="tree-count" title="点击折叠/展开本分组内的二级子菜单" onclick="toggleGroupSubfolders(this);event.stopPropagation();return false;">${probs.length}</span>
+            <span class="tree-count" title="点击折叠/展开本分组" onclick="toggleGroupSubfolders(this);event.stopPropagation();return false;">${probs.length}</span>
           </div>
           <ul class="tree-children">`;
     topLevel.forEach(p => {
-      const kids = childrenOf[p.id];
-      if (kids && kids.length) {
-        html += subFolderHtml(p, kids);
-      } else {
-        html += fileLinkHtml(p);
-      }
+      html += fileLinkHtml(p);
     });
     html += `
           </ul>
@@ -276,7 +243,7 @@ const indexHtml = `<!DOCTYPE html>
     <div class="welcome" id="welcomeMsg">
       <div class="icon">📖</div>
       <h2>请从左侧导航选择题目</h2>
-      <p style="color:#bbb;font-size:0.85em;">点击题目查看详细解答、知识点总结和举一反三</p>
+      <p style="color:#bbb;font-size:0.85em;">点击题目查看详细解答与知识点总结</p>
     </div>
   </div>
   <iframe id="contentFrame" class="main-content" style="display:none;" sandbox="allow-same-origin allow-scripts"></iframe>

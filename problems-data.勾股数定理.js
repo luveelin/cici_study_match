@@ -69,15 +69,6 @@ module.exports = [
   <span class="answer-label">✅ 答案：</span><span class="answer-value">D. $2026$</span>
 </div>
 
-<h3>📚 南昌/江西中考类似题（同类拓展）</h3>
-<div class="practice-box">
-  <p><strong>题1（表格二次规律·江西中考常见）：</strong>观察下表，当 $x=20$ 时，$y$ 的值为 ______。<a href="p20a1.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
-  <p class="hint">💡 表格：$x: 1,2,3,4,5$；$y: 3,8,15,24,35$。</p>
-  <p><strong>题2（勾股数规律）：</strong>一组勾股数中，偶数直角边 $a$ 依次取 $6,8,10,12,14$，斜边 $c$ 依次为 $10,17,26,37,50$。若 $a=50$，则 $c=$ ______。<a href="p20a2.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
-  <p class="hint">💡 提示：$c = \\dfrac{a^2}{4}+1$。</p>
-  <p><strong>题3（表格二次规律）：</strong>根据表格求 $n=15$ 时 $y$ 的值。<a href="p20a3.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
-  <p class="hint">💡 表格：$n: 1,2,3,4,5$；$y: 2,7,14,23,34$。</p>
-</div>
 `
   },
 
@@ -152,15 +143,6 @@ module.exports = [
   <span class="answer-label">✅ 答案：</span><span class="answer-value">$7$</span>
 </div>
 
-<h3>📚 南昌/江西中考类似题（同类拓展）</h3>
-<div class="practice-box">
-  <p><strong>题1（公式 + 范围）：</strong>正整数 $a,n$ 满足 $a^2+n^2=(n+1)^2$，当 $a=21$ 时，$n=$ ______；该组数为 (21,____,____)。<a href="p21a1.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
-  <p class="hint">💡 由 $a^2=2n+1$ 解出 $n$。</p>
-  <p><strong>题2（差值规律）：</strong>在 $a^2=2n+1$ 中，若 $a$ 是奇数，则 $n$ 一定是什么数？若 $a$ 是偶数，会有解吗？<a href="p21a2.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
-  <p class="hint">💡 奇偶性分析。</p>
-  <p><strong>题3（换族数论）：</strong>正整数 $a,m$ 满足 $a^2+m^2=(m+2)^2$，当 $m<100$ 时，共有多少组？<a href="p21a3.html" style="color:var(--accent);font-weight:600;text-decoration:none;">📄 查看详细解答 →</a></p>
-  <p class="hint">💡 类比 $a^2=4m+4$ 的奇偶性。</p>
-</div>
 `
   },
 
@@ -211,93 +193,7 @@ module.exports = [
   <span class="answer-label">✅ 答案：</span><span class="answer-value">C. $9.6$ cm</span>
 </div>
 
-<h3>📚 南昌/江西中考类似题（同类拓展）</h3>
-<ol>
-  <li><strong>斜边上的高</strong>：在 $\\text{Rt}\\triangle ABC$ 中，$\\angle ABC=90^{\\circ}$，$AB=6$，$BC=8$，$AC=10$，求斜边 $AC$ 上的高。 <a href="p22a1.html">📄 查看详细解答 →</a></li>
-  <li><strong>等腰直角三角形中的角平分线</strong>：在等腰直角三角形 $ABC$ 中，$\\angle ACB=90^{\\circ}$，$AC=BC=6$，$CD$ 平分 $\\angle ACB$ 交 $AB$ 于 $D$，求点 $D$ 到 $AC$ 的距离。 <a href="p22a2.html">📄 查看详细解答 →</a></li>
-  <li><strong>角平分线上的点到两边距离</strong>：点 $P$ 在 $\\angle AOB$ 的平分线上，$\\angle AOB=90^{\\circ}$，$P$ 到 $OA$ 的距离为 $4$，求 $OP$ 的长。 <a href="p22a3.html">📄 查看详细解答 →</a></li>
-</ol>
-`
-  },
 
-{
-    id: "p22a1",
-    parent: "p22",
-    file: "p22a1.html",
-    title: "p22a1 斜边上的高",
-    type: "选择填空",
-    topics: ["勾股定理", "面积法", "斜边上的高"],
-    difficulty: 2,
-    category: "勾股数定理",
-    content: `
-<div class="prob-statement">
-  <p>在 $\\text{Rt}\\triangle ABC$ 中，$\\angle ABC=90^{\\circ}$，$AB=6$，$BC=8$，$AC=10$，求斜边 $AC$ 上的高。</p>
-</div>
-
-<h3>✍️ 解答</h3>
-<p>直角三角形面积有两种算法：</p>
-<div class="formula-block">$S_{\\triangle ABC}=\\dfrac{1}{2}AB\\cdot BC=\\dfrac{1}{2}\\times6\\times8=24$</div>
-<div class="formula-block">$S_{\\triangle ABC}=\\dfrac{1}{2}AC\\cdot h=\\dfrac{1}{2}\\times10\\cdot h=5h$</div>
-<p>令两式相等：</p>
-<div class="formula-block">$5h=24 \\Rightarrow h=4.8$</div>
-<div class="answer-box">
-  <span class="answer-label">✅ 答案：</span><span class="answer-value">斜边 $AC$ 上的高为 $4.8$</span>
-</div>
-`
-  },
-
-{
-    id: "p22a2",
-    parent: "p22",
-    file: "p22a2.html",
-    title: "p22a2 等腰直角三角形中的角平分线",
-    type: "选择填空",
-    topics: ["等腰直角三角形", "角平分线性质", "点到直线距离"],
-    difficulty: 3,
-    category: "勾股数定理",
-    content: `
-<div class="prob-statement">
-  <p>在等腰直角三角形 $ABC$ 中，$\\angle ACB=90^{\\circ}$，$AC=BC=6$，$CD$ 平分 $\\angle ACB$ 交 $AB$ 于 $D$，求点 $D$ 到 $AC$ 的距离。</p>
-</div>
-
-<h3>✍️ 解答</h3>
-<p>因为 $CD$ 平分 $\\angle ACB$，且 $\\angle ACB=90^{\\circ}$，所以 $\\angle ACD=\\angle BCD=45^{\\circ}$。</p>
-<p>点 $D$ 在角平分线上，根据角平分线性质，点 $D$ 到 $AC$ 的距离等于点 $D$ 到 $BC$ 的距离。</p>
-<p>设 $D$ 到 $AC$ 的距离为 $x$。由于 $\\angle ACB=90^{\\circ}$，$D$ 向 $AC$、$BC$ 作垂线后，垂足与 $D$ 构成边长为 $x$ 的正方形，因此 $D$ 到 $BC$ 的距离也是 $x$。</p>
-<p>用面积法：$S_{\\triangle ACD}+S_{\\triangle BCD}=S_{\\triangle ABC}$</p>
-<div class="formula-block">$\\dfrac{1}{2}\\times AC\\times x + \\dfrac{1}{2}\\times BC\\times x = \\dfrac{1}{2}\\times AC\\times BC$</div>
-<div class="formula-block">$\\dfrac{1}{2}\\times6x + \\dfrac{1}{2}\\times6x = \\dfrac{1}{2}\\times6\\times6$</div>
-<div class="formula-block">$6x=18 \\Rightarrow x=3$</div>
-<div class="answer-box">
-  <span class="answer-label">✅ 答案：</span><span class="answer-value">点 $D$ 到 $AC$ 的距离为 $3$</span>
-</div>
-`
-  },
-
-{
-    id: "p22a3",
-    parent: "p22",
-    file: "p22a3.html",
-    title: "p22a3 角平分线上的点到两边距离",
-    type: "选择填空",
-    topics: ["角平分线性质", "等腰直角三角形", "距离"],
-    difficulty: 2,
-    category: "勾股数定理",
-    content: `
-<div class="prob-statement">
-  <p>点 $P$ 在 $\\angle AOB$ 的平分线上，$\\angle AOB=90^{\\circ}$，$P$ 到 $OA$ 的距离为 $4$，求 $OP$ 的长。</p>
-</div>
-
-<h3>✍️ 解答</h3>
-<p>因为 $OP$ 平分 $\\angle AOB$，点 $P$ 到 $OA$ 的距离等于点 $P$ 到 $OB$ 的距离，所以 $P$ 到 $OB$ 的距离也为 $4$。</p>
-<p>设 $P$ 到 $OA$ 的垂足为 $E$，到 $OB$ 的垂足为 $F$，则 $PE=PF=4$。</p>
-<p>因为 $\\angle AOB=90^{\\circ}$，$PE\\perp OA$，$PF\\perp OB$，所以四边形 $OEPF$ 是矩形；又因为 $PE=PF=4$，所以四边形 $OEPF$ 是正方形。</p>
-<p>因此 $OE=PE=4$，$OF=PF=4$。</p>
-<p>在 $\\text{Rt}\\triangle OPF$ 中：</p>
-<div class="formula-block">$OP=\\sqrt{OF^2+PF^2}=\\sqrt{4^2+4^2}=\\sqrt{32}=4\\sqrt{2}$</div>
-<div class="answer-box">
-  <span class="answer-label">✅ 答案：</span><span class="answer-value">$OP=4\\sqrt{2}$</span>
-</div>
 `
   }
 ];
