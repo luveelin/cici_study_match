@@ -1,15 +1,15 @@
 // problems-data.最大利润问题.js
-// 「最大利润问题」分类题目数组。新增题目直接在本文件追加对象后运行 node build.js。
+// 「函数抛物线(最大利润)」分类题目数组（文件名沿用旧分类名"最大利润问题"，勿随意改名——problems-data.js 按 require 引入）。新增题目直接在本文件追加对象后运行 node build.js。
 
 module.exports = [
 {
     id: "p29",
     file: "p29.html",
     title: "p29 大庆中考 A、B 文创纪念品",
-    type: "最大利润问题",
+    type: "函数抛物线(最大利润)",
     topics: ["二元一次方程组", "二次函数", "配方求最值", "利润问题"],
     difficulty: 3,
-    category: "最大利润问题",
+    category: "函数抛物线(最大利润)",
     content: `
 <div class="prob-statement">
   <p>[2025·大庆中考] 为推进我市"红色研学"文化旅游发展，大庆博物馆新推出 A、B 两种文创纪念品。已知 $2$ 个 A 纪念品和 $3$ 个 B 纪念品的成本和是 $155$ 元；$4$ 个 A 纪念品和 $1$ 个 B 纪念品的成本和是 $135$ 元。一套纪念品由一个 A 纪念品和一个 B 纪念品组成。规定：每套纪念品的售价不低于 $65$ 元且不高于 $72$ 元（每套纪念品售价为整数）。如果每套纪念品的售价为 $72$ 元，那么每天可销售 $80$ 套。经调查发现，每套纪念品的售价每降价 $1$ 元，其销售量相应增加 $10$ 套。设每天的利润为 $W$（元），每套纪念品的售价为 $a$ 元（$65 \\leq a \\leq 72$ 且 $a$ 为整数）。</p>
@@ -82,10 +82,10 @@ module.exports = [
     id: "p30",
     file: "p30.html",
     title: "p30 熊猫公仔 约束销量求最大利润",
-    type: "最大利润问题",
+    type: "函数抛物线(最大利润)",
     topics: ["待定系数法", "一次函数", "二次函数", "配方求最值", "不等式约束"],
     difficulty: 3,
-    category: "最大利润问题",
+    category: "函数抛物线(最大利润)",
     content: `
 <div class="prob-statement">
   <p>大熊猫属于中国独有的一种动物，数量稀少，被称为"中国国宝"。某店专门销售熊猫公仔玩具，成本为 $30$ 元/件，每天的销售量 $y$（件）与销售单价 $x$（元）之间存在如图所示的一次函数关系（图象过点 $(40,\\ 300)$ 与 $(55,\\ 150)$）。若规定每天熊猫公仔玩具的销售量不低于 $240$ 件，则每天获取的最大利润为________元。</p>
@@ -143,10 +143,10 @@ module.exports = [
     id: "p31",
     file: "p31.html",
     title: "p31 白鹅投资分配求最大总利润",
-    type: "最大利润问题",
+    type: "函数抛物线(最大利润)",
     topics: ["待定系数法", "二次函数", "配方求最值", "利润分配"],
     difficulty: 3,
-    category: "最大利润问题",
+    category: "函数抛物线(最大利润)",
     image: "images/p31-fig.png",
     content: `
 <div class="prob-statement">
@@ -215,10 +215,10 @@ module.exports = [
     id: "p32",
     file: "p32.html",
     title: "p32 山野菜售价定价求最大利润",
-    type: "最大利润问题",
+    type: "函数抛物线(最大利润)",
     topics: ["待定系数法", "一次函数", "二次函数", "配方求最值"],
     difficulty: 3,
-    category: "最大利润问题",
+    category: "函数抛物线(最大利润)",
     content: `
 <div class="prob-statement">
   <p>某蔬菜批发商以每千克 $18$ 元的价格购进一批山野菜。经市场调查发现，山野菜的日销售量 $y$（千克）与每千克售价 $x$（元）之间满足 $y = -3x + b$ 的函数关系，当 $x = 20$ 时，$y = 66$。</p>
@@ -264,6 +264,90 @@ module.exports = [
 <p><strong>检验（顶点两侧逐个验证）</strong>：$x = 28$ 时 $y = 42$，$w = 10 \\times 42 = 420$；$x = 30$ 时 $y = 36$，$w = 12 \\times 36 = 432$；$x = 32$ 时 $y = 30$，$w = 14 \\times 30 = 420$。确实 $x = 30$ 时利润最大。</p>
 <div class="answer-box">
   <span class="answer-label">✅（2）答案：</span><span class="answer-value">$w = -3x^2 + 180x - 2268$；售价定为 $30$ 元时利润最大，最大利润 $432$ 元</span>
+</div>
+`
+},
+{
+    id: "p33",
+    file: "p33.html",
+    title: "p33 民族服装厂方案设计求最大利润",
+    type: "函数抛物线(最大利润)",
+    topics: ["方案设计", "一次函数", "二次函数", "配方求最值", "整数约束"],
+    difficulty: 4,
+    category: "函数抛物线(最大利润)",
+    content: `
+<div class="prob-statement">
+  <p>[2026·广州期中]【新考向·方案设计】某民族服装厂安排 $70$ 名工人加工一批夏季服装，有"风""雅""正"三种样式。因工艺需要，每位工人每天可加工且只能加工"风"服装 $2$ 件，或"雅"服装 $1$ 件，或"正"服装 $1$ 件。要求加工"雅"服装至少 $10$ 件；"正"服装总件数和"风"服装总件数相等。每天加工的服装都能销售出去，扣除各种成本，服装厂的获利情况为：①"风"服装：$24$ 元/件；②"正"服装：$48$ 元/件；③"雅"服装，当每天加工 $10$ 件时，每件获利 $100$ 元，如果每天多加工 $1$ 件，那么平均每件获利将减少 $2$ 元。现安排 $x$ 名工人加工"雅"服装，$y$ 名工人加工"风"服装，列表如下：</p>
+  <table class="kb-table">
+    <thead><tr><th>服装种类</th><th>加工人数（人）</th><th>每人每天加工量（件）</th><th>平均每件获利（元）</th></tr></thead>
+    <tbody>
+      <tr><td>风</td><td>$y$</td><td>$2$</td><td>$24$</td></tr>
+      <tr><td>雅</td><td>$x$</td><td>$1$</td><td>（待求）</td></tr>
+      <tr><td>正</td><td>（待求）</td><td>$1$</td><td>$48$</td></tr>
+    </tbody>
+  </table>
+  <p>任务1：求 $x$，$y$ 之间的数量关系。</p>
+  <p>任务2：设该工厂每天的总利润为 $w$ 元，求 $w$ 关于 $x$ 的函数表达式。</p>
+  <p>任务3：制定使每天总利润最大的加工方案。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>等量关系列方程</td><td>"正"总件数 $=$ "风"总件数：$70-x-y = 2y$</td></tr>
+    <tr><td>分段/递减定价</td><td>雅每件获利 $= 100 - 2(x-10) = 120 - 2x$（每多加工 $1$ 件减 $2$ 元）</td></tr>
+    <tr><td>总利润拆分</td><td>$w =$ 风利润 $+$ 雅利润 $+$ 正利润，用 $y = \\dfrac{70-x}{3}$ 统一成 $x$ 的式子</td></tr>
+    <tr><td>整数约束</td><td>$x$ 是人数、$y$ 是人数，须为整数；"雅"至少 $10$ 件即 $x \\geq 10$</td></tr>
+    <tr><td>顶点不在允许值时取邻近整数</td><td>顶点横坐标若非法（不满足整数/范围），取离它最近、且合法的 $x$ 再比较</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>任务1：求 $x$、$y$ 的数量关系</h4>
+<div class="def-red"><strong>第一步：表示各类人数。</strong>共 $70$ 名工人，加工"雅"的有 $x$ 人、"风"的有 $y$ 人，其余加工"正"，所以"正"有 $(70 - x - y)$ 人。</div>
+<div class="def-red"><strong>第二步：由件数相等列方程。</strong>"风"总件数 $=$ 每人 $2$ 件 $\\times$ $y$ 人 $= 2y$；"正"总件数 $=$ 每人 $1$ 件 $\\times$ $(70 - x - y)$ 人 $= 70 - x - y$。二者相等：</div>
+<div class="formula-block">$70 - x - y = 2y \\quad\\Longrightarrow\\quad x + 3y = 70$</div>
+<p>也可写成 $y = \\dfrac{70 - x}{3}$。</p>
+<div class="answer-box">
+  <span class="answer-label">✅ 任务1答案：</span><span class="answer-value">$x + 3y = 70$（即 $y = \\dfrac{70 - x}{3}$）</span>
+</div>
+
+<h4>任务2：求 $w$ 关于 $x$ 的函数表达式</h4>
+<div class="def-red"><strong>第一步：求"雅"服装的每件获利。</strong>加工 $x$ 件（$x$ 人每人 $1$ 件）时，比 $10$ 件多加工了 $(x - 10)$ 件，每多 $1$ 件每件获利减 $2$ 元，所以每件获利：</div>
+<div class="formula-block">$100 - 2(x - 10) = 120 - 2x \\quad\\text{（元/件）}$</div>
+<div class="def-red"><strong>第二步：分别写三类利润。</strong></div>
+<div class="formula-block">$\\text{风利润} = 2y \\times 24 = 48y, \\qquad \\text{正利润} = (70 - x - y) \\times 48, \\qquad \\text{雅利润} = x(120 - 2x)$</div>
+<div class="def-red"><strong>第三步：用 $y = \\dfrac{70-x}{3}$ 把风、正利润统一成 $x$ 的式子。</strong></div>
+<div class="formula-block">$\\text{风利润} = 48 \\times \\dfrac{70 - x}{3} = 16(70 - x) = 1120 - 16x$</div>
+<div class="formula-block">$\\text{正利润} = 48\\left(70 - x - \\dfrac{70 - x}{3}\\right) = 48 \\times \\dfrac{2(70 - x)}{3} = 32(70 - x) = 2240 - 32x$</div>
+<div class="def-red"><strong>第四步：求和得总利润。</strong></div>
+<div class="formula-block">$w = (1120 - 16x) + (2240 - 32x) + (120x - 2x^2) = -2x^2 + 72x + 3360$</div>
+<div class="answer-box">
+  <span class="answer-label">✅ 任务2答案：</span><span class="answer-value">$w = -2x^2 + 72x + 3360$</span>
+</div>
+
+<h4>任务3：制定使每天总利润最大的方案</h4>
+<div class="def-red"><strong>第一步：配方求对称轴。</strong></div>
+<div class="formula-block">$w = -2\\left(x^2 - 36x\\right) + 3360 = -2\\left(x^2 - 36x + 18^2 - 18^2\\right) + 3360 = -2(x - 18)^2 + 4008$</div>
+<p>抛物线开口向下（$-2 < 0$），顶点 $(18,\\ 4008)$，即若无其他限制，$x = 18$ 时利润最大。</p>
+<div class="def-red"><strong>第二步：找出 $x$ 的合法取值（方案设计的关键）。</strong>$x$ 是加工"雅"的人数，必须满足：</div>
+<p>① $x \\geq 10$（"雅"至少 $10$ 件）；② $y = \\dfrac{70-x}{3}$ 必须是整数，即 $70 - x$ 是 $3$ 的倍数，也就是 $x$ 被 $3$ 除余 $1$（$70 \\div 3 = 23 \\cdots 1$）。</p>
+<p>于是 $x$ 只能取：$10,\\ 13,\\ 16,\\ 19,\\ 22,\\ \\cdots$（从 $10$ 起每次加 $3$）。</p>
+<div class="def-red"><strong>第三步：顶点 $x = 18$ 不合法，取离它最近的合法值比较。</strong>离 $18$ 最近的两个合法值是 $16$（差 $2$）和 $19$（差 $1$）：</div>
+<div class="formula-block">$x = 19: \\quad w = -2(19 - 18)^2 + 4008 = 4006$</div>
+<div class="formula-block">$x = 16: \\quad w = -2(16 - 18)^2 + 4008 = 4000$</div>
+<p>$x = 19$ 的利润更大，所以取 $x = 19$。</p>
+<div class="def-red"><strong>第四步：还原完整方案并验证。</strong>$x = 19$ 时，$y = \\dfrac{70 - 19}{3} = 17$，"正"有 $70 - 19 - 17 = 34$ 人。</div>
+<p>验证各约束："正"件数 $= 34$，"风"件数 $= 2 \\times 17 = 34$，相等 ✓；"雅" $19$ 件 $\\geq 10$ ✓；总人数 $19 + 17 + 34 = 70$ ✓。此时"雅"每件获利 $120 - 2 \\times 19 = 82$ 元，总利润：</p>
+<div class="formula-block">$w = 19 \\times 82 + 34 \\times 24 + 34 \\times 48 = 1558 + 816 + 1632 = 4006$</div>
+<div class="answer-box">
+  <span class="answer-label">✅ 任务3答案：</span><span class="answer-value">加工"雅"$19$ 人（$19$ 件）、"风"$17$ 人（$34$ 件）、"正"$34$ 人（$34$ 件），每天总利润最大为 $4006$ 元</span>
 </div>
 `
 }
