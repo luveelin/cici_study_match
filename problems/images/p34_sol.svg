@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 335" font-family="'Microsoft YaHei', sans-serif">
+  <rect width="500" height="335" fill="#ffffff"/>
+
+  <!-- 三块区域底色 -->
+  <rect x="100" y="55" width="130" height="105" fill="#dbeafe"/>
+  <rect x="100" y="160" width="130" height="105" fill="#dcfce7"/>
+  <rect x="230" y="55" width="200" height="210" fill="#fef9c3"/>
+
+  <!-- 墙（左侧竖线 + 斜杠阴影） -->
+  <line x1="100" y1="50" x2="100" y2="270" stroke="#334155" stroke-width="6"/>
+  <line x1="92" y1="62" x2="100" y2="54" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="82" x2="100" y2="74" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="102" x2="100" y2="94" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="122" x2="100" y2="114" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="142" x2="100" y2="134" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="162" x2="100" y2="154" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="182" x2="100" y2="174" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="202" x2="100" y2="194" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="222" x2="100" y2="214" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="242" x2="100" y2="234" stroke="#94y3b8" stroke-width="1.5"/>
+  <line x1="92" y1="262" x2="100" y2="254" stroke="#94y3b8" stroke-width="1.5"/>
+  <text x="62" y="165" font-size="13" fill="#334155">旧墙</text>
+  <text x="52" y="183" font-size="11" fill="#64748b">(不用篱笆)</text>
+
+  <!-- 篱笆段（蓝色） -->
+  <line x1="100" y1="265" x2="230" y2="265" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="230" y1="265" x2="430" y2="265" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="100" y1="55" x2="230" y2="55" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="230" y1="55" x2="430" y2="55" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="430" y1="55" x2="430" y2="265" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="230" y1="55" x2="230" y2="265" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="100" y1="160" x2="230" y2="160" stroke="#2563eb" stroke-width="2.5"/>
+
+  <!-- 顶点与分界点 -->
+  <circle cx="230" cy="265" r="3.5" fill="#1d4ed8"/>
+  <circle cx="230" cy="55" r="3.5" fill="#1d4ed8"/>
+  <circle cx="230" cy="160" r="3.5" fill="#1d4ed8"/>
+  <circle cx="100" cy="160" r="3.5" fill="#1d4ed8"/>
+
+  <!-- 顶点字母 -->
+  <text x="86" y="280" font-size="14" fill="#334155" font-style="italic">A</text>
+  <text x="434" y="280" font-size="14" fill="#334155" font-style="italic">B</text>
+  <text x="434" y="52" font-size="14" fill="#334155" font-style="italic">C</text>
+  <text x="86" y="50" font-size="14" fill="#334155" font-style="italic">D</text>
+  <text x="224" y="282" font-size="13" fill="#334155" font-style="italic">E</text>
+  <text x="224" y="48" font-size="13" fill="#334155" font-style="italic">F</text>
+  <text x="86" y="155" font-size="13" fill="#334155" font-style="italic">H</text>
+  <text x="236" y="154" font-size="13" fill="#334155" font-style="italic">G</text>
+
+  <!-- 区域编号 -->
+  <text x="158" y="112" font-size="16" fill="#1e40af">①</text>
+  <text x="158" y="218" font-size="16" fill="#166534">②</text>
+  <text x="322" y="165" font-size="16" fill="#854d0e">③</text>
+
+  <!-- 边长标注 -->
+  <text x="128" y="284" font-size="12.5" fill="#2563eb">AE = DF = 2y</text>
+  <text x="300" y="284" font-size="12.5" fill="#2563eb">EB = FC = y</text>
+  <text x="128" y="46" font-size="12.5" fill="#2563eb">DF = 2y</text>
+  <text x="300" y="46" font-size="12.5" fill="#2563eb">FC = y</text>
+  <text x="238" y="105" font-size="12.5" fill="#2563eb">EF = x</text>
+  <text x="438" y="165" font-size="12.5" fill="#2563eb">BC = x</text>
+  <text x="136" y="152" font-size="11.5" fill="#2563eb">HG = 2y</text>
+
+  <!-- 底部说明 -->
+  <text x="70" y="315" font-size="13" fill="#334155">篱笆七段：DF + FC + HG + AE + EB + EF + BC = 8y + 2x = 60</text>
+</svg>

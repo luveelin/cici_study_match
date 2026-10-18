@@ -125,14 +125,18 @@ module.exports = [
 <div class="formula-block">$W_{\\max} = (46 - 30) \\times 240 = 16 \\times 240 = 3840$</div>
 <p><strong>检验（区间内再取一点对比）</strong>：$x = 45$ 时 $y = 250$，$W = 15 \\times 250 = 3750 < 3840$；$x = 44$ 时 $y = 260$，$W = 14 \\times 260 = 3640 < 3840$。确实 $x = 46$ 时最大。</p>
 
-<div style="text-align:center; margin:14px 0 6px 0;">
-  <img class="original-image" style="width:480px;height:auto;cursor:zoom-in;" src="images/p30_sol.svg" alt="p30 一次函数图象与约束区域" onclick="openImgOverlay('p30-sol')" />
-  <div style="margin-top:4px;"><button class="img-overlay-btn" onclick="openImgOverlay('p30-sol')">📷 点击查看原图</button></div>
+<div style="text-align:center;margin:16px 0;">
+  <img class="original-image" style="width:480px;height:auto;" src="images/p30_sol.svg" alt="p30 一次函数图象与约束区域" />
+  <p class="original-image-caption" onclick="openImgOverlay('p30-sol')">📷 点击查看原图</p>
+  <div class="img-overlay" id="overlay-p30-sol">
+    <div class="img-overlay-box" id="overlayBox-p30-sol" onmousedown="startDrag(event,'p30-sol')">
+      <span class="img-overlay-close" onclick="closeImgOverlay('p30-sol')">✕</span>
+      <img src="images/p30_sol.svg" alt="p30 一次函数图象与约束区域">
+      <span class="img-resize-handle" onmousedown="startResize(event,'p30-sol')"></span>
+    </div>
+  </div>
+  <p style="color:#64748b;font-size:13px;margin-top:8px;">图：一次函数 $y = -10x + 700$ 过 $(40,\\ 300)$、$(55,\\ 150)$ 两点；红线 $y = 240$ 与图象交于 $(46,\\ 240)$，浅红区域即允许的售价范围 $30 < x \\leq 46$</p>
 </div>
-<div class="img-overlay" id="overlay-p30-sol" onclick="closeImgOverlay('p30-sol')">
-  <img src="images/p30_sol.svg" alt="p30 一次函数图象与约束区域（放大）" />
-</div>
-<p class="img-caption" style="text-align:center;color:#64748b;font-size:13px;">图：一次函数 $y = -10x + 700$ 过 $(40,\\ 300)$、$(55,\\ 150)$ 两点；红线 $y = 240$ 与图象交于 $(46,\\ 240)$，浅红区域即允许的售价范围 $30 < x \\leq 46$</p>
 
 <div class="answer-box">
   <span class="answer-label">✅ 答案：</span><span class="answer-value">销售单价为 $46$ 元时利润最大，每天获取的最大利润为 $3840$ 元</span>
@@ -197,14 +201,18 @@ module.exports = [
 <div class="formula-block">$x = 5 \\text{ 时，} W_{\\max} = 7.5$</div>
 <p><strong>检验（端点与顶点对比）</strong>：$x = 0$（全投 B，$10$ 万）时 $W = y_2(10) = 5$；$x = 10$（全投 A）时 $W = y_1(10) = 5$；$x = 5$ 时 $W = y_1(5) + y_2(5) = 1.25 + 6.25 = 7.5$。确实 $x = 5$ 时最大。</p>
 
-<div style="text-align:center; margin:14px 0 6px 0;">
-  <img class="original-image" style="width:480px;height:auto;cursor:zoom-in;" src="images/p31_sol.svg" alt="p31 双抛物线图象交于 (10,5)" onclick="openImgOverlay('p31-sol')" />
-  <div style="margin-top:4px;"><button class="img-overlay-btn" onclick="openImgOverlay('p31-sol')">📷 点击查看原图</button></div>
+<div style="text-align:center;margin:16px 0;">
+  <img class="original-image" style="width:480px;height:auto;" src="images/p31_sol.svg" alt="p31 双抛物线图象交于 (10,5)" />
+  <p class="original-image-caption" onclick="openImgOverlay('p31-sol')">📷 点击查看原图</p>
+  <div class="img-overlay" id="overlay-p31-sol">
+    <div class="img-overlay-box" id="overlayBox-p31-sol" onmousedown="startDrag(event,'p31-sol')">
+      <span class="img-overlay-close" onclick="closeImgOverlay('p31-sol')">✕</span>
+      <img src="images/p31_sol.svg" alt="p31 双抛物线图象交于 (10,5)">
+      <span class="img-resize-handle" onmousedown="startResize(event,'p31-sol')"></span>
+    </div>
+  </div>
+  <p style="color:#64748b;font-size:13px;margin-top:8px;">图：$y_1 = \\dfrac{1}{20}x^2$（蓝，开口向上）与 $y_2 = -\\dfrac{3}{20}x^2 + 2x$（绿，开口向下）交于 $(10,\\ 5)$ 与原点 $O$ 两点</p>
 </div>
-<div class="img-overlay" id="overlay-p31-sol" onclick="closeImgOverlay('p31-sol')">
-  <img src="images/p31_sol.svg" alt="p31 双抛物线图象（放大）" />
-</div>
-<p class="img-caption" style="text-align:center;color:#64748b;font-size:13px;">图：$y_1 = \\dfrac{1}{20}x^2$（蓝，开口向上）与 $y_2 = -\\dfrac{3}{20}x^2 + 2x$（绿，开口向下）交于 $(10,\\ 5)$ 与原点 $O$ 两点</p>
 
 <div class="answer-box">
   <span class="answer-label">✅（2）答案：</span><span class="answer-value">A、B 两种白鹅各投资 $5$ 万元，最大总利润为 $7.5$ 万元</span>
@@ -348,6 +356,164 @@ module.exports = [
 <div class="formula-block">$w = 19 \\times 82 + 34 \\times 24 + 34 \\times 48 = 1558 + 816 + 1632 = 4006$</div>
 <div class="answer-box">
   <span class="answer-label">✅ 任务3答案：</span><span class="answer-value">加工"雅"$19$ 人（$19$ 件）、"风"$17$ 人（$34$ 件）、"正"$34$ 人（$34$ 件），每天总利润最大为 $4006$ 元</span>
+</div>
+`
+},
+{
+    id: "p35",
+    file: "p35.html",
+    title: "p35 赠送礼品后的最大利润定参数 m",
+    type: "函数抛物线(最大利润)",
+    topics: ["待定系数法", "二次函数", "配方求顶点", "含参最值"],
+    difficulty: 4,
+    category: "函数抛物线(最大利润)",
+    content: `
+<div class="prob-statement">
+  <p>[2025·安徽合肥质检] 某商店购入一批进价为 $10$ 元/个的纪念徽章进行销售，经市场调查发现，销售单价不低于进价时，日销售量 $y$（个）与销售单价 $x$（元/个）之间满足如下的一次函数关系：当销售单价为 $12$ 元/个时，日销售量为 $152$ 个；当销售单价为 $16$ 元/个时，日销售量为 $136$ 个。若商店决定每销售一个徽章就向少儿乒乓球俱乐部赠送一件价值为 $m$（$0 < m < 4$）元的礼品，赠送礼品后，为确保该种徽章日销售获得的最大利润为 $1444$ 元，则 $m$ 的值为________。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>待定系数法</td><td>由两组 $(x,\\ y)$ 对应值求一次函数 $y = kx + b$</td></tr>
+    <tr><td>赠送礼品对利润的影响</td><td>每卖一件送一件价值 $m$ 元的礼品，相当于单件利润减少 $m$ 元：$x - 10 - m$</td></tr>
+    <tr><td>含参数的二次函数配方</td><td>顶点横坐标、顶点纵坐标都含 $m$，配方时把 $m$ 当字母参与运算</td></tr>
+    <tr><td>顶点是否在范围内</td><td>由 $0 < m < 4$ 说明对称轴落在 $10 \\leq x < 50$ 内，最大值就是顶点值</td></tr>
+    <tr><td>解一元二次方程定参数</td><td>令 $w_{\\max} = 1444$，解出 $m$ 后按 $0 < m < 4$ 舍取</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第一步：待定系数法求 $y$ 与 $x$ 的关系式</h4>
+<div class="def-red"><strong>设 $y = kx + b$，代入两组对应值：</strong>$x = 12$ 时 $y = 152$；$x = 16$ 时 $y = 136$。</div>
+<div class="formula-block">$\\begin{cases} 12k + b = 152 \\\\ 16k + b = 136 \\end{cases}$</div>
+<div class="def-red"><strong>两式相减：</strong>$4k = -16$，所以 $k = -4$；代回第一式：$b = 152 + 48 = 200$。</div>
+<div class="formula-block">$y = -4x + 200$</div>
+
+<h4>第二步：写利润函数（赠送礼品后）</h4>
+<div class="def-red"><strong>单件实际获利：</strong>售价 $x$ 元，进价 $10$ 元，再送一件价值 $m$ 元的礼品，所以每件实际获利 $= x - 10 - m$（元）。日销量 $y = -4x + 200$ 个，所以：</div>
+<div class="formula-block">$w = (x - 10 - m)(-4x + 200)$</div>
+<div class="def-red"><strong>展开（注意符号）：</strong>把 $x - 10 - m = x - (10 + m)$ 看成整体分配：</div>
+<div class="formula-block">$w = -4x^2 + 200x + 4(10 + m)x - 200(10 + m) = -4x^2 + (240 + 4m)x - 200m - 2000$</div>
+
+<h4>第三步：配方求顶点（含参数 $m$）</h4>
+<div class="def-red"><strong>提出二次项系数 $-4$ 后配方：</strong>一次项系数 $(240 + 4m) = 4(60 + m)$，所以括号内为 $x^2 - (60 + m)x$：</div>
+<div class="formula-block">$w = -4\\left[x^2 - (60 + m)x\\right] - 200m - 2000$</div>
+<div class="formula-block">$w = -4\\left[x - \\left(30 + \\dfrac{m}{2}\\right)\\right]^2 + 4\\left(30 + \\dfrac{m}{2}\\right)^2 - 200m - 2000$</div>
+<div class="def-red"><strong>展开常数项：</strong>$4\\left(30 + \\dfrac{m}{2}\\right)^2 = 4\\left(900 + 30m + \\dfrac{m^2}{4}\\right) = 3600 + 120m + m^2$，所以顶点纵坐标（即最大利润）为：</div>
+<div class="formula-block">$w_{\\max} = m^2 + 120m + 3600 - 200m - 2000 = m^2 - 80m + 1600$</div>
+
+<h4>第四步：令最大利润等于 1444，解出 $m$</h4>
+<div class="formula-block">$m^2 - 80m + 1600 = 1444 \\quad\\Longrightarrow\\quad m^2 - 80m + 156 = 0$</div>
+<div class="def-red"><strong>因式分解：</strong>把常数项 $156$ 拆成 $(-2) \\times (-78)$，且 $(-2) + (-78) = -80$ 恰为一次项系数（十字相乘法）：</div>
+<div class="formula-block">$m^2 - 80m + 156 = (m - 2)(m - 78) = 0$</div>
+<div class="def-red"><strong>解得：</strong>由 $m - 2 = 0$ 或 $m - 78 = 0$ 得 $m = 2$ 或 $m = 78$。按 $0 < m < 4$ 舍取，$m = 78$ 舍去，所以 $m = 2$。</div>
+<p><strong>检验</strong>：$m = 2$ 时 $w = (x - 12)(-4x + 200)$，对称轴 $x = 31$，$w_{\\max} = 19 \\times 76 = 1444$ ✓。</p>
+
+<div class="answer-box">
+  <span class="answer-label">✅ 答案：</span><span class="answer-value">$m = 2$</span>
+</div>
+`
+},
+{
+    id: "p36",
+    file: "p36.html",
+    title: "p36 南通质检 成本线售价线求最大利润",
+    type: "函数抛物线(最大利润)",
+    topics: ["待定系数法", "一次函数", "二次函数", "含参最值", "利润问题"],
+    difficulty: 4,
+    category: "函数抛物线(最大利润)",
+    image: "images/p36-fig.png",
+    content: `
+<div class="prob-statement">
+  <p>[2026·江苏南通质检] 某企业生产并销售某种产品，假设销售量与产量相等。图中的线段 $AB$ 表示该产品每千克生产成本 $y_1$（单位：元）与产量 $x$（单位：kg）之间的函数关系；线段 $CD$ 表示该产品每千克售价 $y_2$（单位：元）与产量 $x$（单位：kg）之间的函数关系。已知 $0 < x \\leq 120$，$m > 60$。</p>
+  <p>（1）求线段 $AB$ 所表示的 $y_1$ 与 $x$ 之间的函数关系式；</p>
+  <p>（2）若 $m = 90$，该产品产量为多少时，获得的利润最大？最大利润是多少？</p>
+  <p>（3）若 $60 < m < 70$，则销售该产品获得的最大利润是______元。</p>
+</div>
+
+<details class="kb-details">
+  <summary>📌 知识点总结（点击展开／收起）</summary>
+
+<h3>📌 知识点总结</h3>
+<table class="kb-table">
+  <thead><tr><th>知识点</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>待定系数法求一次函数</td><td>由线段两端点坐标求 $y = kx + b$：$A(0,\\ 60)$、$B(120,\\ 40)$ 在成本线上，$C(0,\\ m)$、$D(120,\\ 50)$ 在售价线上</td></tr>
+    <tr><td>总利润</td><td>产量 $=$ 销量，每千克利润 $= y_2 - y_1$（售价 $-$ 成本），总利润 $w = x(y_2 - y_1)$</td></tr>
+    <tr><td>二次函数配方求最值</td><td>$w = a(x-h)^2 + k$：$a < 0$ 开口向下取顶点最大值；$a > 0$ 开口向上需看单调性</td></tr>
+    <tr><td>开口向上时在区间端点取最大</td><td>含参系数 $\\dfrac{70-m}{120} > 0$ 开口向上，且对称轴在 $y$ 轴左侧，故 $0 < x \\leq 120$ 上 $w$ 单调递增，最大值在 $x = 120$ 取得</td></tr>
+    <tr><td>含参定值问题</td><td>把 $w_{\\max}$ 化简后参数 $m$ 恰好消去，得到与 $m$ 无关的定值</td></tr>
+  </tbody>
+</table>
+</details>
+
+<h3>✍️ 解题过程</h3>
+
+<h4>第（1）问：求线段 AB 的函数关系式</h4>
+<div class="def-red"><strong>第一步：读图取点。</strong>成本线段 $AB$ 过 $A(0,\\ 60)$ 与 $B(120,\\ 40)$（$A$ 在 $y$ 轴上对应 $60$；$B$ 在 $x = 120$ 处，由虚线对应 $40$）。</div>
+<div class="def-red"><strong>第二步：待定系数法。</strong>设 $y_1 = kx + b$。把 $A(0,\\ 60)$ 代入得 $b = 60$；再把 $B(120,\\ 40)$ 代入：</div>
+<div class="formula-block">$120k + 60 = 40 \\quad\\Longrightarrow\\quad 120k = -20 \\quad\\Longrightarrow\\quad k = -\\dfrac{1}{6}$</div>
+<div class="formula-block">$y_1 = -\\dfrac{1}{6}x + 60 \\qquad (0 < x \\leq 120)$</div>
+<div class="answer-box">
+  <span class="answer-label">✅（1）答案：</span><span class="answer-value">$y_1 = -\\dfrac{1}{6}x + 60$（$0 < x \\leq 120$）</span>
+</div>
+
+<h4>第（2）问：m = 90 时求最大利润</h4>
+<div class="def-red"><strong>第一步：先求售价线 $y_2$。</strong>$m = 90$ 时售价线过 $C(0,\\ 90)$、$D(120,\\ 50)$。设 $y_2 = kx + b$，得 $b = 90$；代入 $D$ 点：</div>
+<div class="formula-block">$120k + 90 = 50 \\quad\\Longrightarrow\\quad k = -\\dfrac{40}{120} = -\\dfrac{1}{3} \\quad\\Longrightarrow\\quad y_2 = -\\dfrac{1}{3}x + 90$</div>
+<div class="def-red"><strong>第二步：写每千克利润。</strong>每千克利润 $=$ 售价 $-$ 成本 $= y_2 - y_1$：</div>
+<div class="formula-block">$y_2 - y_1 = \\left(-\\dfrac{1}{3}x + 90\\right) - \\left(-\\dfrac{1}{6}x + 60\\right) = \\left(-\\dfrac{2}{6} + \\dfrac{1}{6}\\right)x + 30 = -\\dfrac{1}{6}x + 30$</div>
+<div class="def-red"><strong>第三步：写总利润并配方。</strong>产量 $x$ kg 全部售出，总利润 $w = x(y_2 - y_1)$：</div>
+<div class="formula-block">$w = x\\left(30 - \\dfrac{1}{6}x\\right) = -\\dfrac{1}{6}x^2 + 30x = -\\dfrac{1}{6}\\left(x^2 - 180x\\right) = -\\dfrac{1}{6}(x - 90)^2 + \\dfrac{1}{6} \\times 8100$</div>
+<div class="formula-block">$w = -\\dfrac{1}{6}(x - 90)^2 + 1350$</div>
+<div class="def-red"><strong>第四步：定最值。</strong>抛物线开口向下（$-\\dfrac{1}{6} < 0$），对称轴 $x = 90$ 恰在范围 $0 < x \\leq 120$ 内，所以顶点处取得最大值：</div>
+<div class="formula-block">$x = 90 \\text{ 时，} w_{\\max} = 1350$</div>
+<p><strong>检验（区间内另取两点对比）</strong>：$x = 120$ 时 $w = 120 \\times (30 - 20) = 1200$；$x = 60$ 时 $w = 60 \\times (30 - 10) = 1200$。均小于 $1350$，确实 $x = 90$ 时最大。</p>
+<div class="answer-box">
+  <span class="answer-label">✅（2）答案：</span><span class="answer-value">产量为 $90$ kg 时利润最大，最大利润 $1350$ 元</span>
+</div>
+
+<h4>第（3）问：60 &lt; m &lt; 70 时的最大利润</h4>
+<div class="def-red"><strong>第一步：含参写出 $y_2$。</strong>售价线过 $C(0,\\ m)$、$D(120,\\ 50)$：$b = m$；代入 $D$ 点得 $120k = 50 - m$，即 $k = -\\dfrac{m - 50}{120}$：</div>
+<div class="formula-block">$y_2 = m - \\dfrac{m - 50}{120}x$</div>
+<div class="def-red"><strong>第二步：写每千克利润（含 $m$）。</strong></div>
+<div class="formula-block">$y_2 - y_1 = \\left(m - \\dfrac{m - 50}{120}x\\right) - \\left(60 - \\dfrac{1}{6}x\\right) = (m - 60) + \\left(\\dfrac{1}{6} - \\dfrac{m - 50}{120}\\right)x$</div>
+<div class="def-red"><strong>第三步：通分合并 $x$ 的系数。</strong>$\\dfrac{1}{6} = \\dfrac{20}{120}$，所以 $x$ 的系数为：</div>
+<div class="formula-block">$\\dfrac{20}{120} - \\dfrac{m - 50}{120} = \\dfrac{20 - (m - 50)}{120} = \\dfrac{70 - m}{120}$</div>
+<div class="def-red"><strong>第四步：写总利润。</strong></div>
+<div class="formula-block">$w = x\\left[(m - 60) + \\dfrac{70 - m}{120}x\\right] = (m - 60)x + \\dfrac{70 - m}{120}x^2$</div>
+<div class="def-red"><strong>第五步：判断开口方向与对称轴位置。</strong>因为 $60 < m < 70$：</div>
+<p>① 二次项系数 $\\dfrac{70 - m}{120} > 0$，抛物线<strong>开口向上</strong>；</p>
+<p>② 对称轴 $x = -\\dfrac{m - 60}{2 \\times \\dfrac{70 - m}{120}} = -\\dfrac{60(m - 60)}{70 - m} < 0$（分子 $m - 60 > 0$、分母 $70 - m > 0$，整体带负号），在 $y$ 轴<strong>左侧</strong>。</p>
+<p>所以在对称轴右侧（即整个范围 $0 < x \\leq 120$）内，$w$ 随 $x$ 增大而增大，最大值在右端点 $x = 120$ 处取得。</p>
+<div class="def-red"><strong>第六步：代 $x = 120$ 求最大值。</strong></div>
+<div class="formula-block">$w_{\\max} = (m - 60) \\times 120 + \\dfrac{70 - m}{120} \\times 120^2 = 120(m - 60) + 120(70 - m)$</div>
+<div class="formula-block">$w_{\\max} = 120\\left[(m - 60) + (70 - m)\\right] = 120 \\times 10 = 1200$</div>
+<p>合并时 $m$ 恰好消掉，最大利润是与 $m$ 无关的<strong>定值 $1200$ 元</strong>（此时产量为 $120$ kg）。</p>
+<p><strong>检验（取 $m = 65$ 代入验证）</strong>：$y_2 = 65 - \\dfrac{15}{120}x$，$y_2 - y_1 = 5 + \\dfrac{x}{24}$，$w = 5x + \\dfrac{x^2}{24}$；$x = 120$ 时 $w = 600 + 600 = 1200$ ✓；$x = 90$ 时 $w = 450 + 337.5 = 787.5 < 1200$ ✓。</p>
+
+<div style="text-align:center;margin:16px 0;">
+  <img class="original-image" style="width:480px;height:auto;" src="images/p36_sol.svg" alt="p36 成本线与售价线" />
+  <p class="original-image-caption" onclick="openImgOverlay('p36-sol')">📷 点击查看原图</p>
+  <div class="img-overlay" id="overlay-p36-sol">
+    <div class="img-overlay-box" id="overlayBox-p36-sol" onmousedown="startDrag(event,'p36-sol')">
+      <span class="img-overlay-close" onclick="closeImgOverlay('p36-sol')">✕</span>
+      <img src="images/p36_sol.svg" alt="p36 成本线与售价线">
+      <span class="img-resize-handle" onmousedown="startResize(event,'p36-sol')"></span>
+    </div>
+  </div>
+  <p style="color:#64748b;font-size:13px;margin-top:8px;">图：成本线 $AB$ 过 $A(0,\\ 60)$、$B(120,\\ 40)$；售价线 $CD$ 过 $C(0,\\ m)$、$D(120,\\ 50)$；$m > 60$ 时售价始终高于成本，每千克利润 $= y_2 - y_1$</p>
+</div>
+
+<div class="answer-box">
+  <span class="answer-label">✅（3）答案：</span><span class="answer-value">产量为 $120$ kg 时利润最大，最大利润为 $1200$ 元（定值，与 $m$ 无关）</span>
 </div>
 `
 }
